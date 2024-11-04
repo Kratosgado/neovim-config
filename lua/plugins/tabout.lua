@@ -21,7 +21,7 @@ return {
           { open = "[", close = "]" },
           { open = "{", close = "}" },
         },
-        ignore_beginning = true,
+        ignore_beginning = false,
         exclude = {},
       })
     end,
