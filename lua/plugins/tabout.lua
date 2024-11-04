@@ -25,6 +25,6 @@ return {
         exclude = {},
       })
     end,
-    require("nvim-treesitter/nvim-treesitter"),
+    requires = { "nvim-treesitter/nvim-treesitter" },
   },
 }
