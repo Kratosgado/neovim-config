@@ -17,7 +17,7 @@ return {
         modules = {},
         auto_install = true,
         ignore_install = {},
-        ensure_installed = { "kotlin", "java" },
+        ensure_installed = { "kotlin", "java", "groovy" },
         highlight = {
           enable = true,
         },
