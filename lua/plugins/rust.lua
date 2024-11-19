@@ -1,6 +1,6 @@
 return {
   {
-    "Saechi/crates.nvim",
+    "Saecki/crates.nvim",
     event = { "BufRead Cargo.toml" },
     opts = {
       completion = {
