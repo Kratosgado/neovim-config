@@ -3,12 +3,6 @@ return {
     "hrsh7th/nvim-cmp",
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
-      local has_words_before = function()
-        unpack = unpack or table.unpack -- luacheck: ignore
-        local line, col = unpack(vim.api.nvim_win_getcursor(0))
-        return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-      end
-
       local cmp = require("cmp")
 
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
@@ -20,8 +14,6 @@ return {
             vim.schedule(function()
               vim.snippet.jump(1)
             end)
-          elseif has_words_before() then
-            cmp.complete()
           else
             fallback()
           end
@@ -37,7 +29,53 @@ return {
             fallback()
           end
         end, { "i", "s" }),
+        -- remove enter as completion key
+        ["<CR>"] = function(fallback)
+          cmp.abort()
+          fallback()
+        end,
       })
+    end,
+  },
+  {
+    "abecodes/tabout.nvim",
+    lazy = false,
+    config = function()
+      require("tabout").setup({
+        tabkey = "<Tab>",
+        backwards_tabkey = "<S-Tab>",
+        act_as_tab = true,
+        act_as_shift_tab = false,
+        default_tab = "<C-t>",
+        default_shift_tab = "<C-d>",
+        enable_backwards = true,
+        completion = false,
+        tabouts = {
+          { open = "'", close = "'" },
+          { open = '"', close = '"' },
+          { open = "`", close = "`" },
+          { open = "(", close = ")" },
+          { open = "[", close = "]" },
+          { open = "{", close = "}" },
+          { open = "<", close = ">" },
+        },
+        ignore_beginning = true,
+        exclude = {},
+      })
+    end,
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "L3MON4D3/LuaSnip",
+      "hrsh7th/nvim-cmp",
+    },
+    opt = true,
+    event = "InsertCharPre",
+    priority = 1000,
+  },
+  {
+    "L3MON4D3/LuaSnip",
+    keys = function()
+      return {}
     end,
   },
 }
