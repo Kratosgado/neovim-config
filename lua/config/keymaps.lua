@@ -15,3 +15,33 @@ vim.keymap.set({ "n", "t" }, ";;", function()
     return "<Esc>"
   end
 end, { expr = true, noremap = true, silent = true })
+
+-- Keymaps for kulala
+vim.api.nvim_buf_set_keymap(0, "n", "[", "<cmd>lua require('kulala').jump_prev()<cr>", {
+  noremap = true,
+  silent = true,
+  desc = "Jump to the previous request",
+})
+vim.keymap.set({ "n", "t" }, "[", "<cmd>lua require('kulala').jump_prev()<cr>", {
+  noremap = true,
+  silent = true,
+  desc = "Jump to the previous request",
+})
+-- kulala run all request in file
+vim.keymap.set({ "n", "t" }, "<leader>ra", "<cmd>lua require('kulala').run_all()<cr>", {
+  noremap = true,
+  silent = true,
+  desc = "Run all request in file",
+})
+-- kulala run current request
+vim.keymap.set({ "n", "t" }, "<leader>rr", "<cmd>lua require('kulala').run()<cr>", {
+  noremap = true,
+  silent = true,
+  desc = "Run current request",
+})
+-- kulala run last request
+vim.keymap.set({ "n", "t" }, "<leader>rl", "<cmd>lua require('kulala').run_last()<cr>", {
+  noremap = true,
+  silent = true,
+  desc = "Run last request",
+})
