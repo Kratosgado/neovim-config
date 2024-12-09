@@ -62,7 +62,7 @@ return {
 
       -- Specify the panes to be displayed by default
       -- Current available pane contains { "body", "headers", "headers_body", "script_output", "stats" },
-      default_winbar_panes = { "body", "headers", "headers_body" },
+      default_winbar_panes = { "body", "headers_body", "script_output" },
 
       -- enable reading vscode rest client environment variables
       vscode_rest_client_environmentvars = false,
