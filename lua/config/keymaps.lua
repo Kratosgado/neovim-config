@@ -7,6 +7,7 @@ vim.keymap.set(
   require("telescope.builtin").resume,
   { noremap = true, silent = true, desc = "Resume last telescope session" }
 )
+
 vim.keymap.set({ "i", "t", "n", "v", "c", "o", "x" }, ";;", "<Esc>", { noremap = true, silent = true })
 vim.keymap.set({ "n", "t" }, ";;", function()
   if vim.fn.pumvisible() == 1 then
