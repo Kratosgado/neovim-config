@@ -20,7 +20,7 @@ return {
         end, { "i", "s" }),
         ["<S-Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
-            cmp.select_next_item()
+            cmp.select_prev_item()
           elseif vim.snippet.active({ direction = -1 }) then
             vim.schedule(function()
               vim.snippet.jump(-1)
@@ -30,10 +30,10 @@ return {
           end
         end, { "i", "s" }),
         -- remove enter as completion key
-        ["<CR>"] = function(fallback)
-          cmp.abort()
-          fallback()
-        end,
+        -- ["<CR>"] = function(fallback)
+        --   cmp.()
+        --   fallback()
+        -- end,
       })
     end,
   },

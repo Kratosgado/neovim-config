@@ -46,3 +46,10 @@ vim.keymap.set({ "n", "t" }, "<leader>rl", "<cmd>lua require('kulala').run_last(
   silent = true,
   desc = "Run last request",
 })
+
+vim.keymap.set("n", "<leader>gg", "<Plug>(git-conflict-ours)", { desc = "Use the current buffer's changes" })
+vim.keymap.set("n", "<leader>gi", "<Plug>(git-conflict-theirs)", { desc = "Use the other buffer's changes" })
+vim.keymap.set("n", "<leader>ga", "<Plug>(git-conflict-both)", { desc = "Use both changes" })
+vim.keymap.set("n", "<leader>g0", "<Plug>(git-conflict-none)", { desc = "Use no changes" })
+vim.keymap.set("n", "<leader>gp", "<Plug>(git-conflict-prev-conflict)", { desc = "Jump to the previous conflict" })
+vim.keymap.set("n", "<leader>gn", "<Plug>(git-conflict-next-conflict)", { desc = "Jump to the next conflict" })

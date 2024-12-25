@@ -10,7 +10,7 @@ return {
           width_preview = 80,
         },
         options = {
-          use_as_default_explorer = false,
+          use_as_default_explorer = true,
         },
         mappings = {
           close = ";;", -- Close file explorer
@@ -33,6 +33,27 @@ return {
           require("mini.diff").toggle_overlay(0)
         end,
         desc = "Toggle mini.diff overlay",
+      },
+      {
+        "<leader>e",
+        function()
+          require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
+        end,
+        desc = "Open mini.files (directory of current file)",
+      },
+      {
+        "<leader>E",
+        function()
+          require("mini.files").open(vim.uv.cwd(), true)
+        end,
+        desc = "Open mini.files (cwd)",
+      },
+      {
+        "<leader>fm",
+        function()
+          require("mini.files").open(LazyVim.root(), true)
+        end,
+        desc = "Open mini.files (root)",
       },
     },
     opts = {

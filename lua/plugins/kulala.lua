@@ -23,12 +23,6 @@ return {
         ["application/json"] = {
           ft = "json",
           formatter = { "jq", "." },
-          pathresolver = require("kulala.parser.jsonpath").parse,
-        },
-        ["application/xml"] = {
-          ft = "xml",
-          formatter = { "xmllint", "--format", "-" },
-          pathresolver = { "xmllint", "--xpath", "{{path}}", "-" },
         },
         ["text/html"] = {
           ft = "html",
