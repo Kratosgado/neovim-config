@@ -11,6 +11,8 @@ return {
       config.defaults.keymap.fzf["ctrl-u"] = "half-page-up"
       config.defaults.keymap.fzf["ctrl-d"] = "half-page-down"
       config.defaults.keymap.fzf["ctrl-x"] = "jump"
+      config.defaults.keymap.fzf["Tab"] = "down"
+      config.defaults.keymap.fzf["shift-Tab"] = "up"
       config.defaults.keymap.fzf["ctrl-f"] = "preview-page-down"
       config.defaults.keymap.fzf["ctrl-b"] = "preview-page-up"
       config.defaults.keymap.builtin["<c-f>"] = "preview-page-down"
@@ -117,6 +119,9 @@ return {
           actions = {
             ["alt-i"] = { actions.toggle_ignore },
             ["alt-h"] = { actions.toggle_hidden },
+            -- move down when tab is pressed
+            ["Tab"] = { actions.preview_page_down },
+            ["S-Tab"] = { actions.preview_page_up },
           },
         },
         lsp = {
