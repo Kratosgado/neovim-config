@@ -20,11 +20,6 @@ map({ "n", "t" }, ";;", function()
   end
 end, { expr = true, noremap = true, silent = true })
 
--- Keymap to open mini.files
--- map("n", "<leader>e", function()
---   require("mini.files").open(vim.fn.getcwd())
--- end, { desc = "Open Mini Files" })
-
 -- map("n", "<leader>gg", "<Plug>(git-conflict-ours)", { desc = "Use the current buffer's changes" })
 -- map("n", "<leader>gi", "<Plug>(git-conflict-theirs)", { desc = "Use the other buffer's changes" })
 -- map("n", "<leader>ga", "<Plug>(git-conflict-both)", { desc = "Use both changes" })

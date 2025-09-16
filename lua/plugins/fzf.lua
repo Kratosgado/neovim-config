@@ -119,9 +119,6 @@ return {
           actions = {
             ["alt-i"] = { actions.toggle_ignore },
             ["alt-h"] = { actions.toggle_hidden },
-            -- move down when tab is pressed
-            ["Tab"] = { actions.preview_page_down },
-            ["S-Tab"] = { actions.preview_page_up },
           },
         },
         lsp = {
