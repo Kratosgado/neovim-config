@@ -11,8 +11,10 @@ map(
   { noremap = true, silent = true, desc = "Resume last telescope session" }
 )
 
-map({ "i", "t", "n", "v", "c", "o", "x" }, ";;", "<Esc>", { noremap = true, silent = true })
-map({ "n", "t" }, ";;", function()
+map({ "i", "v", "c", "o", "x" }, "jk", "<Esc>", { noremap = true, silent = true })
+map("t", "jk", "<C-\\><C-n>", { noremap = true, silent = true })
+map("t", ";;", "<C-\\><C-n>", { noremap = true, silent = true })
+map({ "i" }, "jk", function()
   if vim.fn.pumvisible() == 1 then
     return "<C-e>" -- close the popup menu
   else

@@ -13,4 +13,4 @@ vim.g.lazyvim_rust_diagnostics = "rust-analyzer"
 vim.g.lazyvim_picker = "fzf"
 -- vim.g.fzf_layout = { window = { scrollbar = 0 } }
 -- set wait time to 500ms
--- vim.opt.timeoutlen = 100
+vim.opt.timeoutlen = 100
