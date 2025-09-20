@@ -23,6 +23,7 @@ return {
         "gitattributes",
 
         "python",
+        "prisma",
         "vue",
         "query",
         "regex",

@@ -1,6 +1,6 @@
 return {
   -- {
-  --   "echasnovski/mini.files",
+  --   "nvim-mini/mini.files",
   --   version = false,
   --   config = function()
   --     require("mini.files").setup({
@@ -20,7 +20,7 @@ return {
   --   end,
   -- },
   {
-    "echasnovski/mini.diff",
+    "nvim-mini/mini.diff",
     event = "VeryLazy",
     -- keys = {
     --   {
