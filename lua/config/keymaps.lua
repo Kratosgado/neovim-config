@@ -11,7 +11,8 @@ map(
   { noremap = true, silent = true, desc = "Resume last telescope session" }
 )
 
-map({ "i", "v", "c", "o", "x" }, "jk", "<Esc>", { noremap = true, silent = true })
+map({ "i", "c", "o", "x" }, "jk", "<Esc>", { noremap = true, silent = true })
+map({ "i", "c", "o", "x" }, "JK", "<Esc>", { noremap = true, silent = true })
 map("t", "jk", "<C-\\><C-n>", { noremap = true, silent = true })
 map("t", ";;", "<C-\\><C-n>", { noremap = true, silent = true })
 map({ "i" }, "jk", function()
