@@ -3,6 +3,7 @@
 -- Add any additional autocmds here
 
 -- Dev.sh project automation
+
 local dev_sh_autocmds = vim.api.nvim_create_augroup("DevShAutocmds", { clear = true })
 
 -- Track current project to avoid duplicate executions

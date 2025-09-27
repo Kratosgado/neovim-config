@@ -22,36 +22,6 @@ return {
   {
     "nvim-mini/mini.diff",
     event = "VeryLazy",
-    -- keys = {
-    --   {
-    --     "<leader>go",
-    --     function()
-    --       require("mini.diff").toggle_overlay(0)
-    --     end,
-    --     desc = "Toggle mini.diff overlay",
-    --   },
-    --   {
-    --     "<leader>e",
-    --     function()
-    --       require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
-    --     end,
-    --     desc = "Open mini.files (directory of current file)",
-    --   },
-    --   {
-    --     "<leader>E",
-    --     function()
-    --       require("mini.files").open(vim.uv.cwd(), true)
-    --     end,
-    --     desc = "Open mini.files (cwd)",
-    --   },
-    --   {
-    --     "<leader>fm",
-    --     function()
-    --       require("mini.files").open(LazyVim.root(), true)
-    --     end,
-    --     desc = "Open mini.files (root)",
-    --   },
-    -- },
     opts = {
       view = {
         style = "sign",
