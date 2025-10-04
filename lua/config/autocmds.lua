@@ -56,3 +56,12 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
     end
   end,
 })
+
+--- Lua
+vim.o.autowriteall = true
+vim.api.nvim_create_autocmd({ "InsertLeavePre", "TextChanged", "TextChangedP" }, {
+  pattern = { "*.html", "*.css" },
+  callback = function()
+    vim.cmd("silent! write")
+  end,
+})
