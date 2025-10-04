@@ -8,6 +8,23 @@ return {
       -- "folke/snacks.nvim",
       "ibhagwan/fzf-lua",
     },
+    opts = {
+
+      popup_type = "vertical",
+      provider = "gemini",
+      providers = {
+        gemini = {
+          -- An alternative way to set your API key
+          api_key = function()
+            return os.getenv("GEMINI_API_KEY")
+          end,
+          model_id = "gemini-2.5-flash",
+          modelVersion = "gemini-2.5-flash",
+        },
+      },
+      search_engine = "google",
+      picker = "fzf-lua",
+    },
     keys = {
       {
         "<leader>cwd",
