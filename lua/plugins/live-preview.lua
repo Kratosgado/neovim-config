@@ -5,5 +5,10 @@ return {
       -- You can choose one of the following pickers
       "ibhagwan/fzf-lua",
     },
+    config = function()
+      require("livepreview.config").set({
+        port = 3000,
+      })
+    end,
   },
 }

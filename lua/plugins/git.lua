@@ -1,5 +1,19 @@
 return {
-  { "akinsho/git-conflict.nvim", version = "*", config = true },
+  {
+    "akinsho/git-conflict.nvim",
+    version = "*",
+    opts = {
+      default_mappings = {
+        ours = "o",
+        theirs = "t",
+        none = "0",
+        both = "b",
+        next = "n",
+        prev = "p",
+      },
+    },
+    config = true,
+  },
   {
     "f-person/git-blame.nvim",
     -- load the plugin at startup
