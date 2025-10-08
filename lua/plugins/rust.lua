@@ -17,12 +17,16 @@ return {
     },
   },
   {
+    "mason-org/mason.nvim",
+    optional = true,
+    opts = { ensure_installed = { "codelldb" } },
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     opts = { ensure_installed = { "rust", "ron" } },
   },
   {
     "mrcjkb/rustaceanvim",
-    version = vim.fn.has("nvim-0.10.0") == 0 and "^4" or false,
     ft = { "rust" },
     opts = {
       server = {
@@ -58,19 +62,28 @@ return {
                 ["async-recursion"] = { "async_recursion" },
               },
             },
+            files = {
+              excludeDirs = {
+                ".direnv",
+                ".git",
+                ".github",
+                ".gitlab",
+                "bin",
+                "node_modules",
+                "target",
+                "venv",
+                ".venv",
+              },
+            },
           },
         },
       },
     },
     config = function(_, opts)
       if LazyVim.has("mason.nvim") then
-        local package_path = require("mason-registry").get_package("codelldb"):get_install_path()
-        local codelldb = package_path .. "/extension/adapter/codelldb"
-        local library_path = package_path .. "/extension/lldb/lib/liblldb.dylib"
-        local uname = io.popen("uname"):read("*l")
-        if uname == "Linux" then
-          library_path = package_path .. "/extension/lldb/lib/liblldb.so"
-        end
+        local codelldb = vim.fn.exepath("codelldb")
+        local codelldb_lib_ext = io.popen("uname"):read("*l") == "Linux" and ".so" or ".dylib"
+        local library_path = vim.fn.expand("$MASON/opt/lldb/lib/liblldb" .. codelldb_lib_ext)
         opts.dap = {
           adapter = require("rustaceanvim.config").get_codelldb_adapter(codelldb, library_path),
         }
@@ -92,9 +105,14 @@ return {
       },
     },
   },
+
   {
-    "mason-org/mason.nvim",
+    "nvim-neotest/neotest",
     optional = true,
-    opts = { ensure_installed = { "codelldb" } },
+    opts = {
+      adapters = {
+        ["rustaceanvim.neotest"] = {},
+      },
+    },
   },
 }

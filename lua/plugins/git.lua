@@ -3,6 +3,7 @@ return {
     "akinsho/git-conflict.nvim",
     version = "*",
     opts = {
+      disable_diagnostics = false,
       default_mappings = {
         ours = "o",
         theirs = "t",
