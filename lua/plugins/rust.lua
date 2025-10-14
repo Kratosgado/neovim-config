@@ -49,10 +49,13 @@ return {
               },
             },
             -- Add clippy lints for Rust if using rust-analyzer
-            checkOnSave = diagnostics == "rust-analyzer",
+            -- checkOnSave = diagnostics == "rust-analyzer",
+            checkOnSave = true,
+
             -- Enable diagnostics if using rust-analyzer
             diagnostics = {
-              enable = diagnostics == "rust-analyzer",
+              enable = true,
+              -- enable = diagnostics == "rust-analyzer",
             },
             procMacro = {
               enable = true,
@@ -101,7 +104,10 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        rust_analyzer = {},
+        bacon_ls = {
+          enabled = diagnostics == "bacon-ls",
+        },
+        rust_analyzer = { enabled = false },
       },
     },
   },
