@@ -49,26 +49,19 @@ return {
               },
             },
             -- Add clippy lints for Rust if using rust-analyzer
-            -- checkOnSave = diagnostics == "rust-analyzer",
-            checkOnSave = true,
-
+            checkOnSave = diagnostics == "rust-analyzer",
             -- Enable diagnostics if using rust-analyzer
             diagnostics = {
-              enable = true,
-              -- enable = diagnostics == "rust-analyzer",
+              enable = diagnostics == "rust-analyzer",
             },
             procMacro = {
               enable = true,
-              ignored = {
-                ["async-trait"] = { "async_trait" },
-                ["napi-derive"] = { "napi" },
-                ["async-recursion"] = { "async_recursion" },
-              },
             },
             files = {
-              excludeDirs = {
+              exclude = {
                 ".direnv",
                 ".git",
+                ".jj",
                 ".github",
                 ".gitlab",
                 "bin",
@@ -77,6 +70,8 @@ return {
                 "venv",
                 ".venv",
               },
+              -- Avoid Roots Scanned hanging, see https://github.com/rust-lang/rust-analyzer/issues/12613#issuecomment-2096386344
+              watcher = "client",
             },
           },
         },
@@ -111,7 +106,17 @@ return {
       },
     },
   },
-
+  {
+    "mason-org/mason.nvim",
+    optional = true,
+    opts = function(_, opts)
+      opts.ensure_installed = opts.ensure_installed or {}
+      vim.list_extend(opts.ensure_installed, { "codelldb" })
+      if diagnostics == "bacon-ls" then
+        vim.list_extend(opts.ensure_installed, { "bacon" })
+      end
+    end,
+  },
   {
     "nvim-neotest/neotest",
     optional = true,
