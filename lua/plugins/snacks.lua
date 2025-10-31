@@ -1,8 +1,11 @@
 return {
   {
     "folke/snacks.nvim",
-    ---@type snacks.Config
+    ---@class snacks.Config
     opts = {
+      bigfile = { enabled = true },
+      image = { enabled = true },
+      quickfile = { enabled = true },
       picker = {
         sources = {
           explorer = {
