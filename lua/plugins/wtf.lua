@@ -5,8 +5,7 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
-      -- "folke/snacks.nvim",
-      "ibhagwan/fzf-lua",
+      "folke/snacks.nvim",
     },
     opts = {
 
@@ -23,7 +22,7 @@ return {
         },
       },
       search_engine = "google",
-      picker = "fzf-lua",
+      picker = "snacks",
     },
     keys = {
       {
