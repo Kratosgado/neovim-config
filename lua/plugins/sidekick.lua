@@ -1,6 +1,9 @@
 return {
   {
     "folke/sidekick.nvim",
+    opts = {
+      nes = { enabled = false },
+    },
     keys = {
       {
         "<tab>",
