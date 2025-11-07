@@ -2,7 +2,7 @@ return {
   {
     "brianhuster/live-preview.nvim",
     dependencies = {
-      "folke/snacks.nvim",
+      "ibhagwan/fzf-lua",
     },
     config = function()
       require("livepreview.config").set({

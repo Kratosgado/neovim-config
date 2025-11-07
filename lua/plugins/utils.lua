@@ -2,22 +2,12 @@ return {
   { "nvim-neotest/neotest-plenary" },
   {
     "nvim-neotest/neotest",
+    dependencies = {
+      "nvim-neotest/neotest-plenary",
+    },
     opts = {
       output_panel = {
         open = "botright vsplit | vertical resize 80",
-      },
-    },
-  },
-  {
-    "folke/lazydev.nvim",
-    ft = "lua",
-    cmd = "LazyDev",
-    opts = {
-      library = {
-        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-        { path = "LazyVim", words = { "LazyVim" } },
-        { path = "snacks.nvim", words = { "Snacks" } },
-        { path = "lazy.nvim", words = { "LazyVim" } },
       },
     },
   },

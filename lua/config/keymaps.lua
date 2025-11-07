@@ -4,13 +4,6 @@
 
 local map = LazyVim.safe_keymap_set
 
-map(
-  "n",
-  "<leader>sx",
-  require("telescope.builtin").resume,
-  { noremap = true, silent = true, desc = "Resume last telescope session" }
-)
-
 map({ "i", "c", "o" }, "jk", "<Esc>", { noremap = true, silent = true })
 map({ "i", "c", "o" }, "JK", "<Esc>", { noremap = true, silent = true })
 map("t", "jk", "<C-\\><C-n>", { noremap = true, silent = true })
