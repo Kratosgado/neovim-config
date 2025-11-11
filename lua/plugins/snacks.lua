@@ -6,7 +6,18 @@ return {
       bigfile = { enabled = true },
       image = { enabled = true },
       quickfile = { enabled = true },
-      picker = { enabled = false },
+      picker = {
+        enabled = false,
+        sources = {
+          explorer = {
+            layout = {
+              layout = {
+                position = "right",
+              },
+            },
+          },
+        },
+      },
     },
   },
 }

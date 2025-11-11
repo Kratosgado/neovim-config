@@ -14,7 +14,16 @@ map({ "i" }, "jk", function()
     return "<Esc>"
   end
 end, { expr = true, noremap = true, silent = true })
-
+-- Open compiler
+map("n", "<leader>Co", "<cmd>CompilerOpen<cr>", { noremap = true, silent = true })
+map(
+  "n",
+  "<leader>Cr",
+  "<cmd>CompilerStop<cr>" -- (Optional, to dispose all tasks before redo)
+    .. "<cmd>CompilerRedo<cr>",
+  { noremap = true, silent = true }
+)
+map("n", "<leader>Ct", "<cmd>CompilerToggleResults<cr>", { noremap = true, silent = true })
 -- map("n", "<leader>gg", "<Plug>(git-conflict-ours)", { desc = "Use the current buffer's changes" })
 -- map("n", "<leader>gi", "<Plug>(git-conflict-theirs)", { desc = "Use the other buffer's changes" })
 -- map("n", "<leader>ga", "<Plug>(git-conflict-both)", { desc = "Use both changes" })
