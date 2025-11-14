@@ -1,4 +1,5 @@
 # required
+cd ~
 rm -f ~/.config/nvim
 
 # optional but recommended
