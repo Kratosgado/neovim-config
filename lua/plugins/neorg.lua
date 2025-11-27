@@ -5,14 +5,24 @@ return {
     config = true,
   },
   {
+    "Jarvismkennedy/git-auto-sync.nvim",
+    opts = {
+      {
+        "~/notes",
+        auto_pull = false,
+        auto_push = false,
+        auto_commit = true,
+        prompt = true,
+        name = "notes",
+      },
+    },
+    lazy = false,
+  },
+  {
     "nvim-neorg/neorg",
-    dependencies = { "luarocks.nvim", "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" },
-    version = "*",
-    -- config = true,
+    dependencies = { "luarocks.nvim" },
+    -- build = ":Neorg sync-parsers",
     config = function()
-      -- require("nvim-treesitter.configs").setup({
-      --   highlight = { enable = true },
-      -- })
       require("neorg").setup({
         load = {
           ["core.defaults"] = {}, -- Loads default behaviour

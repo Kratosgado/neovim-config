@@ -7,6 +7,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
+      highlight = { enable = true },
       ensure_installed = {
         "bash",
         "html",
@@ -21,6 +22,9 @@ return {
         "git_rebase",
         "gitignore",
         "gitattributes",
+
+        "norg",
+        "norg_meta",
 
         "python",
         "vue",
