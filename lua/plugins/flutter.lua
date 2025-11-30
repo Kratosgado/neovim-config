@@ -6,16 +6,38 @@ return {
       "nvim-lua/plenary.nvim",
       "stevearc/dressing.nvim", -- optional for vim.ui.select
     },
-    config = true,
+    config = function()
+      require("flutter-tools").setup({
+        lsp = {
+          color = {
+            enabled = true,
+          },
+        },
+        decorations = {
+          statusline = {
+            app_version = true,
+          },
+        },
+        widget_guides = {
+          enabled = true,
+        },
+        -- debugger = {
+        --   enabled = true,
+        -- },
+        -- outline = {
+        --   enabled = true,
+        -- },
+      })
+    end,
   },
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        dartls = false,
-      },
-    },
-  },
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   opts = {
+  --     servers = {
+  --       dartls = false,
+  --     },
+  --   },
+  -- },
   {
     "nvim-neotest/neotest",
     optional = true,
