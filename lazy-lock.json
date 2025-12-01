@@ -100,6 +100,6 @@
   "vim-dadbod-completion": { "branch": "master", "commit": "a8dac0b3cf6132c80dc9b18bef36d4cf7a9e1fe6" },
   "vim-dadbod-ui": { "branch": "master", "commit": "48c4f271da13d380592f4907e2d1d5558044e4e5" },
   "which-key.nvim": { "branch": "main", "commit": "3aab2147e74890957785941f0c1ad87d0a44c15a" },
-  "wtf.nvim": { "branch": "main", "commit": "e0b0f0f6efeb439d6ceec57492418fcc49d28a7f" },
+  "wtf.nvim": { "branch": "main", "commit": "a50e7ae1eafe0a7c1b2871ac4185cad33bc94393" },
   "yanky.nvim": { "branch": "main", "commit": "04775cc6e10ef038c397c407bc17f00a2f52b378" }
 }
