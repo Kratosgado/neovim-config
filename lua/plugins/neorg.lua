@@ -9,8 +9,8 @@ return {
     opts = {
       {
         "~/notes",
-        auto_pull = true,
-        auto_push = true,
+        auto_pull = false,
+        auto_push = false,
         auto_commit = true,
         prompt = true,
         name = "notes",
