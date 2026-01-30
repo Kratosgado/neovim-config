@@ -4,20 +4,20 @@ return {
     priority = 1000,
     config = true,
   },
-  {
-    "Jarvismkennedy/git-auto-sync.nvim",
-    opts = {
-      {
-        "~/notes",
-        auto_pull = false,
-        auto_push = false,
-        auto_commit = true,
-        prompt = true,
-        name = "notes",
-      },
-    },
-    lazy = false,
-  },
+  -- {
+  --   "Jarvismkennedy/git-auto-sync.nvim",
+  --   opts = {
+  --     {
+  --       "~/notes",
+  --       auto_pull = false,
+  --       auto_push = false,
+  --       auto_commit = true,
+  --       prompt = true,
+  --       name = "notes",
+  --     },
+  --   },
+  --   lazy = false,
+  -- },
   {
     "nvim-neorg/neorg",
     dependencies = { "luarocks.nvim" },
