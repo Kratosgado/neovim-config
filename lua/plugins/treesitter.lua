@@ -23,9 +23,6 @@ return {
         "gitignore",
         "gitattributes",
 
-        "norg",
-        "norg_meta",
-
         "python",
         "vue",
         "query",
