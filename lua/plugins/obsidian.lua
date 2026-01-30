@@ -18,15 +18,19 @@ return {
         },
       },
     },
+    keys = {
+      { "<leader>oo", ":Obsidian<CR>", desc = "Open Obsidian Vault" },
+      { "<leader>od", ":Obsidian dailies<CR>", desc = "Open Dailies Vault" },
+    },
   },
   {
     "Jarvismkennedy/git-auto-sync.nvim",
     opts = {
       {
         "~/vaults",
-        auto_pull = false,
-        auto_push = false,
-        auto_commit = true,
+        auto_pull = true,
+        auto_push = true,
+        auto_commit = false,
         prompt = true,
         name = "vaults",
       },
