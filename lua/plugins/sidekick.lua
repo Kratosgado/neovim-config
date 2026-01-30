@@ -79,11 +79,11 @@ return {
       },
       -- Example of a keybinding to open Claude directly
       {
-        "<leader>ac",
+        "<leader>ag",
         function()
-          require("sidekick.cli").toggle({ name = "claude", focus = true })
+          require("sidekick.cli").toggle({ name = "gemini", focus = true })
         end,
-        desc = "Sidekick Toggle Claude",
+        desc = "Sidekick Toggle Gemini",
       },
     },
   },
