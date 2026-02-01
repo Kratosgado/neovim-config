@@ -2,12 +2,21 @@ return {
   {
     "obsidian-nvim/obsidian.nvim",
     version = "*", -- use latest release, remove to use latest commit
-    dependencies = { "MeanderingProgrammer/render-markdown.nvim" },
+    dependencies = {
+      "MeanderingProgrammer/render-markdown.nvim",
+      "obsidian-nvim/obsidian-markmap.nvim",
+      "obsidian-nvim/calendar.nvim",
+    },
     ft = "markdown",
     ---@module 'obsidian'
     ---@type obsidian.config
     opts = {
       legacy_commands = false, -- this will be removed in the next major release
+      checkbox = {
+        enabled = true,
+        create_new = true,
+        order = { " ", "~", "!", ">", "x" },
+      },
       workspaces = {
         {
           name = "personal",
@@ -23,12 +32,10 @@ return {
         update_debounce = 200,
         -- Define how various check-boxes are displayed
         checkboxes = {
-          -- NOTE: the 'char' value has to be a single character, otherwise it will not work!
           [" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
           ["x"] = { char = "", hl_group = "ObsidianDone" },
           [">"] = { char = "󰭒", hl_group = "ObsidianRightArrow" },
           ["~"] = { char = "󰰱", hl_group = "ObsidianTilde" },
-          -- Replace the default tickmark with a custom icon.
           ["!"] = { char = "", hl_group = "ObsidianImportant" },
         },
         -- Use bullet marks for non-checkbox lists.
@@ -62,6 +69,16 @@ return {
       { "<leader>ow", ":Obsidian weekly<CR>", desc = "Open Weekly Vault" },
       { "<leader>om", ":Obsidian monthly<CR>", desc = "Open Monthly Vault" },
       { "<leader>oy", ":Obsidian yearly<CR>", desc = "Open Yearly Vault" },
+    },
+  },
+  {
+    "basola21/PDFview",
+    lazy = false,
+    dependencies = { "nvim-telescope/telescope.nvim" },
+    keys = {
+      { "<leader>op", "<cmd>lua require('pdfview').open()<CR>", desc = "PDFview: Open PDF" },
+      { "<leader>jj", "<cmd>:lua require('pdfview.renderer').next_page()<CR>", desc = "PDFview: Next page" },
+      { "<leader>kk", "<cmd>:lua require('pdfview.renderer').previous_page()<CR>", desc = "PDFview: Previous page" },
     },
   },
   {

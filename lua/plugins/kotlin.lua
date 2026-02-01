@@ -11,7 +11,22 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        kotlin_language_server = {},
+        kotlin_language_server = {
+          settings = {
+            kotlin = {
+              compiler = {
+                jvm = { target = "21" }, -- Match this to your project's JDK
+              },
+              indexing = {
+                enabled = true, -- Ensure indexing is on for doc resolution
+              },
+              externalSources = {
+                useKlsScheme = true, -- Crucial: lets KLS handle "kls://" URI schemes for docs
+                autoConvertToKotlin = false, -- Keeps Java docs in their native format
+              },
+            },
+          },
+        },
       },
     },
   },
