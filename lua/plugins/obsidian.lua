@@ -54,10 +54,10 @@ return {
     opts = {
       {
         "~/vaults",
-        auto_pull = false,
-        auto_push = false,
-        auto_commit = false,
-        prompt = true,
+        auto_pull = true,
+        auto_push = true,
+        auto_commit = true,
+        prompt = false,
         name = "vaults",
       },
     },
