@@ -31,13 +31,13 @@ return {
         enabled = true,
         bullet = false,
         unchecked = {
-          icon = "󰄱 ",
+          icon = "▢ ",
         },
         checked = {
-          icon = "󰱒 ",
+          icon = "✅ ",
         },
         custom = {
-          todo = { raw = "[-]", rendered = "󰥔 ", highlight = "RenderMarkdownTodo" },
+          todo = { raw = "[-]", rendered = "⏰ ", highlight = "RenderMarkdownTodo" },
         },
       },
     },

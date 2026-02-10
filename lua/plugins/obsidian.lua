@@ -48,19 +48,4 @@ return {
       { "<leader>kk", "<cmd>:lua require('pdfview.renderer').previous_page()<CR>", desc = "PDFview: Previous page" },
     },
   },
-
-  {
-    "Jarvismkennedy/git-auto-sync.nvim",
-    opts = {
-      {
-        "~/vaults",
-        auto_pull = true,
-        auto_push = true,
-        auto_commit = true,
-        prompt = false,
-        name = "vaults",
-      },
-    },
-    lazy = false,
-  },
 }

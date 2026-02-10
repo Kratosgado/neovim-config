@@ -29,4 +29,27 @@ return {
       },
     },
   },
+
+  {
+    "Jarvismkennedy/git-auto-sync.nvim",
+    opts = {
+      {
+        "~/vaults",
+        auto_pull = true,
+        auto_push = true,
+        auto_commit = true,
+        prompt = false,
+        name = "vaults",
+      },
+      {
+        "~/.config/nvim",
+        auto_pull = true,
+        auto_push = true,
+        auto_commit = true,
+        prompt = false,
+        name = "vaults",
+      },
+    },
+    lazy = false,
+  },
 }
