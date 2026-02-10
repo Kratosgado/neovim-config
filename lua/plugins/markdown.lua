@@ -28,6 +28,8 @@ return {
         icons = { "●", "○", "◆", "◇" },
       },
       checkbox = {
+        enabled = true,
+        bullet = false,
         unchecked = {
           icon = "󰄱 ",
         },

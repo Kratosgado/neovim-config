@@ -12,6 +12,11 @@ return {
     },
     ---@type bootls.Config
     opts = {},
+    keys = {
+      { "<leader>S", desc = "+Spring Boot" },
+      { "<leader>Sr", "<cmd>SpringBootRun<cr>", desc = "Run Spring Boot App" },
+      { "<leader>Sc", "<cmd>SpringBootGenerate<cr>", desc = "Generate Class/Interface" },
+    },
   },
   {
     "oclay1st/gradle.nvim",
@@ -62,9 +67,7 @@ return {
     },
     opts = {
       adapters = {
-        ["neotest-java"] = {
-          -- config here
-        },
+        ["neotest-java"] = {},
       },
     },
   },
