@@ -10,6 +10,7 @@
   "calendar.nvim": { "branch": "main", "commit": "f39ecc4b3b6247460e737f9d5a6a7faebd903f0f" },
   "catppuccin": { "branch": "main", "commit": "beaf41a30c26fd7d6c386d383155cbd65dd554cd" },
   "clangd_extensions.nvim": { "branch": "main", "commit": "e84eaea7ca79610d7047fb1c9d74f15bb1c9db34" },
+  "cmake-tools.nvim": { "branch": "master", "commit": "24502aec9166fd6b851762c5930ff316083acd85" },
   "compiler.nvim": { "branch": "main", "commit": "c09ab4e795b92378727d7377c03b0d5c2453957c" },
   "conform.nvim": { "branch": "master", "commit": "c2526f1cde528a66e086ab1668e996d162c75f4f" },
   "crates.nvim": { "branch": "main", "commit": "ac9fa498a9edb96dc3056724ff69d5f40b898453" },
