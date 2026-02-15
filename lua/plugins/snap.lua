@@ -11,7 +11,7 @@ return {
         code_donfig = {
           breadcrumbs = {
             enable = true,
-            separator = "/"
+            separator = "/",
             color = "#80848b",
             font_family = "ComicShannsMono Nerd Font",
           },
