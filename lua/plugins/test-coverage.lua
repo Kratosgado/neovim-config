@@ -35,6 +35,11 @@ return {
     },
     opts = {
       auto_reload = true,
+      highlights = {
+        -- "DiagnosticOk" or "String" (#9ece6a) are the best greens in Tokyo Night
+        covered = { fg = "#9ece6a" },
+        uncovered = { fg = "#f7768e" }, -- Tokyo Night Red
+      },
       lang = {
         java = {
           coverage_file = vim.fn.getcwd() .. "/target/site/jacoco/jacoco.xml",
