@@ -8,7 +8,7 @@ return {
         filetypes = "java",
         igns = {
           priority = 10,
-      incomplete_branch_color = "WarningMsg",
+          incomplete_branch_color = "WarningMsg",
           covered_color = "String",
           uncovered_color = "Error",
         },
@@ -44,4 +44,4 @@ return {
       },
     },
   },
-
+}
