@@ -8,14 +8,7 @@ return {
         filetypes = "java",
         igns = {
           priority = 10,
-          incomplete_branch = "█",
-          uncovered = "█",
-          covered = "█",
-          sign_group = "Blanket",
-
-          -- and the highlights for each sign!
-          -- useful for themes where below highlights are similar
-          incomplete_branch_color = "WarningMsg",
+      incomplete_branch_color = "WarningMsg",
           covered_color = "String",
           uncovered_color = "Error",
         },
@@ -51,4 +44,4 @@ return {
       },
     },
   },
-}
+
