@@ -19,6 +19,17 @@ return {
         java = {
           coverage_file = vim.fn.getcwd() .. "/target/site/jacoco/jacoco.xml",
         },
+        -- Rust (using cargo-tarpaulin or cargo-llvm-cov)
+        rust = { coverage_file = "target/prefix.lcov" }, -- Or "lcov.info" depending on tool
+
+        -- Kotlin (usually same as Java/JaCoCo)
+        kotlin = { coverage_file = "build/reports/jacoco/test/jacocoTestReport.xml" },
+
+        -- Dart / Flutter (Standard location)
+        dart = { coverage_file = "coverage/lcov.info" },
+
+        -- TypeScript / JavaScript (Jest/Vitest default)
+        typescript = { coverage_file = "coverage/lcov.info" },
       },
     },
   },
