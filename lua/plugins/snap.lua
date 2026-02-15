@@ -11,7 +11,7 @@ return {
         code_donfig = {
           breadcrumbs = {
             enable = true,
-            separator = "/",
+            separator = "/"
             color = "#80848b",
             font_family = "ComicShannsMono Nerd Font",
           },
@@ -19,8 +19,6 @@ return {
       },
       show_line_number = false,
       -- save_path = "~/Pictures/codesnaps/",
-      background = "#1e1f29",
-      -- title = "CodeSnap.nvim",
       watermark = {
         content = "Kratosgado",
         font_family = "ComicShannsMono Nerd Font",
