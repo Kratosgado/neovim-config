@@ -21,7 +21,7 @@ return {
       save_path = "~/Pictures/codesnaps/",
       watermark = {
         content = "Kratosgado",
-        font_family = "ComicShannsMono Nerd Font",
+        -- font_family = "ComicShannsMono Nerd Font",
       },
     },
   },
