@@ -16,7 +16,6 @@ return {
             font_family = "ComicShannsMono Nerd Font",
           },
         },
-        theme = "grape",
       },
       show_line_number = false,
       -- save_path = "~/Pictures/codesnaps/",
