@@ -9,7 +9,7 @@ return {
         igns = {
           priority = 10,
           incomplete_branch_color = "WarningMsg",
-          covered_color = "DiffAdd",
+          covered_color = "DiagnosticOk",
           uncovered_color = "Error",
         },
       }
