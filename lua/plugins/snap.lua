@@ -1,4 +1,5 @@
 return {
+  -- TODO: Fix codesnap
   {
     "mistricky/codesnap.nvim",
     tag = "^2.0.0",
