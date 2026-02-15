@@ -3,7 +3,10 @@ return {
     "dsych/blanket.nvim",
     ft = "java",
     opts = {
-      report_path = vim.fn.getcwd() .. "/target/site/jacoco/jacoco.xml",
+      report_path = function()
+        local root = vim.fs.root(0, { ".git", "pom.xml" })
+        return root .. "/target/site/jacoco/jacoco.xml"
+      end,
       filetypes = "java",
       igns = {
         priority = 10,
