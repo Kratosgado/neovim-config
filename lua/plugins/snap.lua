@@ -7,7 +7,16 @@ return {
     --   { "<leader>cs", "<cmd>CodeSnapSave<cr>", mode = "x", desc = "Save selected code snapshot in ~/Pictures" },
     -- },
     opts = {
-      breadcrumbs_separator = "/",
+      snapshot_config = {
+        code_donfig = {
+          breadcrumbs = {
+            enable = true,
+            separator = "/",
+            color = "#80848b",
+            font_family = "ComicShannsMono Nerd Font",
+          },
+        },
+      },
       has_breadcrumbs = true,
       has_line_number = false,
       mac_window_bar = true,
