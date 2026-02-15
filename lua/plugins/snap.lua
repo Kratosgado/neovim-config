@@ -16,11 +16,12 @@ return {
             font_family = "ComicShannsMono Nerd Font",
           },
         },
+        theme = "grape",
       },
       show_line_number = false,
       mac_window_bar = true,
       save_path = "~/Pictures/codesnaps/",
-      bg_theme = "grape",
+      background = "#1e1f29",
       title = "CodeSnap.nvim",
       watermark = {
         content = "Kratosgado",
