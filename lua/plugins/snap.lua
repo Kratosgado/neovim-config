@@ -19,9 +19,9 @@ return {
         theme = "grape",
       },
       show_line_number = false,
-      save_path = "~/Pictures/codesnaps/",
+      -- save_path = "~/Pictures/codesnaps/",
       background = "#1e1f29",
-      title = "CodeSnap.nvim",
+      -- title = "CodeSnap.nvim",
       watermark = {
         content = "Kratosgado",
         font_family = "ComicShannsMono Nerd Font",
