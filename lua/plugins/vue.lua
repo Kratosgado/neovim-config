@@ -7,7 +7,7 @@ return {
     
         "mason-org/mason.nvim",
         opts = { ensure_installed = { "vue-language-server" } 
-  } {
+  }, {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
