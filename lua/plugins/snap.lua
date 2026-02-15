@@ -19,7 +19,6 @@ return {
         theme = "grape",
       },
       show_line_number = false,
-      mac_window_bar = true,
       save_path = "~/Pictures/codesnaps/",
       background = "#1e1f29",
       title = "CodeSnap.nvim",
