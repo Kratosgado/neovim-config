@@ -16,7 +16,7 @@ return {
           -- and the highlights for each sign!
           -- useful for themes where below highlights are similar
           incomplete_branch_color = "WarningMsg",
-          covered_color = "Statement",
+          covered_color = "String",
           uncovered_color = "Error",
         },
       }
