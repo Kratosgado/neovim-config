@@ -1,12 +1,14 @@
+local jacoco_report_path = function()
+  -- local root = vim.fs.find({ ".git", "pom.xml" }, { upward = true })
+  local root = vim.fs.root(0, { ".git", "pom.xml" })
+  return root .. "/target/site/jacoco/jacoco.xml"
+end
 return {
   {
     "dsych/blanket.nvim",
     ft = "java",
     opts = {
-      report_path = function()
-        local root = vim.fs.root(0, { ".git", "pom.xml" })
-        return root .. "/target/site/jacoco/jacoco.xml"
-      end,
+      report_path = jacoco_report_path,
       filetypes = "java",
       igns = {
         priority = 10,
@@ -40,7 +42,7 @@ return {
       auto_reload = true,
       lang = {
         java = {
-          coverage_file = vim.fn.getcwd() .. "/target/site/jacoco/jacoco.xml",
+          coverage_file = jacoco_report_path,
         },
       },
     },
