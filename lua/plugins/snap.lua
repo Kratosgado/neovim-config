@@ -17,7 +17,6 @@ return {
           },
         },
       },
-      has_breadcrumbs = true,
       show_line_number = false,
       mac_window_bar = true,
       save_path = "~/Pictures/codesnaps/",
