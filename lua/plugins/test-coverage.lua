@@ -2,18 +2,16 @@ return {
   {
     "dsych/blanket.nvim",
     ft = "java",
-    opts = function()
-      return {
-        report_path = vim.fn.getcwd() .. "/target/site/jacoco/jacoco.xml",
-        filetypes = "java",
-        igns = {
-          priority = 10,
-          incomplete_branch_color = "WarningMsg",
-          covered_color = "DiagnosticOk",
-          uncovered_color = "Error",
-        },
-      }
-    end,
+    opts = {
+      report_path = vim.fn.getcwd() .. "/target/site/jacoco/jacoco.xml",
+      filetypes = "java",
+      igns = {
+        priority = 10,
+        incomplete_branch_color = "WarningMsg",
+        covered_color = "String",
+        uncovered_color = "Error",
+      },
+    },
     keys = {
       { "<leader>tcp", "<cmd>lua require('blanket').pick_report_path()<CR>", desc = "Pick JaCoCo Report" },
       { "<leader>tcc", "<cmd>lua require('blanket').refresh()<cr>", desc = "Refresh Coverage" },
