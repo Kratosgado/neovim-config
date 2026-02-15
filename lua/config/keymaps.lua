@@ -28,7 +28,7 @@ map("n", "<leader>Ct", "<cmd>CompilerToggleResults<cr>", { noremap = true, silen
 -- Option 1: Simple mapping with fixed folder + timestamped filename
 vim.keymap.set({ "n", "x" }, "<leader>cS", function()
   local timestamp = os.date("%Y%m%d-%H%M%S")
-  local path = vim.fn.expand("~/Pictures/codesnap/snapshot-" .. timestamp .. ".png")
+  local path = vim.fn.expand("~/Pictures/codesnaps/snapshot-" .. timestamp .. ".png")
   vim.cmd("CodeSnapSave " .. vim.fn.shellescape(path))
 end, { desc = "CodeSnap: Save with timestamp" })
 
