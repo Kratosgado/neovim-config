@@ -24,9 +24,22 @@ map(
   { noremap = true, silent = true }
 )
 map("n", "<leader>Ct", "<cmd>CompilerToggleResults<cr>", { noremap = true, silent = true })
--- map("n", "<leader>gg", "<Plug>(git-conflict-ours)", { desc = "Use the current buffer's changes" })
--- map("n", "<leader>gi", "<Plug>(git-conflict-theirs)", { desc = "Use the other buffer's changes" })
--- map("n", "<leader>ga", "<Plug>(git-conflict-both)", { desc = "Use both changes" })
--- map("n", "<leader>g0", "<Plug>(git-conflict-none)", { desc = "Use no changes" })
--- map("n", "<leader>gp", "<Plug>(git-conflict-prev-conflict)", { desc = "Jump to the previous conflict" })
--- map("n", "<leader>gn", "<Plug>(git-conflict-next-conflict)", { desc = "Jump to the next conflict" })
+
+-- Option 1: Simple mapping with fixed folder + timestamped filename
+vim.keymap.set({ "n", "x" }, "<leader>cS", function()
+  local timestamp = os.date("%Y%m%d-%H%M%S")
+  local path = vim.fn.expand("~/Pictures/codesnap/snapshot-" .. timestamp .. ".png")
+  vim.cmd("CodeSnapSave " .. vim.fn.shellescape(path))
+end, { desc = "CodeSnap: Save with timestamp" })
+
+-- Option 2: Prompt for filename (more flexible)
+vim.keymap.set({ "n", "x" }, "<leader>cs", function()
+  vim.ui.input({
+    prompt = "Save snapshot as (full path, e.g. ~/Pictures/code.png): ",
+    completion = "file", -- tab-complete paths
+  }, function(input)
+    if input and input ~= "" then
+      vim.cmd("CodeSnapSave " .. vim.fn.shellescape(input))
+    end
+  end)
+end, { desc = "CodeSnap: Save (prompt)" })
