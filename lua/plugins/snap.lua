@@ -18,7 +18,7 @@ return {
         },
       },
       has_breadcrumbs = true,
-      has_line_number = false,
+      show_line_number = false,
       mac_window_bar = true,
       save_path = "~/Pictures/codesnaps/",
       bg_theme = "grape",
