@@ -22,7 +22,10 @@ return {
       save_path = "~/Pictures/codesnaps/",
       bg_theme = "grape",
       title = "CodeSnap.nvim",
-      watermark = "Kratosgado",
+      watermark = {
+        content = "Kratosgado",
+        font_family = "ComicShannsMono Nerd Font",
+      },
     },
   },
 }
