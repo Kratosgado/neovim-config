@@ -38,6 +38,7 @@ return {
         -- "DiagnosticOk" or "String" (#9ece6a) are the best greens in Tokyo Night
         covered = { fg = "#9ece6a" },
         uncovered = { fg = "#f7768e" }, -- Tokyo Night Red
+        partial = { fg = "#e0af68" }, -- Tokyo Night Yellow
       },
       lang = {
         java = {
