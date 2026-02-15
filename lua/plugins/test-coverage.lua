@@ -27,7 +27,6 @@ return {
   {
     "andythigpen/nvim-coverage",
     dependencies = { "nvim-lua/plenary.nvim", "nvim-neotest/neotest" },
-    cmd = { "Coverage", "CoverageLoad", "CoverageToggle" },
     keys = {
       { "<leader>tcl", "<cmd>CoverageLoad<cr>", desc = "Load Coverage" },
       { "<leader>tct", "<cmd>CoverageToggle<cr>", desc = "Toggle Coverage Signs" },
