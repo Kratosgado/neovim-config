@@ -13,7 +13,7 @@ return {
             enable = true,
             separator = "/",
             color = "#80848b",
-            font_family = "ComicShannsMono Nerd Font",
+            -- font_family = "ComicShannsMono Nerd Font",
           },
         },
       },
