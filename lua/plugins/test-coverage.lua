@@ -6,6 +6,19 @@ return {
       return {
         report_path = vim.fn.getcwd() .. "/target/site/jacoco/jacoco.xml",
         filetypes = "java",
+        igns = {
+          priority = 10,
+          incomplete_branch = "█",
+          uncovered = "█",
+          covered = "█",
+          sign_group = "Blanket",
+
+          -- and the highlights for each sign!
+          -- useful for themes where below highlights are similar
+          incomplete_branch_color = "WarningMsg",
+          covered_color = "Statement",
+          uncovered_color = "Error",
+        },
       }
     end,
     keys = {
