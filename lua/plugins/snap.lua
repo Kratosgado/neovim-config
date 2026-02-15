@@ -23,6 +23,7 @@ return {
         content = "Kratosgado",
         -- font_family = "ComicShannsMono Nerd Font",
       },
+      clipboard = false,
     },
   },
 }
