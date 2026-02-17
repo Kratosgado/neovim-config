@@ -47,7 +47,9 @@ return {
     },
     opts = {
       adapters = {
-        ["neotest-dart"] = {},
+        ["neotest-dart"] = {
+          custom_dart_args = { "--coverage" },
+        },
       },
     },
   },
