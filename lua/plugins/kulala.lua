@@ -213,10 +213,24 @@ return {
     },
     keys = {
       {
-        "<leader>rI",
-        desc = "Import HTTP File",
-        function(from)
-          require("kulala").import(from)
+        "<leader>rIp",
+        desc = "Import from Postman",
+        function()
+          require("kulala").import("postman")
+        end,
+      },
+      {
+        "<leader>rIs",
+        desc = "Import from Swagger",
+        function()
+          require("kulala").import("openapi")
+        end,
+      },
+      {
+        "<leader>rIh",
+        desc = "Import from HTTP",
+        function()
+          require("kulala").import("http")
         end,
       },
     },
