@@ -226,6 +226,7 @@ return {
         end,
         desc = "Import from Swagger",
       },
+      -- TODO: fix export options
       {
         "<leader>rEf",
         function()
@@ -233,7 +234,6 @@ return {
         end,
         desc = "Export file",
       },
-
       {
         "<leader>rEc",
         function()
