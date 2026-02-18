@@ -227,10 +227,10 @@ return {
         end,
       },
       {
-        "<leader>rIh",
-        desc = "Import from HTTP",
+        "<leader>rEf",
+        desc = "Export file",
         function()
-          require("kulala").import("http")
+          require("kulala").export()
         end,
       },
     },
