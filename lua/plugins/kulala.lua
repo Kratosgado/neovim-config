@@ -214,24 +214,24 @@ return {
     keys = {
       {
         "<leader>rIp",
-        desc = "Import from Postman",
         function()
           require("kulala").import("postman")
         end,
+        desc = "Import from Postman",
       },
       {
         "<leader>rIs",
-        desc = "Import from Swagger",
         function()
           require("kulala").import("openapi")
         end,
+        desc = "Import from Swagger",
       },
       {
         "<leader>rEf",
-        desc = "Export file",
         function()
           require("kulala").export()
         end,
+        desc = "Export file",
       },
     },
   },
