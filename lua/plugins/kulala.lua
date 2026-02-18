@@ -229,9 +229,17 @@ return {
       {
         "<leader>rEf",
         function()
-          require("kulala").export()
+          require("kulala").export("kulala_export")
         end,
         desc = "Export file",
+      },
+
+      {
+        "<leader>rEc",
+        function()
+          require("kulala").export("kulala_export")
+        end,
+        desc = "Export directory",
       },
     },
   },
