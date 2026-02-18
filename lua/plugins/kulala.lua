@@ -212,7 +212,13 @@ return {
       kulala_keymaps_prefix = "",
     },
     keys = {
-      { "<leader>r", desc = "Run request", mode = "n", action = ":KulalaRun<CR>" },
+      {
+        "<leader>rI",
+        desc = "Import HTTP File",
+        function()
+          require("kulala").import(from)
+        end,
+      },
     },
   },
 }
