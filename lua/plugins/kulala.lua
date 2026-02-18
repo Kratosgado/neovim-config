@@ -215,7 +215,7 @@ return {
       {
         "<leader>rI",
         desc = "Import HTTP File",
-        function()
+        function(from)
           require("kulala").import(from)
         end,
       },
