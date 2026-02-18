@@ -211,5 +211,8 @@ return {
 
       kulala_keymaps_prefix = "",
     },
+    keys = {
+      { "<leader>r", desc = "Run request", mode = "n", action = ":KulalaRun<CR>" },
+    },
   },
 }
