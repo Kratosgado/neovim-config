@@ -78,7 +78,7 @@
   "nvim-ts-context-commentstring": { "branch": "main", "commit": "1b212c2eee76d787bbea6aa5e92a2b534e7b4f8f" },
   "nvim-web-devicons": { "branch": "master", "commit": "746ffbb17975ebd6c40142362eee1b0249969c5c" },
   "obsidian-markmap.nvim": { "branch": "main", "commit": "a9b7926ddb76cf1c538496414b2c43cf495433aa" },
-  "obsidian.nvim": { "branch": "main", "commit": "2bec7da95722e17fba22bf0c6255428fb8dfd3dc" },
+  "obsidian.nvim": { "branch": "main", "commit": "20432a5ca03d99a9d5ad51d362e19d9b832e46f0" },
   "occurrence.nvim": { "branch": "main", "commit": "a760029b76f7012cdc868e8270484561127441ac" },
   "one-small-step-for-vimkind": { "branch": "main", "commit": "1af6ffb9b5229a856e8090fa2f690e0931a5aace" },
   "overseer.nvim": { "branch": "master", "commit": "392093e610333c0aea89bf43de7362e25783eada" },
