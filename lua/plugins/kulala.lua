@@ -1,8 +1,8 @@
 return {
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = { ensure_installed = { "kulala_http" } },
-  },
+  -- {
+  --   "nvim-treesitter/nvim-treesitter",
+  --   opts = { ensure_installed = { "kulala_http" } },
+  -- },
   {
     "mistweaverco/kulala.nvim",
     opts = {
