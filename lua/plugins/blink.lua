@@ -71,15 +71,7 @@ return {
         -- adding any nvim-cmp sources here will enable them
         -- with blink.compat
         compat = {},
-        default = { "lsp", "path", "snippets", "buffer", "kanban" },
-        providers = {
-          kanban = {
-            name = "kanban",
-            module = "kanban.fn.cmp.blink.cmp",
-            score_offset = 15, -- optional: bump priority
-            opts = {}, -- reserved for future options
-          },
-        },
+        default = { "lsp", "path", "snippets", "buffer" },
       },
 
       cmdline = {
