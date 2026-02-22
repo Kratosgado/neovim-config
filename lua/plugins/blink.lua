@@ -71,12 +71,7 @@ return {
         -- adding any nvim-cmp sources here will enable them
         -- with blink.compat
         compat = {},
-        default = { "lsp", "path", "snippets", "buffer" },
-        per_filetype = {
-          markdown = {
-            default = { "lsp", "path", "snippets", "buffer", "kanban" },
-          },
-        },
+        default = { "lsp", "path", "snippets", "buffer", "kanban" },
         providers = {
           kanban = {
             name = "kanban",
