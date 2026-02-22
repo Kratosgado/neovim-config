@@ -1,11 +1,6 @@
 return {
   {
     "arakkkkk/kanban.nvim",
-    -- Optional
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-    },
-
     config = function()
       require("kanban").setup({
         markdown = {
