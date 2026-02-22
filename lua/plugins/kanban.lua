@@ -39,7 +39,6 @@ return {
       { "<leader>kcc", "<cmd>SuperKanban card date<cr>", desc = "Kanban: Set card date" },
       { "<leader>kcs", "<cmd>SuperKanban card search<cr>", desc = "Kanban: Search cards" },
       { "<leader>kce", "<cmd>SuperKanban card note<cr>", desc = "Kanban: Edit card note" },
-      { "<leader>kcm", "<cmd>SuperKanban card move<cr>", desc = "Kanban: Move card" },
       { "<leader>kcj", "<cmd>SuperKanban card jump<cr>", desc = "Kanban: Jump to card" },
     },
   },
