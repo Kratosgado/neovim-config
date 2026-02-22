@@ -8,7 +8,7 @@ return {
     cmd = { "SuperKanban" }, -- lazy load on command
     opts = {
       markdown = {
-        notes_dir = "./kanban/tasks/",
+        notes_dir = "./tasks/",
         list_heading = "h2",
       },
       mappings = {
