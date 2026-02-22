@@ -85,6 +85,8 @@ vim.api.nvim_create_autocmd("User", {
       buffer = true,
       desc = "Toggle checkbox",
     })
+
+    vim.keymap.set("n", "<leader><CR>", require("obsidian.api").smart_action, { buffer = true })
   end,
 })
 
