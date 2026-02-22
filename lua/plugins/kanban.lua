@@ -9,7 +9,7 @@ return {
     opts = {
       markdown = {
 
-        notes_dir = "./.kanban/tasks",
+        notes_dir = "./.kanban/tasks/",
       },
       mappings = {
         ["H"] = "jump_left",
