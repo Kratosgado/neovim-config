@@ -9,7 +9,6 @@ return {
     opts = {
       markdown = {
         notes_dir = "./tasks/",
-        list_heading = "h2",
       },
       mappings = {
         ["H"] = "jump_left",
