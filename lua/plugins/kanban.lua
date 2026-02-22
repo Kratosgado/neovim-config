@@ -8,22 +8,7 @@ return {
     cmd = { "SuperKanban" }, -- lazy load on command
     opts = {
       markdown = {
-        notes_dir = function()
-          -- Store tasks in project root if in git repo, otherwise use Obsidian vault
-          local function get_git_root()
-            local out = vim.fn.systemlist("git rev-parse --show-toplevel")
-            if vim.v.shell_error == 0 and out[1] and out[1] ~= "" then
-              return out[1]
-            end
-            return nil
-          end
-
-          local git_root = get_git_root()
-          if git_root then
-            return git_root .. "/.kanban/tasks"
-          end
-          return vim.fn.expand("~/vaults/personal/tasks")
-        end,
+        notes_dir = "./kanban/tasks/",
         list_heading = "h2",
       },
       mappings = {
