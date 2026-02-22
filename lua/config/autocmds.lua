@@ -81,13 +81,13 @@ vim.api.nvim_create_autocmd("User", {
 vim.api.nvim_create_autocmd("User", {
   pattern = "ObsidianNoteEnter",
   callback = function(ev)
+    local actions = require("obsidian.actions")
     vim.keymap.set("n", "<leader>ch", "<cmd>Obsidian toggle_checkbox<cr>", {
       buffer = true,
       desc = "Toggle checkbox",
     })
 
     vim.keymap.set("n", "<leader><CR>", require("obsidian.api").smart_action, { buffer = true })
-    local actions = require("obsidian.actions")
     vim.keymap.set("n", "<leader>;", actions.add_property, { buffer = true, desc = "Add frontmatter property" })
     vim.keymap.set("n", "<Tab>", function()
       actions.nav_link("next")
