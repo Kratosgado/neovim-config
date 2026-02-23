@@ -5,7 +5,7 @@
   "model": "github-copilot/gemini-3.1-pro-preview",
 
   // Free model for lightweight tasks (titles, summaries)
-  "small_model": "openrouter/minimax/minimax-m2.5",
+  "small_model": "opencode/minimax-m2.5-free",
 
   "provider": {
     "github": {
@@ -36,8 +36,8 @@
     "plan": {
       "mode": "primary",
       "description": "Planning and analysis without code changes",
-      //"model": "openrouter/qwen/qwen-2.5-coder-32b-instruct:free",
-      "model": "openrouter/qwen/qwen3-coder:free",
+      // "model": "openrouter/qwen/qwen3-coder:free",
+      "model": "opencode/minimax-m2.5-free",
       "temperature": 0.1,
       "tools": {
         "write": false,
