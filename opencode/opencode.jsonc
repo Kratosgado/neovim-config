@@ -55,7 +55,7 @@
     "ask": {
       "mode": "primary",
       "description": "Answers questions and provides explanations using free models",
-      "model": "openrouter/qwen/qwen2.5-vl-72b-instruct:free",
+      "model": "opencode/minimax-m2.5-free",
       "temperature": 0.2,
       "tools": {
         "write": false,
