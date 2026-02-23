@@ -74,7 +74,7 @@
     "explore": {
       "mode": "subagent",
       "description": "Fast codebase exploration and search",
-      "model": "openrouter/minimax/minimax-m2.5",
+      "model": "opencode/minimax-m2.5-free",
       "temperature": 0.1,
       "tools": {
         "write": false,
@@ -87,7 +87,7 @@
     "general": {
       "mode": "subagent",
       "description": "General-purpose tasks and research",
-      "model": "openrouter/minimax/minimax-m2.5",
+      "model": "opencode/minimax-m2.5-free",
       "temperature": 0.3,
     },
   },
