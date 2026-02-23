@@ -1,0 +1,116 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+
+  // Default model for coding tasks - uses GitHub premium
+  "model": "github-copilot/gemini-3.1-pro-preview",
+
+  // Free model for lightweight tasks (titles, summaries)
+  "small_model": "openrouter/minimax/minimax-m2.5",
+
+  "provider": {
+    "github": {
+      "options": {
+        "timeout": 300000,
+      },
+    },
+    // Add OpenRouter for free models
+    "openrouter": {
+      "options": {
+        "timeout": 120000,
+      },
+    },
+  },
+
+  // Custom agents for different use cases
+  "agent": {
+    // Main coding agent - uses GitHub premium
+    "build": {
+      "mode": "primary",
+      "description": "Full-featured development agent for coding tasks",
+      "model": "github/copilot-gpt-4o",
+      "temperature": 0.3,
+      "color": "primary",
+    },
+
+    // Planning agent - uses free model for analysis
+    "plan": {
+      "mode": "primary",
+      "description": "Planning and analysis without code changes",
+      "model": "openrouter/qwen/qwen-2.5-coder-32b-instruct:free",
+      "temperature": 0.1,
+      "tools": {
+        "write": false,
+        "edit": false,
+        "bash": false,
+      },
+      "permission": {
+        "edit": "deny",
+        "bash": "deny",
+      },
+      "color": "accent",
+    },
+
+    // Q&A agent - uses free model for questions
+    "ask": {
+      "mode": "primary",
+      "description": "Answers questions and provides explanations using free models",
+      "model": "openrouter/qwen/qwen-2.5-coder-32b-instruct:free",
+      "temperature": 0.2,
+      "tools": {
+        "write": false,
+        "edit": false,
+        "bash": false,
+      },
+      "permission": {
+        "edit": "deny",
+        "bash": "deny",
+        "write": "deny",
+      },
+      "color": "info",
+    },
+
+    // Exploration agent - free model for codebase exploration
+    "explore": {
+      "mode": "subagent",
+      "description": "Fast codebase exploration and search",
+      "model": "openrouter/qwen/qwen-2.5-coder-32b-instruct:free",
+      "temperature": 0.1,
+      "tools": {
+        "write": false,
+        "edit": false,
+        "bash": false,
+      },
+    },
+
+    // General purpose subagent - uses free model
+    "general": {
+      "mode": "subagent",
+      "description": "General-purpose tasks and research",
+      "model": "openrouter/qwen/qwen-2.5-coder-32b-instruct:free",
+      "temperature": 0.3,
+    },
+  },
+
+  // Default agent is 'build' for coding
+  "default_agent": "build",
+
+  "autoupdate": true,
+
+  "permission": {
+    "bash": "ask",
+    "edit": "ask",
+  },
+
+  "compaction": {
+    "auto": true,
+    "prune": true,
+    "reserved": 10000,
+  },
+
+  "tui": {
+    "scroll_speed": 3,
+    "diff_style": "auto",
+  },
+
+  "share": "manual",
+}
