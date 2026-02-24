@@ -54,7 +54,7 @@
     "ask": {
       "mode": "primary",
       "description": "Answers questions and provides explanations using free models",
-      "model": "opencode/glm-4.7-free",
+      "model": "github-copilot/gpt-5-mini",
       "temperature": 0.2,
       "tools": {
         "write": false,
