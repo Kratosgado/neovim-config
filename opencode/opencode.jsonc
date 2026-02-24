@@ -95,7 +95,7 @@
       "description": "Ultra-fast codebase grep & navigation",
       "model": "opencode/minimax-m2.5-free",
       "temperature": 0.0,
-      "color": "muted",
+      "color": "info",
     },
   },
 
