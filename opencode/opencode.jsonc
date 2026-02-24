@@ -36,7 +36,7 @@
     "plan": {
       "mode": "primary",
       "description": "Planning and analysis without code changes",
-      "model": "opencode/glm-5-free",
+      "model": "opencode/minimax-m2.5-free",
       "temperature": 0.15,
       "tools": {
         "write": false,
@@ -54,7 +54,7 @@
     "ask": {
       "mode": "primary",
       "description": "Answers questions and provides explanations using free models",
-      "model": "opencode/minimax-m2.5-free",
+      "model": "opencode/glm-4.7-free",
       "temperature": 0.2,
       "tools": {
         "write": false,
