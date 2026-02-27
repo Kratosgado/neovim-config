@@ -115,5 +115,10 @@
     "reserved": 10000,
   },
 
+  "tui": {
+    "scroll_speed": 3,
+    "diff_style": "auto",
+  },
+
   "share": "manual",
 }
