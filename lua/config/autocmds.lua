@@ -107,3 +107,4 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   end,
 })
 vim.ui.select = require("snacks.picker").select
+vim.cmd("FzfLua register_ui_select")
