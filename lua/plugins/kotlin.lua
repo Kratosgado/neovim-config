@@ -1,21 +1,26 @@
 return {
   {
     "mason-org/mason.nvim",
-    opts = { ensure_installed = { "ktlint", "kotlin-lsp" } },
+    opts = {
+      ensure_installed = {
+        -- "ktlint",
+        "kotlin-lsp",
+      },
+    },
   },
   {
     "nvim-treesitter/nvim-treesitter",
     opts = { ensure_installed = { "kotlin" } },
   },
 
-  {
-    "mfussenegger/nvim-lint",
-    optional = true,
-    dependencies = "mason-org/mason.nvim",
-    opts = {
-      linters_by_ft = { kotlin = { "ktlint" } },
-    },
-  },
+  -- {
+  --   "mfussenegger/nvim-lint",
+  --   optional = true,
+  --   dependencies = "mason-org/mason.nvim",
+  --   opts = {
+  --     linters_by_ft = { kotlin = { "ktlint" } },
+  --   },
+  -- },
   {
     "mfussenegger/nvim-dap",
     optional = true,
