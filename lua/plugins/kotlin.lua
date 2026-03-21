@@ -1,7 +1,7 @@
 return {
   {
     "mason-org/mason.nvim",
-    opts = { ensure_installed = { "ktlint", "kotlin_lsp" } },
+    opts = { ensure_installed = { "ktlint", "kotlin-lsp" } },
   },
   {
     "nvim-treesitter/nvim-treesitter",
