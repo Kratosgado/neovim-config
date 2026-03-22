@@ -1,7 +1,7 @@
 return {
   -- 1. Prevent Mason from auto-installing the unwanted tools
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = function(_, opts)
       opts.ensure_installed = opts.ensure_installed or {}
       -- Filter out the ones you don't want
@@ -57,7 +57,7 @@ return {
   {
     "mfussenegger/nvim-dap",
     optional = true,
-    dependencies = "williamboman/mason.nvim",
+    dependencies = "mason-org/mason.nvim",
     opts = function()
       local dap = require("dap")
       if not dap.adapters.kotlin then
