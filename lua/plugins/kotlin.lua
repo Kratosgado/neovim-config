@@ -12,6 +12,14 @@ return {
     opts = { ensure_installed = { "kotlin" } },
   },
   {
+    "neovim/nvim-lspconfig",
+    opts = {
+      setup = {
+        kotlin_language_server = false,
+      },
+    },
+  },
+  {
     "stevearc/conform.nvim",
     optional = true,
     opts = {
