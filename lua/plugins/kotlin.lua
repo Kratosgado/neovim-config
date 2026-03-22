@@ -1,16 +1,26 @@
 return {
+  -- 1. Prevent Mason from auto-installing the unwanted tools
   {
-    "mason-org/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "kotlin-lsp",
-      },
-    },
+    "williamboman/mason.nvim",
+    opts = function(_, opts)
+      opts.ensure_installed = opts.ensure_installed or {}
+      -- Filter out the ones you don't want
+      local ignore = { "kotlin-language-server", "ktlint" }
+      opts.ensure_installed = vim.tbl_filter(function(tool)
+        return not vim.tbl_contains(ignore, tool)
+      end, opts.ensure_installed)
+
+      table.insert(opts.ensure_installed, "kotlin-lsp")
+    end,
   },
+
+  -- 2. Keep Treesitter for syntax highlighting
   {
     "nvim-treesitter/nvim-treesitter",
     opts = { ensure_installed = { "kotlin" } },
   },
+
+  -- 3. Explicitly disable the LSP in lspconfig
   {
     "neovim/nvim-lspconfig",
     opts = {
@@ -21,25 +31,33 @@ return {
       },
     },
   },
+
+  -- 4. Disable ktlint in nvim-lint
   {
     "mfussenegger/nvim-lint",
     opts = {
       linters_by_ft = {
-        kotlin = {}, -- Removes ktlint as a linter for Kotlin files
+        kotlin = {},
       },
     },
   },
+
+  -- 5. Disable ktlint in conform.nvim
   {
     "stevearc/conform.nvim",
     optional = true,
     opts = {
-      formatters_by_ft = { kotlin = {} },
+      formatters_by_ft = {
+        kotlin = {},
+      },
     },
   },
+
+  -- 6. Your existing Debug Adapter (DAP) configuration
   {
     "mfussenegger/nvim-dap",
     optional = true,
-    dependencies = "mason-org/mason.nvim",
+    dependencies = "williamboman/mason.nvim",
     opts = function()
       local dap = require("dap")
       if not dap.adapters.kotlin then
@@ -55,13 +73,9 @@ return {
           type = "kotlin",
           request = "launch",
           name = "This file",
-          -- may differ, when in doubt, whatever your project structure may be,
-          -- it has to correspond to the class file located at `build/classes/`
-          -- and of course you have to build before you debug
           mainClass = function()
             local root = vim.fs.find("src", { path = vim.uv.cwd(), upward = true, stop = vim.env.HOME })[1] or ""
             local fname = vim.api.nvim_buf_get_name(0)
-            -- src/main/kotlin/websearch/Main.kt -> websearch.MainKt
             return fname:gsub(root, ""):gsub("main/kotlin/", ""):gsub(".kt", "Kt"):gsub("/", "."):sub(2, -1)
           end,
           projectRoot = "${workspaceFolder}",
@@ -69,10 +83,6 @@ return {
           enableJsonLogging = false,
         },
         {
-          -- Use this for unit tests
-          -- First, run
-          -- ./gradlew --info cleanTest test --debug-jvm
-          -- then attach the debugger to it
           type = "kotlin",
           request = "attach",
           name = "Attach to debugging session",
