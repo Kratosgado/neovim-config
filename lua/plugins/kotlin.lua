@@ -14,8 +14,11 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
-      setup = {
-        kotlin_language_server = false,
+      servers = {
+        -- This tells LazyVim NOT to set up the kotlin language server
+        kotlin_language_server = {
+          enabled = false,
+        },
       },
     },
   },
