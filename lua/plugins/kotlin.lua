@@ -22,6 +22,14 @@ return {
     },
   },
   {
+    "mfussenegger/nvim-lint",
+    opts = {
+      linters_by_ft = {
+        kotlin = {}, -- Removes ktlint as a linter for Kotlin files
+      },
+    },
+  },
+  {
     "stevearc/conform.nvim",
     optional = true,
     opts = {
