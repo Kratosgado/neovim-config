@@ -97,6 +97,15 @@
       "temperature": 0.0,
       "color": "info",
     },
+
+    // Commit agent - commits changes with proper format
+    "commit": {
+      "mode": "subagent",
+      "description": "Commits git changes with conventional commit format",
+      "model": "opencode/minimax-m2.5-free",
+      "temperature": 0.1,
+      "color": "warning",
+    },
   },
 
   // Default agent is 'build' for coding
