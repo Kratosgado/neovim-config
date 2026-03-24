@@ -9,7 +9,7 @@ map({ "i", "c", "o" }, "JK", "<Esc>", { noremap = true, silent = true })
 map("t", "jk", "<C-\\><C-n>", { noremap = true, silent = true })
 map({ "i" }, "jk", function()
   if vim.fn.pumvisible() == 1 then
-    return "<C-e>"
+    return "<C-e>" -- close the popup menu
   else
     return "<Esc>"
   end
