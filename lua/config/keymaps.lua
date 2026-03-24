@@ -16,13 +16,7 @@ map({ "i" }, "jk", function()
 end, { expr = true, noremap = true, silent = true })
 -- Open compiler
 map("n", "<leader>Co", "<cmd>CompilerOpen<cr>", { noremap = true, silent = true })
-map(
-  "n",
-  "<leader>Cr",
-  "<cmd>CompilerStop<cr>" -- (Optional, to dispose all tasks before redo)
-    .. "<cmd>CompilerRedo<cr>",
-  { noremap = true, silent = true }
-)
+map("n", "<leader>Cr", "<cmd>CompilerStop<cr>" .. "<cmd>CompilerRedo<cr>", { noremap = true, silent = true })
 map("n", "<leader>Ct", "<cmd>CompilerToggleResults<cr>", { noremap = true, silent = true })
 
 -- Option 1: Simple mapping with fixed folder + timestamped filename
