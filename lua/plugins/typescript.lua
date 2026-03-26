@@ -108,7 +108,6 @@ return {
         },
       })
     end,
-  },
     -- opts = {
     --   adapters = {
     --     ["neotest-jest"] = {
