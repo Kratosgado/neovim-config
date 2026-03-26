@@ -102,9 +102,7 @@ return {
   },
   {
     "nvim-neotest/neotest",
-    dependencies = {
-      "nvim-neotest/neotest-jest",
-    },
+    dependencies = { "nvim-neotest/neotest-jest" },
     optional = true,
     opts = {
       adapters = {
