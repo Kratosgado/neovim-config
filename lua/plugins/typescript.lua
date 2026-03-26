@@ -105,6 +105,7 @@ return {
       discovery = {
         enabled = false,
       },
+      filter_dirs = { "node_modules", ".git", "dist", "build" },
       adapters = {
         ["neotest-jest"] = {
           jestCommand = "npm test --",
