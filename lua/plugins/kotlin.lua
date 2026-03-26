@@ -53,20 +53,20 @@ return {
     },
   },
   -- lazy.nvim setup
-  {
-    "nvim-neotest/neotest",
-    dependencies = {
-      -- ...
-      "codymikol/neotest-kotlin",
-    },
-    config = function()
-      require("neotest").setup({
-        adapters = {
-          require("neotest-kotlin"),
-        },
-      })
-    end,
-  },
+  -- {
+  --   "nvim-neotest/neotest",
+  --   dependencies = {
+  --     -- ...
+  --     "codymikol/neotest-kotlin",
+  --   },
+  --   config = function()
+  --     require("neotest").setup({
+  --       adapters = {
+  --         require("neotest-kotlin"),
+  --       },
+  --     })
+  --   end,
+  -- },
 
   -- 6. Your existing Debug Adapter (DAP) configuration
   -- {
