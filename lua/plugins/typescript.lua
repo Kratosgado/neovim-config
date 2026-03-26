@@ -102,6 +102,9 @@ return {
     dependencies = { "nvim-neotest/neotest-jest" },
     optional = true,
     opts = {
+      discovery = {
+        enabled = false,
+      },
       adapters = {
         ["neotest-jest"] = {
           jestCommand = "npm test --",
