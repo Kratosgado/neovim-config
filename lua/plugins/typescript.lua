@@ -105,9 +105,6 @@ return {
       adapters = {
         ["neotest-jest"] = {
           jestCommand = "npm test --",
-          jestArguments = function(defaultArguments, context)
-            return defaultArguments
-          end,
           jestConfigFile = "jest.config.ts",
           env = { CI = true },
           cwd = function(path)
