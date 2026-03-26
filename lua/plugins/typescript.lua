@@ -113,7 +113,6 @@ return {
           cwd = function(path)
             return vim.fn.getcwd()
           end,
-          isTestFile = require("neotest-jest.jest-util").defaultIsTestFile,
         },
       },
     },
