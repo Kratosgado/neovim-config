@@ -98,9 +98,6 @@ return {
     end,
   },
   {
-    "nvim-neotest/neotest-jest",
-  },
-  {
     "nvim-neotest/neotest",
     dependencies = { "nvim-neotest/neotest-jest" },
     optional = true,
