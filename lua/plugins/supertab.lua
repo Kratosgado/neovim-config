@@ -1,43 +1,5 @@
 return {
   {
-    "hrsh7th/nvim-cmp",
-    ---@param opts cmp.ConfigSchema
-    opts = function(_, opts)
-      local cmp = require("cmp")
-
-      opts.mapping = vim.tbl_extend("force", opts.mapping, {
-        ["<Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            -- cmp.confirm({ select = true })
-            cmp.select_next_item()
-          elseif vim.snippet.active({ direction = 1 }) then
-            vim.schedule(function()
-              vim.snippet.jump(1)
-            end)
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_prev_item()
-          elseif vim.snippet.active({ direction = -1 }) then
-            vim.schedule(function()
-              vim.snippet.jump(-1)
-            end)
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
-        -- remove enter as completion key
-        -- ["<CR>"] = function(fallback)
-        --   cmp.()
-        --   fallback()
-        -- end,
-      })
-    end,
-  },
-  {
     "abecodes/tabout.nvim",
     lazy = false,
     config = function()
