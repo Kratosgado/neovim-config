@@ -13,7 +13,7 @@ vim.opt.relativenumber = false
 vim.g.lazyvim_blink_main = false
 -- Set to "bacon-ls" to use bacon-ls instead of rust-analyzer.
 vim.g.lazyvim_rust_diagnostics = "rust-analyzer"
-vim.g.lazyvim_picker = "fzf-lua"
+vim.g.lazyvim_picker = "fzf"
 vim.opt.timeoutlen = 100
 
 -- vim.g.lazyvim_prettier_needs_config = true
