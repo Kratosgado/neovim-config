@@ -15,7 +15,7 @@ return {
         volar = {
           init_options = {
             vue = {
-              hybridMode = true,
+              hybridMode = false,
             },
           },
         },
