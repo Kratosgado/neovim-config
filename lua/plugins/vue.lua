@@ -19,7 +19,7 @@ return {
             },
           },
         },
-        -- vue_ls = false,
+        vue_ls = false,
         -- vtsls = {},
       },
     },
