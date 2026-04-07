@@ -19,8 +19,6 @@ return {
             },
           },
         },
-        vue_ls = false,
-        vtsls = {},
       },
     },
   },
