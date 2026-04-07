@@ -53,7 +53,16 @@ return {
           vue = { hybridMode = true },
         },
       }
-
+      opts.servers.tailwindcss = {
+        root_dir = function(fname)
+          if not is_frontend_project(fname) then
+            return nil
+          end
+          return util.root_pattern("tailwind.config.ts", "tailwind.config.js", "tailwind.config.mjs", "package.json")(
+            fname
+          )
+        end,
+      }
       -- vtsls with vue plugin, only in vue/nuxt projects
       opts.servers.vtsls = {
         filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
