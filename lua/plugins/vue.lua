@@ -27,7 +27,7 @@ return {
               or vim.loop.fs_stat(root .. "/nuxt.config.js") ~= nil
               or vim.loop.fs_stat(root .. "/vue.config.js") ~= nil
           end,
-        },,
+        },
       },
     },
   },
