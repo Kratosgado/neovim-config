@@ -52,6 +52,11 @@ return {
           },
         },
         vue_ls = false,
+        tailwindcss = {
+          root_dir = function(fname)
+            return is_frontend_project(fname)
+          end,
+        },
         vtsls = {
           enabled = function()
             local root = vim.loop.cwd()
