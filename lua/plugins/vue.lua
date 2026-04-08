@@ -58,11 +58,8 @@ return {
           end,
         },
         vtsls = {
-          enabled = function()
-            local root = vim.loop.cwd()
-            return vim.loop.fs_stat(root .. "/nuxt.config.ts") ~= nil
-              or vim.loop.fs_stat(root .. "/nuxt.config.js") ~= nil
-              or vim.loop.fs_stat(root .. "/vue.config.ts") ~= nil
+          root_dir = function(fname)
+            return is_vue_project(fname)
           end,
         },
       },
