@@ -34,6 +34,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = function(_, opts)
+      if opts.servers.vtsls then
       table.insert(opts.servers.vtsls.filetypes, "vue")
       LazyVim.extend(opts.servers.vtsls, "settings.vtsls.tsserver.globalPlugins", {
         {
@@ -44,6 +45,7 @@ return {
           enableForWorkspaceTypeScriptVersions = true,
         },
       })
+    end,
     end,
   },
 }
