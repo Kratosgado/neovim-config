@@ -5,6 +5,31 @@ local function is_vue_project(fname)
     fname
   )
 end
+local function is_frontend_project(fname)
+  return util.root_pattern(
+    -- Vue / Nuxt
+    "nuxt.config.ts",
+    "nuxt.config.js",
+    "nuxt.config.mts",
+    "vue.config.ts",
+    "vue.config.js",
+    -- React / Next
+    "next.config.ts",
+    "next.config.js",
+    "next.config.mjs",
+    -- Svelte
+    "svelte.config.js",
+    "svelte.config.ts",
+    -- Astro
+    "astro.config.ts",
+    "astro.config.js",
+    "astro.config.mjs",
+    -- Generic signal — tailwind config itself
+    "tailwind.config.ts",
+    "tailwind.config.js",
+    "tailwind.config.mjs"
+  )(fname)
+end
 return {
   {
     "nvim-treesitter/nvim-treesitter",
