@@ -1,3 +1,10 @@
+local util = require("lspconfig.util")
+
+local function is_vue_project(fname)
+  return util.root_pattern("nuxt.config.ts", "nuxt.config.js", "nuxt.config.mts", "vue.config.ts", "vue.config.js")(
+    fname
+  )
+end
 return {
   {
     "nvim-treesitter/nvim-treesitter",
