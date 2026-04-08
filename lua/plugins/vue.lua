@@ -45,6 +45,8 @@ return {
             enableForWorkspaceTypeScriptVersions = true,
           },
         })
+      else
+        vim.g.lazyvim_ts_lsp = "tsgo"
       end
     end,
   },
