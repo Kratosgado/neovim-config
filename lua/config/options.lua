@@ -16,4 +16,6 @@ vim.g.lazyvim_rust_diagnostics = "rust-analyzer"
 vim.g.lazyvim_picker = "fzf"
 vim.opt.timeoutlen = 100
 
+vim.g.lazyvim_ts_lsp = "vtsls" -- currently the default
+
 -- vim.g.lazyvim_prettier_needs_config = true
