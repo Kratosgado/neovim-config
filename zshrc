@@ -1,10 +1,5 @@
 # If you come from bash you might have to change your $PATH.
 export ZSH_CUSTOM="$HOME/.config/nvim/zsh_custom"
-autoload -Uz compinit
-compinit
-eval "$(zoxide init --cmd cd zsh)"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -101,6 +96,17 @@ esac
 . "$HOME/.atuin/bin/env"
 
 eval "$(atuin init zsh)"
+# Enable bash-style completion and disable menu completion
+autoload -Uz bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
+
+# Tell zsh to use the AWS CLI's official completer
+complete -C '/usr/local/bin/aws_completer' aws
+
+compinit
+eval "$(zoxide init --cmd cd zsh)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
