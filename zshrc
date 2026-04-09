@@ -102,7 +102,7 @@ autoload -Uz compinit && compinit
 compinit
 
 # Tell zsh to use the AWS CLI's official completer
-complete -C '/usr/local/bin/aws_completer' aws
+complete -C '/snap/aws-cli/current/bin/aws_completer' aws
 
 eval "$(zoxide init --cmd cd zsh)"
 
