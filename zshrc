@@ -1,5 +1,4 @@
 # If you come from bash you might have to change your $PATH.
-ZSH_CUSTOM="$HOME/.config/nvim/zsh_custom"
 export ZSH_CUSTOM="$HOME/.config/nvim/zsh_custom"
 autoload -Uz compinit
 compinit
