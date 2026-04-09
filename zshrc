@@ -99,11 +99,11 @@ eval "$(atuin init zsh)"
 # Enable bash-style completion and disable menu completion
 autoload -Uz bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
+compinit
 
 # Tell zsh to use the AWS CLI's official completer
 complete -C '/usr/local/bin/aws_completer' aws
 
-compinit
 eval "$(zoxide init --cmd cd zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
