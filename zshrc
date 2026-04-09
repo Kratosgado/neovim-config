@@ -24,10 +24,11 @@ SAVEHIST=1000
 setopt notify
 bindkey -e
 
+source $ZSH/oh-my-zsh.sh
+
 zstyle :compinstall filename "$HOME/.config/nvim/zshrc"
 plugins=(git aws docker kubectl fzf nvm zsh-autosuggestions zsh-syntax-highlighting)
 
-source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
