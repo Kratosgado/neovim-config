@@ -29,7 +29,7 @@ SAVEHIST=1000
 setopt notify
 bindkey -e
 
-zstyle :compinstall filename '/home/esslifie/.zshrc'
+zstyle :compinstall filename "$HOME/.config/nvim/zshrc"
 plugins=(git aws docker kubectl fzf nvm zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
