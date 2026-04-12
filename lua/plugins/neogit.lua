@@ -22,4 +22,13 @@ return {
       "ibhagwan/fzf-lua",
     },
   },
+  -- {
+  --   "sindrets/diffview.nvim",
+  --
+  --   -- keys = {
+  --   --   { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "Diff" },
+  --   --   { "<leader>gs", "<cmd>DiffviewFileHistory<cr>", desc = "File history" },
+  --   --   { "<leader>gc", "<cmd>DiffviewClose<cr>", desc = "Close diff" },
+  --   -- },
+  -- }
 }
