@@ -44,7 +44,7 @@ return {
         get_credentials = function(client_id, url)
           -- This must return a string (User token)
           -- This is the default function. You can just set the environment variable.
-          return vim.fn.getenv("SONAR_TOKEN")
+          return "squ_690f49b46d891286c43eaa67de768a075be0c9b3"
         end,
       },
       server = {
