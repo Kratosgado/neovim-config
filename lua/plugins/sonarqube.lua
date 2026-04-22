@@ -37,6 +37,16 @@ return {
   -- },
   config = function(_, opts)
     require("sonarlint").setup({
+
+      connected = {
+        -- client_id is the ID of the Sonar LSP
+        -- url is the url it wants to connect to
+        get_credentials = function(client_id, url)
+          -- This must return a string (User token)
+          -- This is the default function. You can just set the environment variable.
+          return vim.fn.getenv("SONAR_TOKEN")
+        end,
+      },
       server = {
         cmd = {
           "sonarlint-language-server",
