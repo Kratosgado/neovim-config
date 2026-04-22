@@ -58,6 +58,46 @@ return {
           vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarcfamily.jar"),
           vim.fn.expand("$MASON/share/sonarlint-analyzers/sonarjava.jar"),
         },
+        settings = {
+          sonarlint = {
+            connectedMode = {
+              connections = {
+                sonarqube = {
+                  {
+                    connectionId = "<server id to use in projects>",
+                    -- this is the url that will go into get_credentials
+                    serverUrl = "https://<sq-domain.yourcompany.com>",
+                    disableNotifications = false,
+                  },
+                },
+                sonarcloud = {
+                  {
+                    connectionId = "<server id to use in projects>",
+                    region = "US", -- or EU
+                    organizationKey = "<organization key from sonarcloud>",
+                    disableNotifications = false,
+                  },
+                },
+              },
+            },
+          },
+        },
+
+        before_init = function(params, config)
+          -- Your personal configuration needs to provide a mapping of root folders and project keys
+          --
+          -- In the future a integration with https://github.com/folke/neoconf.nvim or some similar
+          -- plugin, might be worthwhile.
+          local project_root_and_ids = {
+            ["/path/to/project/root"] = "<project key you to take from sonarqube>",
+            -- … further mappings …
+          }
+
+          config.settings.sonarlint.connectedMode.project = {
+            connectionId = "<server id from above>",
+            projectKey = project_root_and_ids[params.rootPath],
+          }
+        end,
       },
       filetypes = {
         -- Tested and working
