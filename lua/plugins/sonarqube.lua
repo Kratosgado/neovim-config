@@ -66,7 +66,7 @@ return {
                   {
                     connectionId = "<server id to use in projects>",
                     -- this is the url that will go into get_credentials
-                    serverUrl = "https://<sq-domain.yourcompany.com>",
+                    serverUrl = "https://sonar-qube.amalitech-dev.net",
                     disableNotifications = false,
                   },
                 },
