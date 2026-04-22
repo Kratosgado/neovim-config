@@ -64,7 +64,7 @@ return {
               connections = {
                 sonarqube = {
                   {
-                    connectionId = "<server id to use in projects>",
+                    -- connectionId = "<server id to use in projects>",
                     -- this is the url that will go into get_credentials
                     serverUrl = "https://sonar-qube.amalitech-dev.net",
                     disableNotifications = false,
