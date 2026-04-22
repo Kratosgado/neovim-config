@@ -1,6 +1,5 @@
 return {
   "https://gitlab.com/schrieveslaach/sonarlint.nvim.git",
-  dependencies = { "mfussenegger/nvim-jdtls" }, -- Required for Java support
   -- opts = {
   --   server = {
   --
