@@ -86,7 +86,7 @@ return {
           }
 
           config.settings.sonarlint.connectedMode.project = {
-            connectionId = "<server id from above>",
+            -- connectionId = "<server id from above>",
             projectKey = project_root_and_ids[params.rootPath],
           }
         end,
