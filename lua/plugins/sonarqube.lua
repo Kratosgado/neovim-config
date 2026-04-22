@@ -70,14 +70,6 @@ return {
                     disableNotifications = false,
                   },
                 },
-                sonarcloud = {
-                  {
-                    connectionId = "<server id to use in projects>",
-                    region = "US", -- or EU
-                    organizationKey = "<organization key from sonarcloud>",
-                    disableNotifications = false,
-                  },
-                },
               },
             },
           },
