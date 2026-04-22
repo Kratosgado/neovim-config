@@ -4,7 +4,7 @@ return {
   opts = {
     server = {
       -- Replace with your hosted server URL
-      url = "https://sonar-qube.amalitech-dev.net/",
+      url = "https://sonar-qube.amalitech-dev.net",
       -- Provide your generated token here
       token = "your_sonarqube_token",
     },
