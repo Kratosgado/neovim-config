@@ -89,7 +89,7 @@ return {
           -- In the future a integration with https://github.com/folke/neoconf.nvim or some similar
           -- plugin, might be worthwhile.
           local project_root_and_ids = {
-            ["/path/to/project/root"] = "<project key you to take from sonarqube>",
+            ["~/projects/java/auts/"] = "Amali-Tech_achievement-utilization-tracking-backend_534b7bdd-0ea1-4204-9af6-0a079194c59c",
             -- … further mappings …
           }
 
