@@ -106,5 +106,11 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     require("pdfview").open(file_path)
   end,
 })
-vim.ui.select = require("snacks.picker").select
-vim.cmd("FzfLua register_ui_select")
+if not vim.g.vscode then
+  pcall(function()
+    vim.ui.select = require("snacks.picker").select
+  end)
+  pcall(function()
+    vim.cmd("FzfLua register_ui_select")
+  end)
+end
