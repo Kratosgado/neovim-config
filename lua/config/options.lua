@@ -5,7 +5,9 @@
 vim.g.lazyvim_python_lsp = "pyright"
 vim.g.lazyvim_python_ruff = "ruff"
 -- set theme options
-LazyVim.config.colorscheme = "tokyonight-night"
+if not vim.g.vscode then
+  LazyVim.config.colorscheme = "tokyonight-night"
+end
 vim.opt.clipboard = "unnamedplus"
 vim.g.ai_cmp = true
 vim.opt.pumblend = 0

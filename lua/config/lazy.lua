@@ -34,7 +34,7 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { "tokyonight-night" } },
+  install = { colorscheme = vim.g.vscode and { "default" } or { "tokyonight-night", "tokyonight", "habamax" } },
 
   checker = {
     enabled = true, -- check for plugin updates periodically
