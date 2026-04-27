@@ -96,6 +96,7 @@ esac
 . "$HOME/.atuin/bin/env"
 
 eval "$(atuin init zsh)"
+source <(git town completions zsh)
 # Enable bash-style completion and disable menu completion
 autoload -Uz bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
