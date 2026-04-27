@@ -128,13 +128,3 @@ fi
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-git_town_status() {
-  local git_status
-  git_status=$(git town status --pending)
-  if [[ -n "$git_status" ]]; then
-    echo "%K{yellow}%F{black} $git_status %f%k "
-  fi
-}
-
-setopt PROMPT_SUBST
-PROMPT='$(git_town_status)> '
