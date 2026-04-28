@@ -81,7 +81,8 @@ alias gs="git status"
 alias gsw="git-town switch"
 
 alias go="git checkout"
-alias gb="git branch"
+alias gb="git-town branch"
+
 alias push="git push"
 
 export NVM_DIR="$HOME/.nvm"
