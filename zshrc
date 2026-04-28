@@ -38,6 +38,7 @@ source $ZSH/oh-my-zsh.sh
 export ANDROID_HOME=$HOME/Android/Sdk
 export OPENCODE_CONFIG_DIR=$HOME/.config/nvim/opencode/
 export PATH="$HOME/snap/flutter/common/flutter/bin:$PATH"
+export PATH="/snap/bin:$PATH"
 
 export PATH="$HOME/.caa/bin:$PATH"
 # Add Android SDK platform tools to PATH
