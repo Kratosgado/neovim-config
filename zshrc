@@ -81,9 +81,9 @@ alias gs="git status"
 alias gtw="git-town switch"
 alias gts="git-town sync"
 alias gtb="git-town append"
+alias gtb="git-town branch"
 
 alias go="git checkout"
-alias gtb="git-town branch"
 
 alias push="git push"
 
