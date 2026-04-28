@@ -83,7 +83,7 @@ alias gts="git-town sync"
 alias gtb="git-town append"
 
 alias go="git checkout"
-alias gb="git-town branch"
+alias gtb="git-town branch"
 
 alias push="git push"
 
