@@ -85,7 +85,7 @@ local function vscodeMappings()
     callVSCodeFunction("call VSCodeNotify('workbench.files.action.focusFilesExplorer')")
   end, { noremap = true, desc = "focus to file explorer" })
 
-  keymap("n", "<leader>ff", function()
+  keymap("n", "<leader>f", function()
     callVSCodeFunction("call VSCodeNotify('workbench.action.quickOpen')")
   end, { noremap = true, desc = "open files" })
 
