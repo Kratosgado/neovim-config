@@ -43,6 +43,9 @@ keymap({ "n", "v" }, "<leader>fd", "<cmd>lua require('vscode').action('editor.ac
 keymap({ "n", "v" }, "<leader>pa", "<cmd>lua require('vscode').action('projectManager.saveProject')<CR>")
 keymap({ "n", "v" }, "<leader>po", "<cmd>lua require('vscode').action('projectManager.listProjectsNewWindow')<CR>")
 keymap({ "n", "v" }, "<leader>pe", "<cmd>lua require('vscode').action('projectManager.editProjects')<CR>")
+local function callVSCodeFunction(vsCodeCommand)
+  vim.cmd(vsCodeCommand)
+end
 
 local function vscodeMappings()
   map("n", "<C-/>", function()
