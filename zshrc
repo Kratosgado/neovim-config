@@ -79,11 +79,12 @@ alias v=nvim
 alias vi=nvim
 alias c=clear
 alias gs="git status"
-alias gtw="git-town switch"
+alias gt="git-town"
+alias gsw="git-town switch"
 alias gtc="git-town continue"
-alias gts="git-town sync"
+alias gs="git-town sync"
 alias gtbcreate="git-town append"
-alias gtb="git-town branch"
+alias gb="git-town branch"
 
 alias go="git checkout"
 
