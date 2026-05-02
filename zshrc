@@ -82,7 +82,7 @@ alias gs="git status"
 alias gt="git-town"
 alias gsw="git-town switch"
 alias gtc="git-town continue"
-alias gs="git-town sync"
+alias gts="git-town sync"
 alias gtbcreate="git-town append"
 alias gb="git-town branch"
 
