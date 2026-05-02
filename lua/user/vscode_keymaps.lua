@@ -169,5 +169,5 @@ local function vscodeMappings()
     print("✨ Starting new session i kiro")
   end, { noremap = true, silent = true, desc = "start new kiro session" })
 end
-print("⚡connected to neovim!💯‼️🤗😎")
+print("⚡connected to neovim!💯")
 vscodeMappings()
