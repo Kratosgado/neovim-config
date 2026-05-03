@@ -51,7 +51,7 @@ keymap("n", "<leader>|", cmd("workbench.action.splitEditorRight"))
 keymap("n", "<leader>-", cmd("workbench.action.splitEditorDown"))
 
 -- Search (Matches your Space /)
-vim.keymap.set("n", "<leader>/", cmd("workbench.action.findInFiles"))
+keymap("n", "<leader>/", cmd("workbench.action.findInFiles"))
 -- --
 -- -- -- general keymaps
 -- keymap({ "n", "v" }, "<leader>t", "<cmd>lua require('vscode').action('workbench.action.terminal.toggleTerminal')<CR>")
