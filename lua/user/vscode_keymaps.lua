@@ -21,6 +21,10 @@ keymap("v", "p", '"_dP', opts)
 
 -- removes highlighting after escaping vim search
 keymap("n", "<Esc>", "<Esc>:noh<CR>", opts)
+
+keymap("n", "<leader>ff", function()
+  require("vscode").action("workbench.action.quickOpen")
+end, { desc = "Find files" })
 -- --
 -- -- -- general keymaps
 -- keymap({ "n", "v" }, "<leader>t", "<cmd>lua require('vscode').action('workbench.action.terminal.toggleTerminal')<CR>")
