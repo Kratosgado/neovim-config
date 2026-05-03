@@ -1,3 +1,4 @@
+print("🔌 Setting up VS Code keymaps...")
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
