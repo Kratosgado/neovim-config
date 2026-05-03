@@ -34,10 +34,10 @@ local function cmd(name)
 end
 
 -- Navigation / LSP (Matches your gd, gr, K, etc.)
-keymap("n", "K", cmd("editor.action.showHover"))
-keymap("n", "gd", cmd("editor.action.revealDefinition"))
-keymap("n", "gr", cmd("editor.action.goToReferences"))
-keymap("n", "gi", cmd("editor.action.goToImplementation"))
+-- keymap("n", "K", cmd("editor.action.showHover"))
+-- keymap("n", "gd", cmd("editor.action.revealDefinition"))
+-- keymap("n", "gr", cmd("editor.action.goToReferences"))
+-- keymap("n", "gi", cmd("editor.action.goToImplementation"))
 keymap("n", "<leader>ca", cmd("editor.action.quickFix"))
 
 -- File / Buffer Management (Matches your Space b b, Space f f)
