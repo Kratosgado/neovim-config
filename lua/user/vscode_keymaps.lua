@@ -26,6 +26,7 @@ keymap("n", "<leader>ff", function()
   require("vscode").action("workbench.action.quickOpen")
 end, { desc = "Find files" })
 -- Helper function for VS Code commands
+local vscode = require("vscode")
 local function cmd(name)
   return function()
     vscode.call(name)
