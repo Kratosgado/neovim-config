@@ -25,6 +25,32 @@ keymap("n", "<Esc>", "<Esc>:noh<CR>", opts)
 keymap("n", "<leader>ff", function()
   require("vscode").action("workbench.action.quickOpen")
 end, { desc = "Find files" })
+-- Helper function for VS Code commands
+local function cmd(name)
+  return function()
+    vscode.call(name)
+  end
+end
+
+-- Navigation / LSP (Matches your gd, gr, K, etc.)
+vim.keymap.set("n", "K", cmd("editor.action.showHover"))
+vim.keymap.set("n", "gd", cmd("editor.action.revealDefinition"))
+vim.keymap.set("n", "gr", cmd("editor.action.goToReferences"))
+vim.keymap.set("n", "gi", cmd("editor.action.goToImplementation"))
+vim.keymap.set("n", "<leader>ca", cmd("editor.action.quickFix"))
+
+-- File / Buffer Management (Matches your Space b b, Space f f)
+vim.keymap.set("n", "<leader><leader>", cmd("workbench.action.quickOpen"))
+vim.keymap.set("n", "<leader>ff", cmd("workbench.action.quickOpen"))
+vim.keymap.set("n", "<leader>bb", cmd("workbench.action.showAllEditorsByAppearance"))
+vim.keymap.set("n", "<leader>bd", cmd("workbench.action.closeActiveEditor"))
+
+-- Window Splits (Matches your Space | and Space -)
+vim.keymap.set("n", "<leader>|", cmd("workbench.action.splitEditorRight"))
+vim.keymap.set("n", "<leader>-", cmd("workbench.action.splitEditorDown"))
+
+-- Search (Matches your Space /)
+vim.keymap.set("n", "<leader>/", cmd("workbench.action.findInFiles"))
 -- --
 -- -- -- general keymaps
 -- keymap({ "n", "v" }, "<leader>t", "<cmd>lua require('vscode').action('workbench.action.terminal.toggleTerminal')<CR>")
