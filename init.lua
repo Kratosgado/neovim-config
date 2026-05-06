@@ -2,5 +2,7 @@
 if vim.g.vscode then
   -- VSCode extension
   -- require("user.vscode_keymaps")
+
+  vim.o.cmdheight = 4
 end
 require("config.lazy")
