@@ -2,6 +2,7 @@ return {
   {
     "akinsho/git-conflict.nvim",
     version = "*",
+    vscode = true,
     opts = {
       disable_diagnostics = false,
       default_mappings = {
