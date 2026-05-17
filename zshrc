@@ -84,7 +84,7 @@ alias gsw="git-town switch"
 alias gtc="git-town continue"
 alias gts="git-town sync"
 alias gtbcreate="git-town append"
-alias gb="git-town branch"
+alias gtb="git-town branch"
 
 alias go="git checkout"
 
@@ -139,3 +139,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
 
 [ -f ~/.secrets ] && source ~/.secrets
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
