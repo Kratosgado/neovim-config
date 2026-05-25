@@ -86,7 +86,7 @@ alias gtc="git-town continue"
 alias gts="git-town sync"
 alias gtbcreate="git-town append"
 alias gtb="git-town branch"
-alias gftr="git fetch --all && for rb in \$(git branch -r | grep -v '\->' | grep -v 'origin/main'); do lb=\$(echo \$rb | sed 's/origin\///'); git branch --track \$lb \$rb 2>/dev/null; done"
+alias gitfetch="git fetch --all && for rb in \$(git branch -r | grep -v '\->' | grep -v 'origin/main'); do lb=\$(echo \$rb | sed 's/origin\///'); git branch --track \$lb \$rb 2>/dev/null; done"
 
 alias go="git checkout"
 
