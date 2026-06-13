@@ -6,6 +6,7 @@ if vim.g.vscode then
   vim.o.cmdheight = 20
 elseif vim.g.neovide then
   -- vim.env.PATH = vim.env.PATH .. ":/usr/bin:/usr/local/bin:" .. vim.env.HOME .. "/.fzf/bin"
+  vim.env.PATH = os.getenv("HOME") .. "/.local/bin:/usr/local/bin:/usr/bin:/bin:" .. vim.env.PATH
   vim.o.guifont = "ComicShannsMono Nerd Font:h8"
 
   vim.g.neovide_cursor_vfx_mode = "railgun"
