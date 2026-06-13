@@ -3,6 +3,11 @@ return {
     "folke/sidekick.nvim",
     opts = {
       nes = { enabled = true },
+      cli = {
+        tools = {
+          kiro = { cmd = { "kiro-cli" } },
+        },
+      },
     },
     keys = {
       {
