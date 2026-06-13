@@ -30,6 +30,7 @@
   "gradle.nvim": { "branch": "main", "commit": "e3ab14164f5e39af3fbf4eb4dfb8a4dfb344c3dc" },
   "grug-far.nvim": { "branch": "main", "commit": "c995bbacf8229dc096ec1c3d60f8531059c86c1b" },
   "harpoon": { "branch": "harpoon2", "commit": "87b1a3506211538f460786c23f98ec63ad9af4e5" },
+  "hurl.nvim": { "branch": "main", "commit": "0e5430d5130fe95fc1b8b015491b50274aa2e796" },
   "inc-rename.nvim": { "branch": "main", "commit": "0074b551a17338ccdcd299bd86687cc651bcb33d" },
   "kulala.nvim": { "branch": "main", "commit": "2fc8ab5dd15b55b38ed3421689d63cce9fa8a897" },
   "lazy.nvim": { "branch": "main", "commit": "85c7ff3711b730b4030d03144f6db6375044ae82" },
