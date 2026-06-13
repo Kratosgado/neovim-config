@@ -54,7 +54,7 @@ return {
       { "<leader>hv", "<cmd>HurlVerbose<CR>", desc = "Run Api in verbose mode" },
       { "<leader>hV", "<cmd>HurlVeryVerbose<CR>", desc = "Run Api in very verbose mode" },
       -- Run Hurl request in visual mode
-      { "<leader>hh", ":HurlRunner<CR>", desc = "Hurl Runner", mode = "v" },
+      { "<leader>hl", ":HurlRunner<CR>", desc = "Hurl Runner", mode = "v" },
     },
   },
 }
