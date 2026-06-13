@@ -1,4 +1,10 @@
 return {
+  {
+    "iamkarasik/sonarqube.nvim",
+    config = function()
+      require("sonarqube").setup({})
+    end
+}
   { "nvim-neotest/neotest-plenary" },
   {
     "nvim-neotest/neotest",
