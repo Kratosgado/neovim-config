@@ -5,7 +5,7 @@ if vim.g.vscode then
 
   vim.o.cmdheight = 20
 elseif vim.g.neovide then
-  vim.o.guifont = "ComicShannsMono Nerd Font:h10"
+  vim.o.guifont = "ComicShannsMono Nerd Font:h8"
 
   vim.g.neovide_cursor_vfx_mode = "railgun"
   vim.g.neovide_scroll_animation_length = 0.2
