@@ -106,6 +106,14 @@
       "temperature": 0.1,
       "color": "warning",
     },
+
+    "pr": {
+      "mode": "primary",
+      "description": "Pull Requests",
+      "model": "huggingface/moonshotai/Kimi-K2.6",
+      "temperature": 0.1,
+      "color": "warning",
+    },
   },
 
   // Default agent is 'build' for coding
