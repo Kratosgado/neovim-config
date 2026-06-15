@@ -93,7 +93,7 @@
     "search": {
       "mode": "subagent",
       "description": "Ultra-fast codebase grep & navigation",
-      "model": "huggingface/moonshotai/Kimi-K2.6",
+      "model": "google/gemini-3.1-flash-lite",
       "temperature": 0.0,
       "color": "info",
     },
