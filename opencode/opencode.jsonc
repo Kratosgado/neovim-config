@@ -87,7 +87,7 @@
     "general": {
       "mode": "subagent",
       "description": "General-purpose tasks and research",
-      "model": "huggingface/moonshotai/Kimi-K2.6",
+      "model": "google/gemini-3.1-flash-lite",
       "temperature": 0.3,
     },
     "search": {
