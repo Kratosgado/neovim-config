@@ -87,13 +87,13 @@
     "general": {
       "mode": "subagent",
       "description": "General-purpose tasks and research",
-      "model": "opencode/minimax-m2.5-free",
+      "model": "huggingface/moonshotai/Kimi-K2.6",
       "temperature": 0.3,
     },
     "search": {
       "mode": "subagent",
       "description": "Ultra-fast codebase grep & navigation",
-      "model": "opencode/minimax-m2.5-free",
+      "model": "huggingface/moonshotai/Kimi-K2.6",
       "temperature": 0.0,
       "color": "info",
     },
