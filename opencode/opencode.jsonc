@@ -36,7 +36,7 @@
     "plan": {
       "mode": "primary",
       "description": "Planning and analysis without code changes",
-      "model": "opencode/minimax-m2.5-free",
+      "model": "huggingface/moonshotai/Kimi-K2.6",
       "temperature": 0.15,
       "tools": {
         "write": false,
