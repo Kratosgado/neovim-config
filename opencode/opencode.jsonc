@@ -112,7 +112,7 @@
       "description": "Pull Requests",
       "model": "huggingface/moonshotai/Kimi-K2.6",
       "temperature": 0.1,
-      "color": "warning",
+      "color": "info",
     },
   },
 
