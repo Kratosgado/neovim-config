@@ -108,9 +108,10 @@
     },
 
     "pr": {
-      "mode": "primary",
+      "mode": "subagent",
       "description": "Pull Requests",
       "model": "huggingface/moonshotai/Kimi-K2.6",
+      "prompt": "create a well structure pr for this branch, use git-town diff-parent to know what changed. the base should be set to the parent of the branch",
       "temperature": 0.1,
       "color": "info",
     },
