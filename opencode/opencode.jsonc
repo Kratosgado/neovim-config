@@ -54,7 +54,7 @@
     "ask": {
       "mode": "primary",
       "description": "Answers questions and provides explanations using free models",
-      "model": "github-copilot/gpt-5-mini",
+      "model": "huggingface/moonshotai/Kimi-K2.6",
       "temperature": 0.2,
       "tools": {
         "write": false,
@@ -73,7 +73,7 @@
     "explore": {
       "mode": "subagent",
       "description": "Fast codebase exploration and search",
-      "model": "opencode/minimax-m2.5-free",
+      "model": "huggingface/moonshotai/Kimi-K2.6",
       "temperature": 0.1,
       "color": "success",
       "tools": {
