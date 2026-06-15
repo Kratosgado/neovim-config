@@ -50,6 +50,7 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
 export PATH="$HOME/.local/bin:$PATH"
 export CARGO_TARGET_DIR="$HOME/.cache/cargo"
+export PATH="$HOME/.cargo/bin:$PATH"
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
