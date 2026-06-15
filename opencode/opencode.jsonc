@@ -102,7 +102,7 @@
     "commit": {
       "mode": "subagent",
       "description": "Commits git changes with conventional commit format",
-      "model": "opencode/minimax-m2.5-free",
+      "model": "huggingface/moonshotai/Kimi-K2.6",
       "temperature": 0.1,
       "color": "warning",
     },
