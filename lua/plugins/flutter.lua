@@ -8,11 +8,6 @@ return {
     },
     config = function()
       require("flutter-tools").setup({
-        lsp = {
-          color = {
-            enabled = true,
-          },
-        },
         decorations = {
           statusline = {
             app_version = true,
