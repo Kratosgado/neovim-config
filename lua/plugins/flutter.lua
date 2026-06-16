@@ -8,6 +8,7 @@ return {
     },
     config = function()
       require("flutter-tools").setup({
+        flutter_path = "/home/esslifie/snap/flutter/common/flutter/bin/flutter",
         decorations = {
           statusline = {
             app_version = true,
