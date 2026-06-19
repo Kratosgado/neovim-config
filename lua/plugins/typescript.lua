@@ -1,4 +1,39 @@
 return {
+
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      -- 1. Turn on Neovim's global CodeLens support
+      codelens = {
+        enabled = true,
+      },
+      -- 2. Pass settings specific to the TypeScript LSP (vtsls)
+      servers = {
+        vtsls = {
+          settings = {
+            typescript = {
+              referencesCodeLens = {
+                enabled = true, -- Shows "X references"
+                showOnAllFunctions = true,
+              },
+              implementationsCodeLens = {
+                enabled = true, -- Shows "X implementations"
+              },
+            },
+            javascript = {
+              referencesCodeLens = {
+                enabled = true,
+                showOnAllFunctions = true,
+              },
+              implementationsCodeLens = {
+                enabled = true,
+              },
+            },
+          },
+        },
+      },
+    },
+  },
   {
     "mfussenegger/nvim-dap",
     optional = true,
