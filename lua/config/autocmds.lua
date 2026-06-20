@@ -77,27 +77,6 @@ vim.api.nvim_create_autocmd("User", {
   end,
 })
 
--- Obsidian
-vim.api.nvim_create_autocmd("User", {
-  pattern = "ObsidianNoteEnter",
-  callback = function(ev)
-    local actions = require("obsidian.actions")
-    vim.keymap.set("n", "<leader>ch", "<cmd>Obsidian toggle_checkbox<cr>", {
-      buffer = true,
-      desc = "Toggle checkbox",
-    })
-
-    vim.keymap.set("n", "<leader><CR>", require("obsidian.api").smart_action, { buffer = true })
-    vim.keymap.set("n", "<leader>;", actions.add_property, { buffer = true, desc = "Add frontmatter property" })
-    vim.keymap.set("n", "<Tab>", function()
-      actions.nav_link("next")
-    end, { buffer = true, desc = "Go to next link" })
-    vim.keymap.set("n", "<S-Tab>", function()
-      actions.nav_link("prev")
-    end, { buffer = true, desc = "Go to previous link" })
-  end,
-})
-
 -- Open PDFs with PDFview
 vim.api.nvim_create_autocmd("BufReadPost", {
   pattern = "*.pdf",
