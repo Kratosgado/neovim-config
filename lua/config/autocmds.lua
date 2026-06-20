@@ -76,20 +76,3 @@ vim.api.nvim_create_autocmd("User", {
     end)
   end,
 })
-
--- Open PDFs with PDFview
-vim.api.nvim_create_autocmd("BufReadPost", {
-  pattern = "*.pdf",
-  callback = function()
-    local file_path = vim.api.nvim_buf_get_name(0)
-    require("pdfview").open(file_path)
-  end,
-})
-if not vim.g.vscode then
-  pcall(function()
-    vim.ui.select = require("snacks.picker").select
-  end)
-  pcall(function()
-    vim.cmd("FzfLua register_ui_select")
-  end)
-end
