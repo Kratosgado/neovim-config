@@ -1,30 +1,30 @@
-return {
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        yamlls = {
-          settings = {
-            yaml = {
-              validate = true,
-              schemaStore = {
-                enable = true, -- Pulls schemas globally from SchemaStore
-              },
-              -- Bind CloudFormation schemas based on your project patterns
-              schemas = {
-                ["https://githubusercontent.com"] = {
-                  "*.cf.yaml",
-                  "*.cf.yml",
-                  "cloudformation.yaml",
-                  "cloudformation.yml",
-                  "template.yaml",
-                  "template.yml",
-                },
-              },
-            },
-          },
-        },
-      },
-    },
-  },
-}
+-- return {
+--   {
+--     "neovim/nvim-lspconfig",
+--     opts = {
+--       servers = {
+--         yamlls = {
+--           settings = {
+--             yaml = {
+--               validate = true,
+--               schemaStore = {
+--                 enable = true, -- Pulls schemas globally from SchemaStore
+--               },
+--               -- Bind CloudFormation schemas based on your project patterns
+--               schemas = {
+--                 ["https://githubusercontent.com"] = {
+--                   "*.cf.yaml",
+--                   "*.cf.yml",
+--                   "cloudformation.yaml",
+--                   "cloudformation.yml",
+--                   "template.yaml",
+--                   "template.yml",
+--                 },
+--               },
+--             },
+--           },
+--         },
+--       },
+--     },
+--   },
+-- }
