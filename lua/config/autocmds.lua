@@ -5,6 +5,14 @@
 -- Dev.sh project automation
 
 local dev_sh_autocmds = vim.api.nvim_create_augroup("DevShAutocmds", { clear = true })
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    local arg = vim.fn.argv(0)
+    if arg and vim.fn.isdirectory(arg) == 1 then
+      require("mini.files").open(arg, true)
+    end
+  end,
+})
 
 -- Track current project to avoid duplicate executions
 local current_project_root = nil
