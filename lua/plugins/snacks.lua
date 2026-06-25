@@ -11,6 +11,7 @@ return {
         enabled = false,
         sources = {
           explorer = {
+            enabled = false,
             layout = {
               layout = {
                 position = "right",
