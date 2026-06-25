@@ -17,11 +17,6 @@ return {
         end,
         desc = "Open mini.files (root)",
       },
-      {
-        "<leader>fm",
-        function() end,
-        desc = "Open mini.files (root)",
-      },
     },
     config = function()
       require("mini.files").setup({
