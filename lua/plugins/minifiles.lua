@@ -32,17 +32,6 @@ return {
         open = "<CR>",
       },
     },
-    config = function(_, opts)
-      require("mini.files").setup(opts)
-      vim.api.nvim_create_autocmd("VimEnter", {
-        callback = function()
-          local arg = vim.fn.argv(0)
-          if arg and vim.fn.isdirectory(arg) == 1 then
-            require("mini.files").open(arg, true)
-          end
-        end,
-      })
-    end,
   },
   {
     "nvim-mini/mini.diff",
