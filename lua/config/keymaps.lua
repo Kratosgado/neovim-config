@@ -37,12 +37,3 @@ vim.keymap.set({ "n", "x" }, "<leader>cs", function()
     end
   end)
 end, { desc = "CodeSnap: Save (prompt)" })
-
--- map({ "n", "<leader>cr", vim.lsp.buf.rename, {
---   buffer = true,
---   desc = "Rename Symbol ",
--- } })
-vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, {
-  buffer = true,
-  desc = "Rename Symbol (Standard)",
-})
