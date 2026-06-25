@@ -26,7 +26,7 @@ return {
           width_preview = 80,
         },
         options = {
-          use_as_default_explorer = false,
+          use_as_default_explorer = true,
         },
         mappings = {
           close = "jk", -- Close file explorer
