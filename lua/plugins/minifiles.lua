@@ -17,10 +17,10 @@ return {
           open = "<CR>", -- Open file
         },
       })
-      -- Keymap to open mini.files
-      -- vim.keymap.set("n", "<leader>e", function()
-      --   require("mini.files").open(vim.fn.getcwd())
-      -- end, { desc = "Open Mini Files" })
+      Keymap to open mini.files
+      vim.keymap.set("n", "<leader>e", function()
+        require("mini.files").open(vim.fn.getcwd())
+      end, { desc = "Open Mini Files" })
     end,
   },
   {
