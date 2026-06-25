@@ -5,6 +5,8 @@
 -- Dev.sh project automation
 
 local dev_sh_autocmds = vim.api.nvim_create_augroup("DevShAutocmds", { clear = true })
+
+-- Open MiniFiles
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
     local arg = vim.fn.argv(0)
