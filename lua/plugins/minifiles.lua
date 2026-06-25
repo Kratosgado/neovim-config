@@ -13,15 +13,13 @@ return {
       {
         "<leader>E",
         function()
-          require("mini.files").open(vim.uv.cwd(), true)
+          require("mini.files").open(LazyVim.root(), true)
         end,
-        desc = "Open mini.files (cwd)",
+        desc = "Open mini.files (root)",
       },
       {
         "<leader>fm",
-        function()
-          require("mini.files").open(LazyVim.root(), true)
-        end,
+        function() end,
         desc = "Open mini.files (root)",
       },
     },
