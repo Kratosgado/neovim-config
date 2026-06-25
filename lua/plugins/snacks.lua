@@ -7,18 +7,18 @@ return {
       image = { enabled = true },
       explorer = { enabled = false },
       quickfile = { enabled = true },
-      picker = {
-        enabled = false,
-        sources = {
-          explorer = {
-            layout = {
-              layout = {
-                position = "right",
-              },
-            },
-          },
-        },
-      },
+      -- picker = {
+      --   enabled = false,
+      --   sources = {
+      --     explorer = {
+      --       layout = {
+      --         layout = {
+      --           position = "right",
+      --         },
+      --       },
+      --     },
+      --   },
+      -- },
     },
   },
 }
