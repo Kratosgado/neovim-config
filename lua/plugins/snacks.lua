@@ -5,7 +5,7 @@ return {
     opts = {
       bigfile = { enabled = true },
       image = { enabled = true },
-      -- explorer = { enabled = false },
+      explorer = { enabled = false },
       quickfile = { enabled = true },
       picker = {
         enabled = false,
