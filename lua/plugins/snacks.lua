@@ -2,6 +2,11 @@ return {
   {
     "folke/snacks.nvim",
     ---@class snacks.Config
+    ---
+    keys = {
+      { "<leader>e", false },
+      { "<leader>E", false },
+    },
     opts = {
       bigfile = { enabled = true },
       image = { enabled = true },
