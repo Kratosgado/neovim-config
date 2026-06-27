@@ -12,6 +12,8 @@ vim.opt.clipboard = "unnamedplus"
 vim.g.ai_cmp = true
 vim.opt.pumblend = 0
 vim.opt.relativenumber = false
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 vim.g.lazyvim_blink_main = false
 -- Set to "bacon-ls" to use bacon-ls instead of rust-analyzer.
