@@ -1,9 +1,4 @@
 return {
-  -- Automated JSON/YAML schemas
-  {
-    "b0o/SchemaStore.nvim",
-    version = false, -- Highly recommended to use latest
-  },
   -- LSP Configuration
   {
     "neovim/nvim-lspconfig",
