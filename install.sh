@@ -11,6 +11,6 @@ ln -s ~/.config/nvim/zshrc ~/.zshrc
 
 # 4. Setup Kitty Symlink
 rm -rf ~/.config/kitty
-ln -s ~/.config/nvim/kitty ~/.config/kitty
+ln -s ~/.config/nvim/kitty ~/.config/
 
 echo "Setup complete! Please restart your terminal or run 'source ~/.zshrc'"
