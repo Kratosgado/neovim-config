@@ -17,4 +17,8 @@ ln -s ~/.config/nvim/zshrc ~/.zshrc
 # This assumes you moved your 'custom' folder to 'zsh_custom' inside your nvim repo
 ln -s ~/.config/nvim/zsh_custom ~/.oh-my-zsh/custom
 
+# 3. Setup Kitty Symlink
+rm -rf ~/.config/kitty
+ln -s ~/.config/nvim/kitty ~/.config/kitty
+
 echo "Setup complete! Please restart your terminal or run 'source ~/.zshrc'"
