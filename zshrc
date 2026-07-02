@@ -1,6 +1,4 @@
 # If you come from bash you might have to change your $PATH.
-export ZSH_CUSTOM="$HOME/.config/nvim/zsh_custom"
-
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
