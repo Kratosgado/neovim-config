@@ -7,7 +7,7 @@ The ticket key is: $ARGUMENTS
 Run these commands to gather context:
 
 - `git-town diff-parent` — to see what changed on this branch vs its parent
-- `git-town branch` — to identify the parent branch and the crrent branch (use it as the PR base)
+- `git-town branch` — to identify the parent branch (use it as the PR base) and the crrent branch
 
 ## 2. Create the pull request
 
