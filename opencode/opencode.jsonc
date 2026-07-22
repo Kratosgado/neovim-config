@@ -136,12 +136,10 @@
 
   // MCP servers
   "mcp": {
-    "mcp": {
-      "jira": {
-        "type": "remote",
-        "url": "https://mcp.atlassian.com/v1/sse",
-        "enabled": true,
-      },
+    "jira": {
+      "type": "remote",
+      "url": "https://mcp.atlassian.com/v1/sse",
+      "enabled": true,
     },
   },
 
