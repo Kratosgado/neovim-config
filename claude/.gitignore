@@ -1,0 +1,23 @@
+# Secrets
+.credentials.json
+
+# Runtime / cache
+backups/
+cache/
+debug/
+downloads/
+file-history/
+history.jsonl
+ide/
+.last-cleanup
+mcp-needs-auth-cache.json
+paste-cache/
+plans/
+policy-limits.json
+projects/
+remote-settings.json
+session-env/
+sessions/
+shell-snapshots/
+stats-cache.json
+tasks/

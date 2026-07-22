@@ -1,0 +1,53 @@
+{
+  "env": {
+    "CCGUI_CLI_LOGIN_AUTHORIZED": "1",
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1"
+  },
+  "includeCoAuthoredBy": false,
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "Bash(mvn clean compile:*)",
+      "mcp__plugin_postman_postman__getAllSpecs",
+      "mcp__plugin_postman_postman__getCollection",
+      "mcp__plugin_postman_postman__createCollectionFolder",
+      "mcp__plugin_postman_postman__transferCollectionFolders",
+      "Bash(dart run *)",
+      "Bash(flutter analyze *)",
+      "Bash(grep -v \"^$\")",
+      "mcp__plugin_postman_postman__deleteCollectionFolder",
+      "mcp__plugin_postman_postman__createCollectionRequest",
+      "Bash(python3 -c ' *)",
+      "mcp__claude_ai_Atlassian__searchJiraIssuesUsingJql",
+      "mcp__claude_ai_Atlassian__getJiraIssue",
+      "Bash(grep -E \"\\\\.java$\")",
+      "Bash(python3)",
+      "Bash(grep -iE \"\\\\.\\(java|graphql|yml|yaml\\)$\")",
+      "Bash(git-town diff-parent *)",
+      "mcp__plugin_postman_postman__getCollectionFolder",
+      "mcp__plugin_postman_postman__updateCollectionRequest",
+      "mcp__plugin_postman_postman__getCollectionRequest",
+      "Bash(git remote *)",
+      "Bash(gh api *)",
+      "Bash(gh secret *)",
+      "Bash(git-town status *)",
+      "Bash(git push *)",
+      "Bash(gh pr create --base develop --title 'feat\\(bonus\\): replace BonusScore with PiEarnedBonus/MonthlyEarnedBonus models' --body ' *)"
+    ],
+    "defaultMode": "default"
+  },
+  "enabledPlugins": {
+    "jdtls-lsp@claude-plugins-official": true,
+    "postman@claude-plugins-official": true,
+    "github@claude-plugins-official": true,
+    "atlassian@claude-plugins-official": true,
+    "figma@claude-plugins-official": true,
+    "supabase@claude-plugins-official": true,
+    "lua-lsp@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "kotlin-lsp@claude-plugins-official": true
+  },
+  "effortLevel": "high",
+  "theme": "auto",
+  "skipAutoPermissionPrompt": true
+}
