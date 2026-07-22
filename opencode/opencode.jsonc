@@ -109,11 +109,39 @@
 
     "pr": {
       "mode": "subagent",
-      "description": "Pull Requests",
+      "description": "Creates a PR and comments on the Jira ticket in plain language",
       "model": "huggingface/moonshotai/Kimi-K2.6",
-      "prompt": "use git-town diff-parent to know what changed and git-town branch to know the parent of this branch and create a pr for it. then comment on ticket i give you on what has been done, it shouldn't be too technical",
+      "prompt": "Use git-town diff-parent to know what changed and git-town branch to know the parent of this branch, then create a PR with the parent as the base. After creating the PR, comment on the Jira ticket the user provides explaining what was done in plain, non-technical language — as if explaining to a product manager. Keep it to 2-4 sentences.",
       "temperature": 0.1,
       "color": "info",
+    },
+
+    "review-diff": {
+      "mode": "subagent",
+      "description": "Reviews branch changes using git-town diff-parent",
+      "model": "github-copilot/gemini-3.1-pro-preview",
+      "prompt": "Use git-town diff-parent to get the diff of changes on this branch vs its parent. Review the changes for: correctness, edge cases, security issues, code quality, and consistency with existing patterns. Report findings as: Summary (one sentence), Issues (ordered by severity), Suggestions (non-blocking), and a Verdict (Approve / Request changes / Needs discussion).",
+      "temperature": 0.1,
+      "color": "warning",
+      "tools": {
+        "write": false,
+        "edit": false,
+      },
+      "permission": {
+        "edit": "deny",
+        "write": "deny",
+      },
+    },
+  },
+
+  // MCP servers
+  "mcp": {
+    "mcp": {
+      "jira": {
+        "type": "remote",
+        "url": "https://mcp.atlassian.com/v1/sse",
+        "enabled": true,
+      },
     },
   },
 
