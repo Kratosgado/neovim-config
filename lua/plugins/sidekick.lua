@@ -6,6 +6,7 @@ return {
       cli = {
         tools = {
           kiro = { cmd = { "kiro-cli" } },
+          claude = { cmd = { "claude" } },
         },
       },
     },
@@ -83,13 +84,26 @@ return {
         mode = { "n", "x" },
         desc = "Sidekick Select Prompt",
       },
-      -- Example of a keybinding to open Claude directly
       {
         "<leader>ao",
         function()
           require("sidekick.cli").toggle({ name = "opencode", focus = true })
         end,
         desc = "Sidekick Toggle Opencode",
+      },
+      {
+        "<leader>ac",
+        function()
+          require("sidekick.cli").toggle({ name = "claude", focus = true })
+        end,
+        desc = "Sidekick Toggle Claude",
+      },
+      {
+        "<leader>ak",
+        function()
+          require("sidekick.cli").toggle({ name = "kiro", focus = true })
+        end,
+        desc = "Sidekick Toggle Kiro",
       },
     },
   },
