@@ -21,3 +21,12 @@ sessions/
 shell-snapshots/
 stats-cache.json
 tasks/
+
+# Plugin runtime data (downloaded/generated, not user config)
+plugins/cache/
+plugins/data/
+plugins/install-counts-cache.json
+plugins/known_marketplaces.json
+plugins/marketplaces/
+plugins/plugin-catalog-cache.json
+plugins/.last_inuse_sweep

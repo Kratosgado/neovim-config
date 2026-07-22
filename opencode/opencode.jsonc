@@ -111,7 +111,7 @@
       "mode": "subagent",
       "description": "Pull Requests",
       "model": "huggingface/moonshotai/Kimi-K2.6",
-      "prompt": "create a well structure pr for this branch, use git-town diff-parent to know what changed. the base should be set to the parent of the branch",
+      "prompt": "use git-town diff-parent to know what changed and git-town branch to know the parent of this branch and create a pr for it. then comment on ticket i give you on what has been done, it shouldn't be too technical",
       "temperature": 0.1,
       "color": "info",
     },
