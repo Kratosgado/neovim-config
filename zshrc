@@ -60,6 +60,7 @@ fi
 alias mvc="mvn clean compile"
 alias mvv="mvn clean verify"
 alias mvnspring="mvn clean spring-boot:run"
+alias mvtest="mvn clean test"
 
 # vim aliases
 alias zshconfig="nvim ~/.zshrc"
