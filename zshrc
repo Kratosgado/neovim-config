@@ -61,6 +61,7 @@ alias mvnc="mvn clean compile"
 alias mvnv="mvn clean verify"
 alias mvnspring="mvn clean spring-boot:run"
 alias mvntest="mvn clean test"
+alias mvncheckstyle="mvn clean checkstyle:check"
 
 # vim aliases
 alias zshconfig="nvim ~/.zshrc"
