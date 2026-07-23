@@ -56,6 +56,11 @@ else
   export EDITOR='nvim'
 fi
 
+# Maven aliases
+alias mvc="mvn clean compile"
+alias mvv="mvn clean verify"
+alias mvnspring="mvn clean spring-boot:run"
+
 # vim aliases
 alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
