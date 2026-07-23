@@ -57,10 +57,10 @@ else
 fi
 
 # Maven aliases
-alias mvc="mvn clean compile"
-alias mvv="mvn clean verify"
+alias mvnc="mvn clean compile"
+alias mvnv="mvn clean verify"
 alias mvnspring="mvn clean spring-boot:run"
-alias mvtest="mvn clean test"
+alias mvntest="mvn clean test"
 
 # vim aliases
 alias zshconfig="nvim ~/.zshrc"
