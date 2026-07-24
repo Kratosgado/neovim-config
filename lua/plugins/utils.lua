@@ -7,7 +7,7 @@ return {
   -- },
   {
     "~/projects/configs/sonarqube.nvim",
-    name = "sonarqube.nvim",
+    name = "sonarqube-k.nvim",
     config = function()
       require("sonarqube").setup({})
     end,
