@@ -9,7 +9,7 @@ return {
     dir = "~/projects/configs/sonarqube.nvim",
     name = "sonarqube-k.nvim",
     config = function()
-      require("sonarqube").setup({})
+      require("sonarqube-k").setup({})
     end,
   },
   { "nvim-neotest/neotest-plenary" },
