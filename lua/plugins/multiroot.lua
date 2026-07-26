@@ -1,8 +1,8 @@
 return {
   {
-    -- dir = "~/projects/configs/multiroot.nvim",
-    -- name = "multiroot.nvim",
-    "kratosgado/multiroot.nvim",
+    dir = "~/projects/configs/multiroot.nvim",
+    name = "multiroot.nvim",
+    -- "kratosgado/multiroot.nvim",
     event = "VeryLazy",
     opts = {
       keys_when_active = {
