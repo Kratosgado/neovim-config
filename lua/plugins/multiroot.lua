@@ -11,7 +11,7 @@ return {
         { "<leader>qa", ":WorkspaceAddFolder<cr>", desc = "Workspace: add folder" },
         { "<leader>qi", ":WorkspaceList<cr>", desc = "Workspace: info" },
         { "<C-/>", ":WorkspaceTerm<cr>", desc = "Workspace: terminal in folder" },
-        { "<leader>qT", ":WorkspaceTermRun", desc = "Workspace: run named terminal" },
+        { "<leader>qT", ":WorkspaceTermRun<cr>", desc = "Workspace: run named terminal" },
       },
     },
     keys = {
