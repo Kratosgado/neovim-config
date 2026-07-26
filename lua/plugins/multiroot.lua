@@ -5,16 +5,18 @@ return {
     event = "VeryLazy",
     opts = {
       keys_when_active = {
-        { "<leader>qc", "<cmd>WorkspaceClose<cr>", desc = "Workspace: close" },
-        { "<leader><leader>", "<cmd>WorkspaceFiles<cr>", desc = "Workspace: files" },
-        { "<leader>/", "<cmd>WorkspaceGrep<cr>", desc = "Workspace: grep" },
-        { "<leader>qa", "<cmd>WorkspaceAddFolder<cr>", desc = "Workspace: add folder" },
-        { "<leader>qi", "<cmd>WorkspaceList<cr>", desc = "Workspace: info" },
+        { "<leader>qc", ":WorkspaceClose", desc = "Workspace: close" },
+        { "<leader><leader>", ":WorkspaceFiles", desc = "Workspace: files" },
+        { "<leader>/", ":WorkspaceGrep", desc = "Workspace: grep" },
+        { "<leader>qa", ":WorkspaceAddFolder", desc = "Workspace: add folder" },
+        { "<leader>qi", ":WorkspaceList", desc = "Workspace: info" },
+        { "<leader>qt", ":WorkspaceTerm", desc = "Workspace: terminal in folder" },
+        { "<leader>qT", ":WorkspaceTermRun", desc = "Workspace: run named terminal" },
       },
     },
     keys = {
-      { "<leader>qo", "<cmd>WorkspaceOpen<cr>", desc = "Workspace: open" },
-      { "<leader>qr", "<cmd>WorkspaceRecent<cr>", desc = "Workspace: recent" },
+      { "<leader>qo", ":WorkspaceOpen", desc = "Workspace: open" },
+      { "<leader>qr", ":WorkspaceRecent", desc = "Workspace: recent" },
     },
   },
 }
