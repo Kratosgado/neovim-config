@@ -15,8 +15,8 @@ return {
       },
     },
     keys = {
-      { "<leader>qo", ":WorkspaceOpen", desc = "Workspace: open" },
-      { "<leader>qr", ":WorkspaceRecent", desc = "Workspace: recent" },
+      { "<leader>qo", ":WorkspaceOpen<cr>", desc = "Workspace: open" },
+      { "<leader>qr", ":WorkspaceRecent<cr>", desc = "Workspace: recent" },
     },
   },
 }
