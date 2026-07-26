@@ -12,7 +12,7 @@ return {
         { "<leader>qa", ":WorkspaceAddFolder<cr>", desc = "Workspace: add folder" },
         { "<leader>qi", ":WorkspaceList<cr>", desc = "Workspace: info" },
         { "<C-/>", ":WorkspaceTerm<cr>", desc = "Workspace: terminal in folder" },
-        { "<leader>qT", ":WorkspaceTermRun<cr>", desc = "Workspace: run named terminal" },
+        { "<leader>qt", ":WorkspaceTermRun<cr>", desc = "Workspace: run named terminal" },
         { "<leader>qx", ":WorkspaceTask<cr>", desc = "Workspace: run task" },
         { "<leader>qe", ":WorkspaceEdit<cr>", desc = "Workspace: edit file" },
       },
