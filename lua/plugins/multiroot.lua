@@ -1,7 +1,8 @@
 return {
   {
-    dir = "~/projects/configs/multiroot.nvim",
-    name = "multiroot.nvim",
+    -- dir = "~/projects/configs/multiroot.nvim",
+    -- name = "multiroot.nvim",
+    "kratosgado/multiroot.nvim",
     event = "VeryLazy",
     opts = {
       keys_when_active = {
@@ -12,6 +13,8 @@ return {
         { "<leader>qi", ":WorkspaceList<cr>", desc = "Workspace: info" },
         { "<C-/>", ":WorkspaceTerm<cr>", desc = "Workspace: terminal in folder" },
         { "<leader>qT", ":WorkspaceTermRun<cr>", desc = "Workspace: run named terminal" },
+        { "<leader>qx", ":WorkspaceTask<cr>", desc = "Workspace: run task" },
+        { "<leader>qe", ":WorkspaceEdit<cr>", desc = "Workspace: edit file" },
       },
     },
     keys = {
