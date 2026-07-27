@@ -12,7 +12,16 @@ return {
       image = { enabled = true },
       explorer = { enabled = false },
       quickfile = { enabled = true },
-      lazygit = { enabled = true, configure = true },
+      lazygit = {
+        enabled = true,
+        configure = true,
+        config = {
+          os = {
+            edit = "nvr --remote-tab-silent {{filename}}",
+            editAtLine = "nvr +{{line}} --remote-tab-silent {{filename}}",
+          },
+        },
+      },
       picker = {
         enabled = false,
         sources = {
