@@ -2,8 +2,7 @@
 git:
   pagers:
     - colorArg: always
-      pager: delta --dark --paging=never --line-numbers
-      syntaxTheme: tokyonight_night
+      pager: delta --dark --paging=never --line-numbers --syntax-theme=tokyonight_night
 customCommands:
   - key: "Y"
     context: "global"
