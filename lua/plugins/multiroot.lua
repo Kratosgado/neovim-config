@@ -22,6 +22,9 @@ return {
           Snacks.terminal.open("lazygit", { cwd = cwd })
         end,
       },
+      on_buf_enter = {
+        lcd = true,
+      },
     },
     keys = {
       { "<leader>qo", ":WorkspaceOpen<cr>", desc = "Workspace: open" },
