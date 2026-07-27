@@ -1,9 +1,9 @@
 return {
   {
     "NeogitOrg/neogit",
-    keys = {
-      { "<leader>gg", "<cmd>Neogit<cr>", desc = "Neogit" },
-    },
+    -- keys = {
+    --   { "<leader>gg", "<cmd>Neogit<cr>", desc = "Neogit" },
+    -- },
     opts = {
       popup = { kind = "floating" },
       integrations = { fzf_lua = true },
