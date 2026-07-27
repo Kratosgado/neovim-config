@@ -19,8 +19,7 @@ return {
       },
       git = {
         open = function(cwd)
-          require("neogit").open({ cwd = cwd })
-          -- or: Snacks.terminal.open("lazygit", { cwd = cwd })
+          Snacks.terminal.open("lazygit", { cwd = cwd })
         end,
       },
     },
