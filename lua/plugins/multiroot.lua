@@ -15,6 +15,13 @@ return {
         { "<leader>qt", ":WorkspaceTermRun<cr>", desc = "Workspace: run named terminal" },
         { "<leader>qx", ":WorkspaceTask<cr>", desc = "Workspace: run task" },
         { "<leader>qe", ":WorkspaceEdit<cr>", desc = "Workspace: edit file" },
+        { "<leader>gg", ":WorkspaceGit<cr>", desc = "Workspace: Neogit at buffer's folder" },
+      },
+      git = {
+        open = function(cwd)
+          require("neogit").open({ cwd = cwd })
+          -- or: Snacks.terminal.open("lazygit", { cwd = cwd })
+        end,
       },
     },
     keys = {
