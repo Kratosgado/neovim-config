@@ -12,7 +12,7 @@ return {
       image = { enabled = true },
       explorer = { enabled = false },
       quickfile = { enabled = true },
-      lazygit = { enabled = true, configure = true, preset = "nvim" },
+      lazygit = { enabled = true, configure = true },
       picker = {
         enabled = false,
         sources = {
