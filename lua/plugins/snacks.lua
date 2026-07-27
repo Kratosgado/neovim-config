@@ -12,7 +12,7 @@ return {
       image = { enabled = true },
       explorer = { enabled = false },
       quickfile = { enabled = true },
-      lazygit = { enabled = true, configure = true },
+      lazygit = { enabled = true, configure = false },
       picker = {
         enabled = false,
         sources = {
