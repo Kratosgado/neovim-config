@@ -71,4 +71,11 @@ return {
       },
     },
   },
+  {
+    dir = "~/projects/configs/liquibase.nvim",
+    name = "liquibase.nvim",
+    config = function()
+      require("liquibase").setup()
+    end,
+  },
 }
