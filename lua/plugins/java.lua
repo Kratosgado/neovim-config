@@ -82,7 +82,6 @@ return {
     dir = "~/projects/configs/graphql-resolver.nvim",
     name = "graphql-resolver.nvim",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
-    event = { "BufReadPre *.java", "BufReadPre *.kt", "BufReadPre *.graphql", "BufReadPre *.graphqls" },
     opts = {
       keymaps = {
         goto_definition = "gD", -- e.g. "gD"
