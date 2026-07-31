@@ -88,8 +88,5 @@ return {
       --   goto_definition = "gD", -- e.g. "gD"
       -- },
     },
-    keys = {
-      { "gD", ":GraphqlResolverGoto<cr>", desc = "GraphQL Resolver Goto" },
-    },
   },
 }
