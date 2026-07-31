@@ -78,4 +78,10 @@ return {
       require("liquibase").setup()
     end,
   },
+  {
+    dir = "~/projects/configs/graphql-resolver.nvim",
+    name = "graphql-resolver.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    event = { "BufReadPre *.java", "BufReadPre *.graphql", "BufReadPre *.graphqls" },
+  },
 }
