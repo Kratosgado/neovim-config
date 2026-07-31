@@ -83,5 +83,6 @@ return {
     name = "graphql-resolver.nvim",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     event = { "BufReadPre *.java", "BufReadPre *.graphql", "BufReadPre *.graphqls" },
+    opts = {},
   },
 }
