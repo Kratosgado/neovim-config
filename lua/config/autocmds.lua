@@ -86,3 +86,11 @@ vim.api.nvim_create_autocmd("User", {
     end)
   end,
 })
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = "*.kt",
+  callback = function()
+    -- Runs compileKotlin asynchronously in the background so it doesn't freeze your editor
+    vim.fn.jobstart("./gradlew compileKotlin", { detach = true })
+  end,
+})
