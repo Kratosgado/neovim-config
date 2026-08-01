@@ -84,7 +84,7 @@ return {
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     opts = {
       keymaps = {
-        goto_definition = "gR", -- e.g. "gD"
+        goto_definition = "gR", -- e.g. "gR"
       },
     },
   },
