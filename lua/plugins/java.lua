@@ -4,21 +4,6 @@ return {
     ft = { "java" },
   },
   {
-    "JavaHello/spring-boot.nvim",
-    ft = { "java", "jproperties" },
-    dependencies = {
-      "mfussenegger/nvim-jdtls", -- or nvim-java, nvim-lspconfig
-      "ibhagwan/fzf-lua", -- 可选，用于符号选择等UI功能。也可以使用其他选择器（例如 telescope.nvim）。
-    },
-    ---@type bootls.Config
-    opts = {},
-    keys = {
-      { "<leader>S", desc = "+Spring Boot" },
-      { "<leader>Sr", "<cmd>SpringBootRun<cr>", desc = "Run Spring Boot App" },
-      { "<leader>Sc", "<cmd>SpringBootGenerate<cr>", desc = "Generate Class/Interface" },
-    },
-  },
-  {
     "oclay1st/gradle.nvim",
     cmd = { "Gradle", "GradleExec", "GradleInit", "GradleFavorites" },
     dependencies = {
