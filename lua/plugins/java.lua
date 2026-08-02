@@ -66,7 +66,7 @@ return {
   {
     dir = "~/projects/configs/graphql-resolver.nvim",
     -- "kratosgado/graphql-resolver.nvim",
-    -- name = "graphql-resolver.nvim",
+    name = "graphql-resolver.nvim",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     opts = {
       keymaps = {
