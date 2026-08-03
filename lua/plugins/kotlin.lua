@@ -72,7 +72,7 @@ return {
   -- otter.nvim, JPQL queries get entity/field completion via blink.cmp.
   -- See ~/projects/configs/springboot-jpql.nvim/README.md
   {
-    dir = vim.fn.expand("~/projects/configs/springboot-jpql.nvim"),
+    dir = "~/projects/configs/springboot-jpql.nvim",
     name = "springboot-jpql.nvim",
     ft = "kotlin",
     dependencies = {
