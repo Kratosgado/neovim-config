@@ -27,7 +27,7 @@
     "build": {
       "mode": "primary",
       "description": "Full-featured development agent for coding tasks",
-      "model": "github-copilot/gemini-3.1-pro-preview",
+      "model": "github-copilot/claude-opus-4.5",
       "temperature": 0.3,
       "color": "primary",
     },
