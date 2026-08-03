@@ -11,13 +11,14 @@ return {
       end, opts.ensure_installed)
 
       table.insert(opts.ensure_installed, "kotlin-lsp")
+      table.insert(opts.ensure_installed, "sqls")
     end,
   },
 
   -- 2. Keep Treesitter for syntax highlighting
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = { ensure_installed = { "kotlin" } },
+    opts = { ensure_installed = { "kotlin", "sql" } },
   },
 
   -- 3. Explicitly disable the LSP in lspconfig
@@ -66,7 +67,53 @@ return {
     },
   },
 
-  -- 6. Your existing Debug Adapter (DAP) configuration
+  -- 6. springboot-jpql.nvim: JPA "language injection" for @Query strings in
+  -- Spring Data repositories -- native queries get real SQL + sqls LSP via
+  -- otter.nvim, JPQL queries get entity/field completion via blink.cmp.
+  -- See ~/projects/configs/springboot-jpql.nvim/README.md
+  {
+    dir = vim.fn.expand("~/projects/configs/springboot-jpql.nvim"),
+    name = "springboot-jpql.nvim",
+    ft = "kotlin",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "jmbuhr/otter.nvim",
+    },
+    opts = {
+      sqls = {
+        connections = {
+          {
+            driver = "postgresql",
+            dataSourceName = "host=127.0.0.1 port=5432 user=postgres password=postgres dbname=runnerx sslmode=disable",
+          },
+        },
+      },
+      entities = {
+        globs = { "src/main/kotlin/**/*.kt" },
+      },
+    },
+    config = function(_, opts)
+      require("springboot-jpql").setup(opts)
+    end,
+  },
+
+  -- 7. Register the JPQL completion source with blink.cmp
+  {
+    "saghen/blink.cmp",
+    opts = {
+      sources = {
+        default = { "springboot_jpql" },
+        providers = {
+          springboot_jpql = {
+            name = "SpringbootJpql",
+            module = "springboot-jpql.blink_source",
+          },
+        },
+      },
+    },
+  },
+
+  -- 8. Your existing Debug Adapter (DAP) configuration
   -- {
   --   "mfussenegger/nvim-dap",
   --   optional = true,
