@@ -11,7 +11,6 @@ return {
       end, opts.ensure_installed)
 
       table.insert(opts.ensure_installed, "kotlin-lsp")
-      table.insert(opts.ensure_installed, "sqls")
     end,
   },
 
@@ -53,6 +52,21 @@ return {
       },
     },
   },
+
+  -- 5b. Disable ktlint in null-ls too (LazyVim's lang.kotlin extra adds it
+  -- via an opts *function*, so a plain-table override can't remove it --
+  -- kotlin-lsp's own formatter is used instead).
+  {
+    "nvimtools/none-ls.nvim",
+    optional = true,
+    opts = function(_, opts)
+      local nls = require("null-ls")
+      opts.sources = vim.tbl_filter(function(source)
+        return source ~= nls.builtins.formatting.ktlint and source ~= nls.builtins.diagnostics.ktlint
+      end, opts.sources or {})
+    end,
+  },
+
   -- lazy.nvim setup
   {
     "nvim-neotest/neotest",
@@ -70,6 +84,9 @@ return {
   -- 6. springboot-jpql.nvim: JPA "language injection" for @Query strings in
   -- Spring Data repositories -- native queries get real SQL + sqls LSP via
   -- otter.nvim, JPQL queries get entity/field completion via blink.cmp.
+  -- DB connection is read per-project from each project's own `.env`
+  -- (DATABASE_URL / DATABASE_USERNAME / DATABASE_PASSWORD by default -- see
+  -- README for how to point it at different env var names per project).
   -- See ~/projects/configs/springboot-jpql.nvim/README.md
   {
     dir = "~/projects/configs/springboot-jpql.nvim",
@@ -80,20 +97,21 @@ return {
       "jmbuhr/otter.nvim",
     },
     opts = {
-      sqls = {
-        connections = {
-          {
-            driver = "postgresql",
-            dataSourceName = "host=127.0.0.1 port=5432 user=postgres password=postgres dbname=runnerx sslmode=disable",
-          },
-        },
-      },
       entities = {
         globs = { "src/main/kotlin/**/*.kt" },
       },
     },
     config = function(_, opts)
       require("springboot-jpql").setup(opts)
+    end,
+  },
+
+  -- 6b. springboot-jpql.nvim depends on `sqls` for native-query completion.
+  {
+    "mason-org/mason.nvim",
+    opts = function(_, opts)
+      opts.ensure_installed = opts.ensure_installed or {}
+      table.insert(opts.ensure_installed, "sqls")
     end,
   },
 
