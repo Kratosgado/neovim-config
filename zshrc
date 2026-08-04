@@ -63,6 +63,13 @@ alias mvnspring="mvn clean spring-boot:run"
 alias mvntest="mvn clean test"
 alias mvncheckstyle="mvn clean checkstyle:check"
 
+# Gradle aliases
+alias gradlec="gradle clean"
+alias gradlev="gradle clean verify"
+alias gradlespring="gradle clean spring-boot:run"
+alias gradletest="gradle clean test"
+alias gradlecheckstyle="gradle clean checkstyle:check"
+
 # vim aliases
 alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
