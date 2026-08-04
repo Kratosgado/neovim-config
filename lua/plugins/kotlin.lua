@@ -115,7 +115,7 @@ return {
     },
     opts = {
       entities = {
-        globs = { "src/main/kotlin/**/*.kt" },
+        globs = { "src/main/kotlin/**/*.kt", "src/main/java/**/*.java" },
       },
     },
     config = function(_, opts)
