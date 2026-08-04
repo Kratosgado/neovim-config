@@ -11,7 +11,7 @@ return {
         { "<leader>/", ":WorkspaceGrep<cr>", desc = "Workspace: grep" },
         { "<leader>ma", ":WorkspaceAddFolder<cr>", desc = "Workspace: add folder" },
         { "<leader>mi", ":WorkspaceList<cr>", desc = "Workspace: info" },
-        { "<C-/>", ":WorkspaceTerm<cr>", desc = "Workspace: terminal in folder" },
+        { "<C-/>", ":WorkspaceTermRun<cr>", desc = "Workspace: terminal in folder" },
         { "<leader>mt", ":WorkspaceTermRun<cr>", desc = "Workspace: run named terminal" },
         { "<leader>mx", ":WorkspaceTask<cr>", desc = "Workspace: run task" },
         { "<leader>me", ":WorkspaceEdit<cr>", desc = "Workspace: edit file" },
