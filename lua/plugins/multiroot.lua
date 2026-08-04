@@ -23,6 +23,7 @@ return {
           Snacks.terminal.open("lazygit", { cwd = cwd })
         end,
       },
+      auto_reload = false,
       on_buf_enter = {
         lcd = true,
       },
