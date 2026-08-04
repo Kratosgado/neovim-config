@@ -64,11 +64,12 @@ alias mvntest="mvn clean test"
 alias mvncheckstyle="mvn clean checkstyle:check"
 
 # Gradle aliases
-alias gradlec="gradle clean"
-alias gradlev="gradle clean verify"
-alias gradlespring="gradle clean spring-boot:run"
-alias gradletest="gradle clean test"
-alias gradlecheckstyle="gradle clean checkstyle:check"
+alias gradlec="./gradlew clean"
+alias gradled="./gradlew build"
+alias gradlet="./gradlew test"
+alias gradleBootRun="./gradlew bootRun"
+alias gradleCheck="./gradlew check"
+alias gradleDgs="./gradlew generateJava"
 
 # vim aliases
 alias zshconfig="nvim ~/.zshrc"
