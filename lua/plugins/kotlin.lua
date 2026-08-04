@@ -106,7 +106,7 @@ return {
   -- meaningful at startup.
   -- See ~/projects/configs/springboot-jpql.nvim/README.md
   {
-    dir = vim.fn.expand("~/projects/configs/springboot-jpql.nvim"),
+    dir = "~/projects/configs/springboot-jpql.nvim",
     name = "springboot-jpql.nvim",
     lazy = false,
     dependencies = {
