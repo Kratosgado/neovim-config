@@ -6,7 +6,7 @@ git:
 
 os:
   editPreset: "nvim-remote"
-  edit: "nvr -l --remote {{filename}}"
+  edit: "nvr --remote-send '<C-\\><C-n>:hide<CR>' && nvr -l --remote {{filename}}"
 
 customCommands:
   - key: "Y"
