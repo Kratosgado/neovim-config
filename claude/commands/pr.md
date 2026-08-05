@@ -14,7 +14,7 @@ Run these commands to gather context:
 Use `gh pr create` with:
 
 - `--base` set to the parent branch identified above
-- A concise title following conventional commit style
+- A concise title following conventional commit style type(scope): subject
 - A well-structured body with a summary of changes and a test plan
 
 ## 3. Comment on the ticket
