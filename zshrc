@@ -164,3 +164,6 @@ source <(ng completion script)
 export DOTNET_ROOT=$HOME/.dotnet
 export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
 export PAGER=cat
+
+# Composio CLI
+export PATH="$HOME/.local/bin:$PATH"
