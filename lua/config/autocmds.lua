@@ -91,6 +91,19 @@ vim.api.nvim_create_user_command("LspLog", function()
   vim.cmd("edit " .. vim.lsp.get_log_path())
 end, {})
 
+vim.api.nvim_create_user_command("LspInfo", function()
+  local clients = vim.lsp.get_clients({ bufnr = 0 })
+  if #clients == 0 then
+    vim.notify("No LSP clients attached to this buffer", vim.log.levels.WARN)
+    return
+  end
+  local lines = {}
+  for _, client in ipairs(clients) do
+    table.insert(lines, string.format("• %s (id=%d)  root: %s", client.name, client.id, client.root_dir or "none"))
+  end
+  vim.notify(table.concat(lines, "\n"), vim.log.levels.INFO, { title = "LSP Clients" })
+end, {})
+
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = "*.kt",
   callback = function()

@@ -20,16 +20,32 @@ return {
     opts = { ensure_installed = { "kotlin", "sql" } },
   },
 
-  -- 3. Explicitly disable the LSP in lspconfig
+  -- 3. Explicitly disable both Kotlin LSPs in lspconfig -- kotlin.nvim manages
+  --    kotlin_lsp itself; letting lspconfig also start it causes duplicate
+  --    clients and the broken-completion/apply symptoms.
   {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        kotlin_language_server = {
-          enabled = false,
-        },
+        kotlin_language_server = { enabled = false },
+        kotlin_lsp = { enabled = false },
       },
     },
+  },
+
+  -- 3b. kotlin.nvim manages kotlin-lsp's lifecycle; Mason only installs the binary.
+  {
+    "AlexandrosAlexiou/kotlin.nvim",
+    ft = { "kotlin" },
+    dependencies = {
+      "mason-org/mason.nvim",
+      "mason-org/mason-lspconfig.nvim",
+      { "stevearc/oil.nvim", optional = true },
+      { "folke/trouble.nvim", optional = true },
+    },
+    config = function()
+      require("kotlin").setup {}
+    end,
   },
 
   -- 4. Disable ktlint in nvim-lint
