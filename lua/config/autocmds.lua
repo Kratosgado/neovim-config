@@ -87,6 +87,10 @@ vim.api.nvim_create_autocmd("User", {
   end,
 })
 
+vim.api.nvim_create_user_command("LspLog", function()
+  vim.cmd("edit " .. vim.lsp.get_log_path())
+end, {})
+
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = "*.kt",
   callback = function()

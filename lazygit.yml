@@ -15,6 +15,11 @@ customCommands:
     command: "git town sync --all"
     loadingText: "Syncing"
     output: log
+  - key: "b"
+    context: "global"
+    description: "Git Town View Branches"
+    command: "git-town branch"
+    output: log
   - key: "U"
     context: "global"
     description: "Git Town Undo (undo the last Git Town command)"
@@ -40,16 +45,6 @@ customCommands:
         key: "BranchName"
     command: "git-town append {{.Form.BranchName}}"
     loadingText: "Appending"
-    output: log
-  - key: "h"
-    context: "localBranches"
-    description: "Git Town Hack (creates a new branch)"
-    prompts:
-      - type: "input"
-        title: "Enter name of new branch. Branches off of 'Main'"
-        key: "BranchName"
-    command: "git-town hack {{.Form.BranchName}}"
-    loadingText: "Hacking"
     output: log
   - key: "K"
     context: "localBranches"
