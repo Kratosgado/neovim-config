@@ -30,6 +30,14 @@ return {
       },
     },
   },
+  -- TODO: not tested yet
+  {
+    "sindrets/diffview.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles", "DiffviewFileHistory" },
+    opts = {},
+  },
+  -- TODO: not tested yet
   {
     "skanehira/github-actions.nvim",
     dependencies = {
