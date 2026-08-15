@@ -13,18 +13,6 @@ return {
       explorer = { enabled = false },
       quickfile = { enabled = true },
       lazygit = { enabled = true, configure = true },
-      picker = {
-        enabled = false,
-        sources = {
-          explorer = {
-            layout = {
-              layout = {
-                position = "right",
-              },
-            },
-          },
-        },
-      },
       dashboard = {
         preset = {
           pick = function(cmd, opts)

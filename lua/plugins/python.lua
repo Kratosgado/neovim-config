@@ -1,6 +1,3 @@
-if true then
-  return {}
-end
 return {
   {
     "nvim-treesitter/nvim-treesitter",
@@ -44,7 +41,7 @@ return {
     branch = "regexp", -- Use this branch for the new version
     cmd = "VenvSelect",
     enabled = function()
-      return LazyVim.has("telescope.nvim")
+      return LazyVim.has("fzf-lua")
     end,
     opts = {
       settings = {
@@ -70,14 +67,6 @@ return {
       else
         require("dap-python").setup(LazyVim.get_pkg_path("debugpy", "/venv/bin/python"))
       end
-    end,
-  },
-  {
-    "hrsh7th/nvim-cmp",
-    optional = true,
-    opts = function(_, opts)
-      opts.auto_brackets = opts.auto_brackets or {}
-      table.insert(opts.auto_brackets, "python")
     end,
   },
 }

@@ -40,13 +40,14 @@ vim.api.nvim_create_autocmd({ "VimEnter", "DirChanged" }, {
     if vim.fn.filereadable(dev_sh_path) == 1 then
       current_project_root = root
 
-      -- Execute start section
-      local result = vim.fn.system("cd " .. vim.fn.shellescape(root) .. " && bash dev.sh start 2>/dev/null")
-      if vim.v.shell_error == 0 then
-        vim.notify("dev.sh start executed for project: " .. vim.fn.fnamemodify(root, ":t"), vim.log.levels.INFO)
-      else
-        vim.notify("dev.sh start failed or no start section found", vim.log.levels.WARN)
-      end
+      -- Execute start section asynchronously so it doesn't block startup
+      vim.system({ "bash", "dev.sh", "start" }, { cwd = root }, function(out)
+        if out.code == 0 then
+          vim.notify("dev.sh start executed for project: " .. vim.fn.fnamemodify(root, ":t"), vim.log.levels.INFO)
+        else
+          vim.notify("dev.sh start failed or no start section found", vim.log.levels.WARN)
+        end
+      end)
     else
       current_project_root = root -- Still track the root even without dev.sh
     end
@@ -68,22 +69,10 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
 })
 
 --- Lua
-vim.o.autowriteall = true
 vim.api.nvim_create_autocmd({ "InsertLeavePre", "TextChanged", "TextChangedP" }, {
   pattern = { "*.html", "*.css" },
   callback = function()
     vim.cmd("silent! write")
-  end,
-})
-
-vim.api.nvim_create_autocmd("User", {
-  pattern = "GitConflictDetected",
-  callback = function()
-    vim.notify("Conflict detected in " .. vim.fn.expand("<afile>"))
-    vim.keymap.set("n", "cww", function()
-      engage.conflict_buster()
-      create_buffer_local_mappings()
-    end)
   end,
 })
 
@@ -107,7 +96,11 @@ end, {})
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = "*.kt",
   callback = function()
-    -- Runs compileKotlin asynchronously in the background so it doesn't freeze your editor
-    vim.fn.jobstart("./gradlew compileKotlin", { detach = true })
+    -- Runs compileKotlin asynchronously in the background so it doesn't freeze your editor.
+    -- Only when the project actually has a gradlew wrapper.
+    local root = LazyVim.root()
+    if vim.fn.filereadable(root .. "gradlew") == 1 then
+      vim.fn.jobstart("./gradlew compileKotlin", { cwd = root, detach = true })
+    end
   end,
 })

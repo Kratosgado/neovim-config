@@ -4,7 +4,8 @@
 
 local map = LazyVim.safe_keymap_set
 
-map({ "i", "c", "o" }, "jk", "<Esc>", { noremap = true, silent = true })
+-- insert mode has its own jk mapping below (closes the completion popup)
+map({ "c", "o" }, "jk", "<Esc>", { noremap = true, silent = true })
 map({ "i", "c", "o" }, "JK", "<Esc>", { noremap = true, silent = true })
 map("t", "jk", "<C-\\><C-n>", { noremap = true, silent = true })
 map({ "i" }, "jk", function()

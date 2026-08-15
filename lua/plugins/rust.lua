@@ -120,7 +120,9 @@ return {
     "cordx56/rustowl",
     version = "*", -- Latest stable version
     build = "cargo binstall rustowl",
-    lazy = false, -- This plugin is already lazy
+    -- Load eagerly: on_attach must be registered before the rust-analyzer
+    -- client attaches, otherwise the toggle keymap never fires.
+    lazy = false,
     opts = {
       client = {
         on_attach = function(_, buffer)

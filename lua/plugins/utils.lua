@@ -8,6 +8,7 @@ return {
   {
     dir = "~/projects/configs/sonarqube.nvim",
     name = "sonarqube.nvim",
+    event = "VeryLazy",
     config = function()
       require("sonarqube").setup({})
     end,
@@ -49,6 +50,7 @@ return {
   },
   {
     "HiPhish/rainbow-delimiters.nvim",
+    event = "VeryLazy",
     config = function()
       require("rainbow-delimiters.setup").setup({
         highlight = {

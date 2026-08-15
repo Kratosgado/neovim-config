@@ -9,6 +9,7 @@ if not vim.g.vscode then
   LazyVim.config.colorscheme = "tokyonight-night"
 end
 vim.opt.clipboard = "unnamedplus"
+vim.opt.autowriteall = true
 vim.g.ai_cmp = true
 vim.opt.pumblend = 0
 vim.opt.relativenumber = false

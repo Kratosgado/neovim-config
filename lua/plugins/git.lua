@@ -30,19 +30,18 @@ return {
       },
     },
   },
-  -- TODO: not tested yet
   {
     "sindrets/diffview.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles", "DiffviewFileHistory" },
     opts = {},
   },
-  -- TODO: not tested yet
   {
     "skanehira/github-actions.nvim",
+    event = "VeryLazy",
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
-      "nvim-telescope/telescope.nvim", -- Optional: for enhanced workflow selection
+      { "nvim-telescope/telescope.nvim", optional = true }, -- Optional: for enhanced workflow selection
     },
     opts = {},
   },

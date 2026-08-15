@@ -1,6 +1,6 @@
 return {
   {
     "lettertwo/occurrence.nvim",
-    lazy = false,
+    event = "CursorMoved",
   },
 }

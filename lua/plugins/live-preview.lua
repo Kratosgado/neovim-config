@@ -1,6 +1,7 @@
 return {
   {
     "brianhuster/live-preview.nvim",
+    event = "VeryLazy",
     dependencies = {
       "ibhagwan/fzf-lua",
     },

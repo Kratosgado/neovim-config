@@ -1,7 +1,8 @@
 return {
   {
     "abecodes/tabout.nvim",
-    lazy = false,
+    event = "InsertCharPre",
+    priority = 1000,
     config = function()
       require("tabout").setup({
         tabkey = "<Tab>",
@@ -28,11 +29,7 @@ return {
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "L3MON4D3/LuaSnip",
-      "hrsh7th/nvim-cmp",
     },
-    opt = true,
-    event = "InsertCharPre",
-    priority = 1000,
   },
   {
     "L3MON4D3/LuaSnip",
