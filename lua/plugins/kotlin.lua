@@ -20,6 +20,7 @@ return {
     opts = {
       servers = {
         kotlin_lsp = { enabled = false },
+        kotlin_language_server = { enabled = false },
       },
     },
   },
@@ -35,7 +36,9 @@ return {
       { "folke/trouble.nvim", optional = true },
     },
     config = function()
-      require("kotlin").setup {}
+      require("kotlin").setup({
+        jvm_args = { "-Xmx4g" },
+      })
     end,
   },
 

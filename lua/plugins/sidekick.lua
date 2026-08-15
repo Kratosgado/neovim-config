@@ -7,6 +7,7 @@ return {
         tools = {
           kiro = { cmd = { "kiro-cli" } },
           claude = { cmd = { "claude" } },
+          freebuff = { cmd = { "freebuff" } },
         },
       },
     },
