@@ -68,6 +68,7 @@ alias gradlec="./gradlew clean"
 alias gradled="./gradlew build"
 alias gradlet="./gradlew test"
 alias gradleBootRun="./gradlew bootRun"
+alias gradleRun="./gradlew run"
 alias gradleCheck="./gradlew check"
 alias gradleDgs="./gradlew generateJava"
 

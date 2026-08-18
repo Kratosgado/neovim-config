@@ -16,7 +16,8 @@ return {
       config.defaults.keymap.fzf["ctrl-b"] = "preview-page-up"
       config.defaults.keymap.builtin["<c-f>"] = "preview-page-down"
       config.defaults.keymap.builtin["<c-b>"] = "preview-page-up"
-      config.defaults.files.fd_opts = "--color=never --type f --type l --exclude .git --exclude .jj --exclude node_modules --exclude target --exclude dist --exclude build --exclude __pycache__ --exclude .venv --exclude venv --exclude .next --exclude .nuxt"
+      config.defaults.files.fd_opts =
+        "--color=never --type f --type l --exclude .git --exclude .jj --exclude node_modules --exclude target --exclude dist --exclude build --exclude .gradle --exclude __pycache__ --exclude .venv --exclude venv --exclude .next --exclude .nuxt"
       return {}
     end,
     config = function(_, opts)
