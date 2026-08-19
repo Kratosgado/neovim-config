@@ -90,7 +90,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
     -- Only when the project actually has a gradlew wrapper.
     local root = LazyVim.root()
     if vim.fn.filereadable(root .. "gradlew") == 1 then
-      vim.fn.jobstart("./gradlew compileKotlin", { cwd = root, detach = true })
+      vim.fn.jobstart("gradle compileKotlin", { cwd = root, detach = true })
     end
   end,
 })

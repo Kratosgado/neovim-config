@@ -23,7 +23,10 @@ return {
         rust = { coverage_file = "target/prefix.lcov" }, -- Or "lcov.info" depending on tool
 
         -- Kotlin (usually same as Java/JaCoCo)
-        kotlin = { coverage_file = "build/reports/jacoco/test/jacocoTestReport.xml" },
+        kotlin = {
+            coverage_file = "build/reports/jacoco/test/jacocoTestReport.xml",
+            dir_prefix = "src/main/kotlin",
+        },
 
         -- Dart / Flutter (Standard location)
         dart = { coverage_file = "coverage/lcov.info" },

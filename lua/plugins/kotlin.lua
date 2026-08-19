@@ -54,30 +54,6 @@ return {
     },
   },
 
-  -- springboot-jpql.nvim: JPA "language injection" for @Query strings in
-  -- Spring Data repositories -- native queries get real SQL + sqls LSP via
-  -- otter.nvim, JPQL queries get entity/field completion via blink.cmp.
-  -- DB connection is read per-project from each project's own `.env`
-  -- (DATABASE_URL / DATABASE_USERNAME / DATABASE_PASSWORD by default -- see
-  -- README for how to point it at different env var names per project).
-  --
-  -- Deliberately `lazy = false` (loads unconditionally at startup), NOT
-  -- `ft = "kotlin"` or an event trigger: nvim-treesitter's own highlight-attach
-  -- plugin loads on `LazyFile`/`VeryLazy`, and it constructs (and PERMANENTLY
-  -- caches on that buffer's parser object) the kotlin injections query at
-  -- parser-creation time. If that happens before our custom
-  -- #has-native-query? predicate is registered, the buffer is stuck using a
-  -- stale query forever -- no amount of re-parsing fixes it, only loading
-  -- before that first construction does. `LazyFile` fires on the very first
-  -- buffer read (i.e. possibly before Neovim even finishes starting up, if a
-  -- file is opened from the command line), so even `event = "VeryLazy"`
-  -- isn't early enough to reliably win that race -- only loading eagerly,
-  -- unconditionally, in the same "start plugins" phase nvim-treesitter's own
-  -- lazy trigger hasn't even registered yet, is deterministic. setup() here
-  -- is cheap (an LSP config registration, a treesitter predicate, a couple
-  -- of autocmds, and an async-scheduled entity scan) so this costs nothing
-  -- meaningful at startup.
-  -- See ~/projects/configs/springboot-jpql.nvim/README.md
   {
     dir = "~/projects/configs/springboot-jpql.nvim",
     name = "springboot-jpql.nvim",

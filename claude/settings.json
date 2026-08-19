@@ -38,5 +38,6 @@
   },
   "effortLevel": "high",
   "theme": "auto",
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "model": "opus[1m]"
 }
