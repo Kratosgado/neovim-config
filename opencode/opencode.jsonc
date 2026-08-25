@@ -1,11 +1,11 @@
 {
   "$schema": "https://opencode.ai/config.json",
 
-  // Default model for coding tasks - uses GitHub premium
-  "model": "github-copilot/gemini-3.1-pro-preview",
+  // Default model - free stealth model, zero-retention policy
+  "model": "opencode/x-preview-f-free",
 
   // Free model for lightweight tasks (titles, summaries)
-  "small_model": "opencode/minimax-m2.5-free",
+  "small_model": "opencode/nemotron-3.5-lightning-free",
 
   "provider": {
     "github": {
@@ -23,11 +23,11 @@
 
   // Custom agents for different use cases
   "agent": {
-    // Main coding agent - uses GitHub premium
+    // Main coding agent
     "build": {
       "mode": "primary",
       "description": "Full-featured development agent for coding tasks",
-      "model": "huggingface/moonshotai/Kimi-K3",
+      "model": "opencode/x-preview-f-free",
       "temperature": 0.3,
       "color": "primary",
     },
@@ -36,7 +36,7 @@
     "plan": {
       "mode": "primary",
       "description": "Planning and analysis without code changes",
-      "model": "huggingface/moonshotai/Kimi-K2.6",
+      "model": "opencode/nemotron-3-ultra-free",
       "temperature": 0.15,
       "tools": {
         "write": false,
@@ -54,7 +54,7 @@
     "ask": {
       "mode": "primary",
       "description": "Answers questions and provides explanations using free models",
-      "model": "huggingface/moonshotai/Kimi-K2.6",
+      "model": "opencode/hy3-free",
       "temperature": 0.2,
       "tools": {
         "write": false,
@@ -73,7 +73,7 @@
     "explore": {
       "mode": "subagent",
       "description": "Fast codebase exploration and search",
-      "model": "huggingface/moonshotai/Kimi-K2.6",
+      "model": "opencode/nemotron-3.5-lightning-free",
       "temperature": 0.1,
       "color": "success",
       "tools": {
@@ -87,13 +87,13 @@
     "general": {
       "mode": "subagent",
       "description": "General-purpose tasks and research",
-      "model": "google/gemini-3.1-flash-lite",
+      "model": "opencode/x-preview-f-free",
       "temperature": 0.3,
     },
     "search": {
       "mode": "subagent",
       "description": "Ultra-fast codebase grep & navigation",
-      "model": "google/gemini-3.1-flash-lite",
+      "model": "opencode/nemotron-3.5-lightning-free",
       "temperature": 0.0,
       "color": "info",
     },
@@ -102,7 +102,7 @@
     "commit": {
       "mode": "subagent",
       "description": "Commits git changes with conventional commit format",
-      "model": "huggingface/moonshotai/Kimi-K2.6",
+      "model": "opencode/x-preview-f-free",
       "temperature": 0.1,
       "color": "warning",
     },
@@ -110,7 +110,7 @@
     "pr": {
       "mode": "subagent",
       "description": "Creates a PR and comments on the Jira ticket in plain language",
-      "model": "huggingface/moonshotai/Kimi-K2.6",
+      "model": "opencode/x-preview-f-free",
       "prompt": "Use git-town diff-parent to know what changed and git-town branch to know the parent of this branch, then create a PR with the parent as the base. After creating the PR, comment on the Jira ticket the user provides explaining what was done in plain, non-technical language — as if explaining to a product manager. Keep it to 2-4 sentences.",
       "temperature": 0.1,
       "color": "info",
@@ -119,7 +119,7 @@
     "review-diff": {
       "mode": "subagent",
       "description": "Reviews branch changes using git-town diff-parent",
-      "model": "github-copilot/gemini-3.1-pro-preview",
+      "model": "opencode/big-pickle",
       "prompt": "Use git-town diff-parent to get the diff of changes on this branch vs its parent. Review the changes for: correctness, edge cases, security issues, code quality, and consistency with existing patterns. Report findings as: Summary (one sentence), Issues (ordered by severity), Suggestions (non-blocking), and a Verdict (Approve / Request changes / Needs discussion).",
       "temperature": 0.1,
       "color": "warning",
