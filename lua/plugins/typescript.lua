@@ -99,24 +99,60 @@ return {
   },
   {
     "nvim-neotest/neotest",
-    dependencies = { "nvim-neotest/neotest-jest" },
-    optional = true,
-    opts = {
-      discovery = {
-        enabled = false,
-      },
-      filter_dirs = { "node_modules", ".git", "dist", "build" },
-      adapters = {
-        ["neotest-jest"] = {
-          jestCommand = "npm test --",
-          jestConfigFile = "jest.config.ts",
-          env = { CI = true },
-          jest_test_discovery = false,
-          cwd = function(path)
-            return vim.fn.getcwd()
-          end,
-        },
-      },
+    dependencies = {
+      "nvim-neotest/neotest-jest",
+      "thenbe/neotest-playwright",
     },
+    optional = true,
+    opts = function(_, opts)
+      opts.discovery = { enabled = false }
+      opts.filter_dirs = { "node_modules", ".git", "dist", "build" }
+      opts.adapters = opts.adapters or {}
+
+      opts.adapters["neotest-jest"] = {
+        jestCommand = "npm test --",
+        jestConfigFile = "jest.config.ts",
+        env = { CI = true },
+        jest_test_discovery = false,
+        cwd = function(path)
+          local ok, mr = pcall(require, "multiroot")
+          if ok and mr.current() then
+            for _, folder in ipairs(mr.folders()) do
+              if vim.startswith(path, folder) then
+                return folder
+              end
+            end
+          end
+          return vim.fn.getcwd()
+        end,
+      }
+
+      local pw = require("neotest-playwright").adapter({
+        options = {
+          persist_project_selection = true,
+          enable_dynamic_test_discovery = false,
+        },
+      })
+
+      -- Patch root to check multiroot workspace folders before walking up the fs
+      local orig_root = pw.root
+      pw.root = function(dir)
+        local ok, mr = pcall(require, "multiroot")
+        if ok and mr.current() then
+          for _, folder in ipairs(mr.folders()) do
+            if vim.startswith(dir, folder) then
+              for _, cfg in ipairs({ "playwright.config.ts", "playwright.config.js" }) do
+                if vim.fn.filereadable(folder .. "/" .. cfg) == 1 then
+                  return folder
+                end
+              end
+            end
+          end
+        end
+        return orig_root(dir)
+      end
+
+      table.insert(opts.adapters, pw)
+    end,
   },
 }

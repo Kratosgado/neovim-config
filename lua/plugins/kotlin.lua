@@ -72,6 +72,32 @@ return {
     end,
   },
 
+  {
+    dir = "~/projects/configs/ktor.nvim",
+    name = "ktor.nvim",
+    ft = "kotlin",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+    opts = {
+      route_tree = {
+        display = "split", -- "float" | "split"
+        width = 60,
+        split_side = "right",
+      },
+    },
+    config = function(_, opts)
+      require("ktor").setup(opts)
+      require("ktor.index").refresh()
+    end,
+    keys = {
+      { "<leader>kt", "<cmd>KtorRouteTree<cr>", ft = "kotlin", desc = "Ktor: Route Tree" },
+      { "<leader>kl", "<cmd>KtorCodeLensToggle<cr>", ft = "kotlin", desc = "Ktor: Toggle Code Lens" },
+      { "<leader>ke", "<cmd>KtorEndpoints<cr>", ft = "kotlin", desc = "Ktor: Endpoints" },
+      { "<leader>kr", "<cmd>KtorRefresh<cr>", ft = "kotlin", desc = "Ktor: Refresh Index" },
+    },
+  },
+
   -- Register the JPQL completion source with blink.cmp
   {
     "saghen/blink.cmp",
