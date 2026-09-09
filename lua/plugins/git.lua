@@ -1,22 +1,5 @@
 return {
   {
-    "akinsho/git-conflict.nvim",
-    version = "*",
-    vscode = true,
-    opts = {
-      disable_diagnostics = false,
-      default_mappings = {
-        ours = "o",
-        theirs = "t",
-        none = "0",
-        both = "b",
-        next = "n",
-        prev = "p",
-      },
-    },
-    config = true,
-  },
-  {
     "f-person/git-blame.nvim",
     -- load the plugin at startup
     event = "VeryLazy",

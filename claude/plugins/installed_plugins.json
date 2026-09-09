@@ -66,6 +66,16 @@
         "installedAt": "2026-06-21T07:11:08.755Z",
         "lastUpdated": "2026-06-21T07:11:08.755Z"
       }
+    ],
+    "chrome-devtools-mcp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/home/esslifie/.claude/plugins/cache/claude-plugins-official/chrome-devtools-mcp/0.22.0",
+        "version": "0.22.0",
+        "installedAt": "2026-08-30T16:42:04.945Z",
+        "lastUpdated": "2026-08-30T16:42:04.945Z",
+        "gitCommitSha": "a1612be8e01401cf1711c64bc2ef5da5763ba956"
+      }
     ]
   }
 }

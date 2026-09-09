@@ -131,7 +131,7 @@ compinit
 # Tell zsh to use the AWS CLI's official completer
 complete -C '/snap/aws-cli/current/bin/aws_completer' aws
 
-eval "$(zoxide init --cmd cd zsh)"
+eval "$(zoxide init zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

@@ -1,6 +1,4 @@
 return {
-  -- Install kotlin-lsp and sqls via Mason (kotlin.nvim manages server lifecycle).
-  -- kotlin_lsp is disabled in lspconfig so mason-lspconfig doesn't also start it.
   {
     "mason-org/mason.nvim",
     opts = function(_, opts)
@@ -19,27 +17,9 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        kotlin_lsp = { enabled = false },
-        kotlin_language_server = { enabled = false },
+        kotlin_lsp = {},
       },
     },
-  },
-
-  -- kotlin.nvim manages kotlin-lsp's lifecycle; Mason only installs the binary.
-  {
-    "AlexandrosAlexiou/kotlin.nvim",
-    ft = { "kotlin" },
-    dependencies = {
-      "mason-org/mason.nvim",
-      "mason-org/mason-lspconfig.nvim",
-      { "stevearc/oil.nvim", optional = true },
-      { "folke/trouble.nvim", optional = true },
-    },
-    config = function()
-      require("kotlin").setup({
-        jvm_args = { "-Xmx4g" },
-      })
-    end,
   },
 
   {
@@ -57,7 +37,7 @@ return {
   {
     dir = "~/projects/configs/springboot-jpql.nvim",
     name = "springboot-jpql.nvim",
-    lazy = false,
+    ft = { "kotlin", "java" },
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "jmbuhr/otter.nvim",
@@ -85,6 +65,7 @@ return {
         width = 60,
         split_side = "right",
       },
+      diagnostics = { enabled = true },
     },
     config = function(_, opts)
       require("ktor").setup(opts)
@@ -94,6 +75,7 @@ return {
       { "<leader>kt", "<cmd>KtorRouteTree<cr>", ft = "kotlin", desc = "Ktor: Route Tree" },
       { "<leader>kl", "<cmd>KtorCodeLensToggle<cr>", ft = "kotlin", desc = "Ktor: Toggle Code Lens" },
       { "<leader>ke", "<cmd>KtorEndpoints<cr>", ft = "kotlin", desc = "Ktor: Endpoints" },
+      { "<leader>kg", "<cmd>KtorGenerateRequest<cr>", ft = "kotlin", desc = "Ktor: Generate Request" },
       { "<leader>kr", "<cmd>KtorRefresh<cr>", ft = "kotlin", desc = "Ktor: Refresh Index" },
     },
   },

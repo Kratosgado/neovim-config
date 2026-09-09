@@ -12,6 +12,7 @@ return {
         "lua",
         "markdown",
         "markdown_inline",
+        "mermaid",
 
         "git_config",
         "gitcommit",

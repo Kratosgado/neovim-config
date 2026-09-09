@@ -89,8 +89,9 @@ vim.api.nvim_create_autocmd("BufWritePost", {
     -- Runs compileKotlin asynchronously in the background so it doesn't freeze your editor.
     -- Only when the project actually has a gradlew wrapper.
     local root = LazyVim.root()
-    if vim.fn.filereadable(root .. "gradlew") == 1 then
-      vim.fn.jobstart("gradle compileKotlin", { cwd = root, detach = true })
+    local gradlew = root .. "/gradlew"
+    if vim.fn.filereadable(gradlew) == 1 then
+      vim.fn.jobstart({ gradlew, "compileKotlin" }, { cwd = root, detach = true })
     end
   end,
 })
