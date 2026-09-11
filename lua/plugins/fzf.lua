@@ -37,6 +37,15 @@ return {
       { "<leader>fF", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
       { "<leader>ff", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
       { "<leader><space>", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
+      {
+        "<leader>sH",
+        function()
+          require("fzf-lua").files({
+            fd_opts = "--color=never --type f --type l --hidden --no-ignore --glob '.*' --exclude .git --exclude .jj",
+          })
+        end,
+        desc = "Search Hidden Files",
+      },
     },
   },
 }

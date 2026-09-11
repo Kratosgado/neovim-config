@@ -82,16 +82,3 @@ vim.api.nvim_create_user_command("LspInfo", function()
   end
   vim.notify(table.concat(lines, "\n"), vim.log.levels.INFO, { title = "LSP Clients" })
 end, {})
-
-vim.api.nvim_create_autocmd("BufWritePost", {
-  pattern = "*.kt",
-  callback = function()
-    -- Runs compileKotlin asynchronously in the background so it doesn't freeze your editor.
-    -- Only when the project actually has a gradlew wrapper.
-    local root = LazyVim.root()
-    local gradlew = root .. "/gradlew"
-    if vim.fn.filereadable(gradlew) == 1 then
-      vim.fn.jobstart({ gradlew, "compileKotlin" }, { cwd = root, detach = true })
-    end
-  end,
-})

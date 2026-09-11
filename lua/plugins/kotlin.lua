@@ -14,12 +14,30 @@ return {
   },
 
   {
-    "neovim/nvim-lspconfig",
+    "mason-org/mason-lspconfig.nvim",
     opts = {
-      servers = {
-        kotlin_lsp = {},
-      },
+      automatic_enable = { exclude = { "kotlin_lsp" } },
     },
+  },
+
+  {
+    "AlexandrosAlexiou/kotlin.nvim",
+    ft = "kotlin",
+    dependencies = {
+      "mason-org/mason.nvim",
+      "mason-org/mason-lspconfig.nvim",
+      "stevearc/oil.nvim",
+      "folke/trouble.nvim",
+      "mfussenegger/nvim-dap",
+    },
+    opts = {
+      jdk_for_symbol_resolution = "/home/esslifie/.sdkman/candidates/java/21.0.9-amzn",
+      jvm_args = { "-Xmx4g" },
+      inlay_hints = { enabled = true },
+    },
+    config = function(_, opts)
+      require("kotlin").setup(opts)
+    end,
   },
 
   {

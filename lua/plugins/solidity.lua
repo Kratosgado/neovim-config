@@ -1,0 +1,16 @@
+return {
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        solidity = {
+          settings = {
+            solidity = {
+              compileUsingRemoteVersion = "v0.8.26+commit.8a97fa7a",
+            },
+          },
+        },
+      },
+    },
+  },
+}
