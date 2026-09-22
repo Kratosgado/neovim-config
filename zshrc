@@ -56,6 +56,16 @@ else
   export EDITOR='nvim'
 fi
 
+# docker aliases 
+alias dup="docker compose up -d"
+alias dps="docker ps"
+alias dreset="docker compose down -v && docker compose up -d"
+alias ddown="docker compose down"
+alias ddvol="docker compose down -v"
+alias dstop="docker compose stop"
+alias dstart="docker compose start"
+alias dlogs="docker compose logs -f"
+
 # Maven aliases
 alias mvnc="mvn clean compile"
 alias mvnv="mvn clean verify"
@@ -67,10 +77,10 @@ alias mvncheckstyle="mvn clean checkstyle:check"
 alias gradlec="./gradlew clean"
 alias gradled="./gradlew build"
 alias gradlet="./gradlew test"
-alias gradleBootRun="./gradlew bootRun"
-alias gradleRun="./gradlew run"
-alias gradleCheck="./gradlew check"
-alias gradleDgs="./gradlew generateJava"
+alias gradlebootrun="./gradlew bootRun"
+alias gradlerun="./gradlew run"
+alias gradlecheck="./gradlew check"
+alias gradledgs="./gradlew generateJava"
 
 # vim aliases
 alias zshconfig="nvim ~/.zshrc"

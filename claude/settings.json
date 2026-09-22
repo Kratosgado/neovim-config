@@ -27,6 +27,7 @@
     ],
     "defaultMode": "default"
   },
+  "model": "opus[1m]",
   "statusLine": {
     "type": "command",
     "command": "bash /home/esslifie/.claude/statusline-command.sh"
@@ -41,8 +42,8 @@
     "kotlin-lsp@claude-plugins-official": true,
     "chrome-devtools-mcp@claude-plugins-official": true
   },
+  "extraKnownMarketplaces": {},
   "effortLevel": "high",
   "theme": "auto",
-  "skipAutoPermissionPrompt": true,
-  "model": "opus[1m]"
+  "skipAutoPermissionPrompt": true
 }
