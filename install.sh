@@ -1,22 +1,41 @@
 #!/bin/bash
 
+set -euo pipefail
+
+NVIM_DIR="$HOME/.config/nvim"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+warn() { echo "WARNING: $*" >&2; }
+
+symlink() {
+  local src="$1" dst="$2"
+  if [[ ! -e "$src" ]]; then
+    warn "Source not found, skipping: $src"
+    return
+  fi
+  mkdir -p "$(dirname "$dst")"
+  rm -rf "$dst"
+  ln -s "$src" "$dst"
+  echo "Linked $src -> $dst"
+}
+
 # 1. Setup Neovim config
-mkdir -p ~/.config/nvim
-# Sync current directory content to nvim config (excluding the script itself if desired)
-cp -rf . ~/.config/nvim
+mkdir -p "$NVIM_DIR"
+cp -rf "$SCRIPT_DIR/." "$NVIM_DIR"
 
-# 2. Setup Zsh Symlink
-rm -f ~/.zshrc
-ln -s ~/.config/nvim/zshrc ~/.zshrc
+# 2. Zsh
+symlink "$NVIM_DIR/zshrc" "$HOME/.zshrc"
 
-# 4. Setup Kitty Symlink
-rm -rf ~/.config/kitty
-ln -s ~/.config/nvim/kitty ~/.config/
+# 3. Kitty
+symlink "$NVIM_DIR/kitty" "$HOME/.config/kitty"
 
-# 5. Setup Claude Symlink
-rm -rf ~/.claude
-ln -s ~/.config/nvim/claude ~/.claude
+# 4. Claude
+symlink "$NVIM_DIR/claude" "$HOME/.claude"
 
-ln -s ~/.config/nvim/lazygit.yml ~/.config/lazygit/config.yml
+# 5. Tmux
+symlink "$NVIM_DIR/tmux" "$HOME/.config/tmux"
+
+# 6. Lazygit
+symlink "$NVIM_DIR/lazygit.yml" "$HOME/.config/lazygit/config.yml"
 
 echo "Setup complete! Please restart your terminal or run 'source ~/.zshrc'"

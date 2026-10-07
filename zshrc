@@ -114,8 +114,6 @@ alias gtbcreate="git-town append"
 alias gtb="git-town branch"
 alias gitfetch="git fetch --all && for rb in \$(git branch -r | grep -v '\->' | grep -v 'origin/main'); do lb=\$(echo \$rb | sed 's/origin\///'); git branch --track \$lb \$rb 2>/dev/null; done"
 
-alias go="git checkout"
-
 alias push="git push"
 
 export NVM_DIR="$HOME/.nvm"
@@ -178,3 +176,13 @@ export PAGER=cat
 
 # Composio CLI
 export PATH="$HOME/.local/bin:$PATH"
+
+# MCP auth token for Freebuff/claude MCP clients (kept in Local-MCP .env as source of truth)
+export MCP_AUTH_TOKEN="$(grep -m1 "^MCP_AUTH_TOKEN=" "$HOME/projects/configs/Local-MCP/.env" 2>/dev/null | cut -d= -f2- | tr -d \"\')"
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/esslifie/.dart-cli-completion/zsh-config.zsh ]] && . /home/esslifie/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
+export PATH="/home/esslifie/.shorebird/bin:$PATH"

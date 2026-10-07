@@ -1,134 +1,153 @@
 return {
-  {
-    "Saecki/crates.nvim",
-    event = { "BufRead Cargo.toml" },
-    opts = {
-      completion = {
-        crates = {
-          enable = true,
-        },
-      },
-      lsp = {
-        enable = true,
-        actions = true,
-        completion = true,
-        hover = true,
-      },
-    },
-  },
-  {
-    "mason-org/mason.nvim",
-    optional = true,
-    opts = { ensure_installed = { "codelldb" } },
-  },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = { ensure_installed = { "rust", "ron" } },
-  },
-  {
-    "mrcjkb/rustaceanvim",
-    ft = { "rust" },
-    opts = {
-      server = {
-        on_attach = function(_, bufnr)
-          vim.keymap.set("n", "<leader>cR", function()
-            vim.cmd.RustLsp("codeAction")
-          end, { desc = "Code Action", buffer = bufnr })
-          vim.keymap.set("n", "<leader>dr", function()
-            vim.cmd.RustLsp("debuggables")
-          end, { desc = "Rust Debuggables", buffer = bufnr })
-        end,
-        default_settings = {
-          -- rust-analyzer language server configuration
-          ["rust-analyzer"] = {
-            cargo = {
-              allFeatures = true,
-              loadOutDirsFromCheck = true,
-              buildScripts = {
-                enable = true,
-              },
-            },
-            -- Add clippy lints for Rust if using rust-analyzer
-            checkOnSave = true,
-            -- Enable diagnostics if using rust-analyzer
-            diagnostics = { enable = true },
-            procMacro = { enable = true },
-            files = {
-              exclude = {
-                ".direnv",
-                ".git",
-                ".jj",
-                ".github",
-                ".gitlab",
-                "bin",
-                "node_modules",
-                "target",
-                "venv",
-                ".venv",
-              },
-              -- Avoid Roots Scanned hanging, see https://github.com/rust-lang/rust-analyzer/issues/12613#issuecomment-2096386344
-              watcher = "client",
-            },
-          },
-        },
-      },
-    },
-    config = function(_, opts)
-      if LazyVim.has("mason.nvim") then
-        local codelldb = vim.fn.exepath("codelldb")
-        local codelldb_lib_ext = io.popen("uname"):read("*l") == "Linux" and ".so" or ".dylib"
-        local library_path = vim.fn.expand("$MASON/opt/lldb/lib/liblldb" .. codelldb_lib_ext)
-        opts.dap = {
-          adapter = require("rustaceanvim.config").get_codelldb_adapter(codelldb, library_path),
-        }
-      end
-      vim.g.rustaceanvim = vim.tbl_deep_extend("keep", vim.g.rustaceanvim or {}, opts or {})
-      if vim.fn.executable("rust-analyzer") == 0 then
-        LazyVim.error(
-          "**rust-analyzer** not found in PATH, please install it.\nhttps://rust-analyzer.github.io/",
-          { title = "rustaceanvim" }
-        )
-      end
-    end,
-  },
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      setup = {
-        rust_analyzer = false,
-      },
-    },
-  },
-  {
-    "mason-org/mason.nvim",
-    optional = true,
-    opts = function(_, opts)
-      opts.ensure_installed = opts.ensure_installed or {}
-      vim.list_extend(opts.ensure_installed, { "codelldb" })
-    end,
-  },
-  {
-    "nvim-neotest/neotest",
-    optional = true,
-    opts = {
-      adapters = {
-        ["rustaceanvim.neotest"] = {},
-      },
-    },
-  },
-  {
-    "cordx56/rustowl",
-    version = "*", -- Latest stable version
-    build = "cargo binstall rustowl",
-    ft = { "rust" },
-    opts = {
-      client = {
-        on_attach = function(_, buffer)
-          vim.keymap.set("n", "<leader>co", function()
-            require("rustowl").toggle(buffer)
-          end, { buffer = buffer, desc = "Toggle RustOwl" })
-        end,
-      },
-    },
-  },
+  -- {
+  --   "Saecki/crates.nvim",
+  --   event = { "BufRead Cargo.toml" },
+  --   opts = {
+  --     completion = {
+  --       crates = {
+  --         enable = true,
+  --       },
+  --     },
+  --     lsp = {
+  --       enable = true,
+  --       actions = true,
+  --       completion = true,
+  --       hover = true,
+  --     },
+  --   },
+  -- },
+  -- {
+  --   "nvim-treesitter/nvim-treesitter",
+  --   opts = { ensure_installed = { "rust", "ron" } },
+  -- },
+  -- {
+  --   "mrcjkb/rustaceanvim",
+  --   ft = { "rust" },
+  --   opts = {
+  --     server = {
+  --       -- Use the same (newer) rust-analyzer VSCode ships; fall back to the rustup one.
+  --       -- Launch with RA_SYSTEM=1 to use the rustup rust-analyzer instead.
+  --       cmd = function()
+  --         if vim.env.RA_SYSTEM then
+  --           return { "rust-analyzer" }
+  --         end
+  --         local found = vim.fn.glob("~/.vscode/extensions/rust-lang.rust-analyzer-*/server/rust-analyzer", false, true)
+  --         table.sort(found)
+  --         return { found[#found] or "rust-analyzer" }
+  --       end,
+  --       on_attach = function(_, bufnr)
+  --         vim.keymap.set("n", "<leader>cR", function()
+  --           vim.cmd.RustLsp("codeAction")
+  --         end, { desc = "Code Action", buffer = bufnr })
+  --         vim.keymap.set("n", "<leader>dr", function()
+  --           vim.cmd.RustLsp("debuggables")
+  --         end, { desc = "Rust Debuggables", buffer = bufnr })
+  --       end,
+  --       default_settings = {
+  --         -- rust-analyzer language server configuration
+  --         ["rust-analyzer"] = {
+  --           cargo = {
+  --             allFeatures = false,
+  --             -- separate dir inside $CARGO_TARGET_DIR so RA doesn't fight terminal cargo builds
+  --             targetDir = true,
+  --             loadOutDirsFromCheck = true,
+  --             buildScripts = {
+  --               enable = true,
+  --             },
+  --             extraEnv = {
+  --               CARGO_BUILD_JOBS = "2",
+  --             },
+  --           },
+  --           -- run `cargo check` on save for compiler errors/warnings (uses the separate targetDir)
+  -- checkOnSave = diagnostics == "rust-analyzer",
+  --           diagnostics = { enable = diagnostics == "rust-analyzer", },
+  --           procMacro = { enable = true },
+  --           cachePriming = { numThreads = 2 },
+  --           numThreads = 4,
+  --           inlayHints = {
+  --             bindingModeHints = { enable = false },
+  --             closingBraceHints = { enable = true },
+  --             closureReturnTypeHints = { enable = "with_block" },
+  --             lifetimeElisionHints = { enable = "never" },
+  --             parameterHints = { enable = true },
+  --             reborrowHints = { enable = "never" },
+  --             typeHints = { enable = true },
+  --             chainingHints = { enable = true },
+  --           },
+  --           files = {
+  --             exclude = {
+  --               ".direnv",
+  --               ".git",
+  --               ".jj",
+  --               ".github",
+  --               ".gitlab",
+  --               "bin",
+  --               "node_modules",
+  --               "target",
+  --               "venv",
+  --               ".venv",
+  --             },
+  --           },
+  --         },
+  --       },
+  --     },
+  --   },
+  --   config = function(_, opts)
+  --     if LazyVim.has("mason.nvim") then
+  --       local codelldb = vim.fn.exepath("codelldb")
+  --       local codelldb_lib_ext = io.popen("uname"):read("*l") == "Linux" and ".so" or ".dylib"
+  --       local library_path = vim.fn.expand("$MASON/opt/lldb/lib/liblldb" .. codelldb_lib_ext)
+  --       opts.dap = {
+  --         adapter = require("rustaceanvim.config").get_codelldb_adapter(codelldb, library_path),
+  --       }
+  --     end
+  --     vim.g.rustaceanvim = vim.tbl_deep_extend("keep", vim.g.rustaceanvim or {}, opts or {})
+  --     if vim.fn.executable("rust-analyzer") == 0 then
+  --       LazyVim.error(
+  --         "**rust-analyzer** not found in PATH, please install it.\nhttps://rust-analyzer.github.io/",
+  --         { title = "rustaceanvim" }
+  --       )
+  --     end
+  --   end,
+  -- },
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   opts = {
+  --     setup = {
+  --       rust_analyzer = false,
+  --     },
+  --   },
+  -- },
+  -- {
+  --   "mason-org/mason.nvim",
+  --   optional = true,
+  --   opts = function(_, opts)
+  --     opts.ensure_installed = opts.ensure_installed or {}
+  --     vim.list_extend(opts.ensure_installed, { "codelldb" })
+  --   end,
+  -- },
+  -- {
+  --   "nvim-neotest/neotest",
+  --   optional = true,
+  --   opts = {
+  --     adapters = {
+  --       ["rustaceanvim.neotest"] = {},
+  --     },
+  --   },
+  -- },
+  -- {
+  --   "cordx56/rustowl",
+  --   version = "*", -- Latest stable version
+  --   build = "cargo binstall rustowl",
+  --   ft = { "rust" },
+  --   opts = {
+  --     client = {
+  --       on_attach = function(_, buffer)
+  --         vim.keymap.set("n", "<leader>co", function()
+  --           require("rustowl").toggle(buffer)
+  --         end, { buffer = buffer, desc = "Toggle RustOwl" })
+  --       end,
+  --     },
+  --   },
+  -- },
 }

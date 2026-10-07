@@ -1,97 +1,64 @@
 return {
-  -- {
-  --   "nvim-treesitter/nvim-treesitter",
-  --   opts = { ensure_installed = { "kulala_http" } },
-  -- },
   {
-    "mistweaverco/kulala.nvim",
+    "dont-be-evil-company/kulala.nvim",
+    -- Load on session restore (so SessionLoadPost hooks run) AND on the relevant
+    -- filetypes, so opening a .http file loads the plugin, runs setup() and triggers
+    -- the kulala-core backend download + LSP attach.
+    event = { "SessionLoadPost" },
+    ft = { "http", "rest", "javascript", "typescript", "lua" },
     opts = {
-      curl_path = "curl",
-      -- additional cURL options
-      -- see: https://curl.se/docs/manpage.html
-      additional_curl_options = {},
-      -- gRPCurl path, get from https://github.com/fullstorydev/grpcurl.git
-      grpcurl_path = "grpcurl",
-      -- websocat path, get from https://github.com/vi/websocat.git
-      websocat_path = "websocat",
-      openssl_path = "openssl",
+      kulala_core = {
+        -- Optional path to a self-managed kulala-core executable.
+        -- When nil (default), kulala auto-downloads the backend.
+        path = nil,
+        -- Subprocess timeout (ms) for kulala-core. 0 disables the timeout.
+        timeout = 60000,
+        -- Optional override for kulala-core persistence (cookies, OAuth, prompts).
+        data_dir = nil,
+        download_tool = "curl", -- or "wget"
+      },
 
-      -- set scope for environment and request variables
-      -- possible values: b = buffer, g = global
-      environment_scope = "g",
+      -- Restore request history and UI after sourcing a vim session.
+      -- Requires `set sessionoptions+=globals` in your Neovim config.
+      session = {
+        restore = true,
+      },
+
+      treesitter = {
+        -- Let kulala manage its own tree-sitter parser/queries for HTTP scripts.
+        enable = true,
+        cli_path = "tree-sitter",
+      },
+
       -- dev, test, prod, can be anything
-      -- see: https://learn.microsoft.com/en-us/aspnet/core/test/http-files?view=aspnetcore-8.0#environment-files
       default_env = "dev",
+      -- "b" = per-buffer env (default), "g" = global
+      environment_scope = "g",
       -- enable reading vscode rest client environment variables
       vscode_rest_client_environmentvars = false,
 
-      -- default timeout for the request, set to nil to disable
-      request_timeout = nil,
-      -- continue running requests when a request failure is encountered
-      halt_on_error = true,
-
-      -- certificates
-      certificates = {},
-      -- Specify how to escape query parameters
-      -- possible values: always, skipencoded = keep %xx as is
-      urlencode = "always",
-
-      -- Infer content type from the body and add it to the request headers
-      infer_content_type = true,
-
-      -- default formatters/pathresolver for different content types
-      contenttypes = {
-        ["application/json"] = {
-          ft = "json",
-          formatter = vim.fn.executable("jq") == 1 and { "jq", "." },
-          pathresolver = function(...)
-            return require("kulala.parser.jsonpath").parse(...)
-          end,
-        },
-        ["application/graphql"] = {
-          ft = "graphql",
-          formatter = vim.fn.executable("prettier") == 1
-            and { "prettier", "--stdin-filepath", "graphql", "--parser", "graphql" },
-          pathresolver = nil,
-        },
-        ["application/xml"] = {
-          ft = "xml",
-          formatter = vim.fn.executable("xmllint") == 1 and { "xmllint", "--format", "-" },
-          pathresolver = vim.fn.executable("xmllint") == 1 and { "xmllint", "--xpath", "{{path}}", "-" },
-        },
-        ["text/html"] = {
-          ft = "html",
-          formatter = vim.fn.executable("xmllint") == 1 and { "xmllint", "--format", "--html", "-" },
-          pathresolver = nil,
-        },
-      },
-
-      scripts = {
-        -- Resolves "NODE_PATH" environment variable for node scripts. Defaults to the first "node_modules" directory found upwards from "script_file_dir".
-        node_path_resolver = nil, ---@type fun(http_file_dir: string, script_file_dir: string, script_data: ScriptData): string|nil
+      -- Response body pretty-printing (handled by kulala-core).
+      response_format = {
+        indent = 2,
+        expand_tabs = true,
+        sort_keys = false,
       },
 
       ui = {
-        -- display mode: possible values: "split", "float"
+        -- display mode: "split" or "float"
         display_mode = "split",
-        -- split direction: possible values: "vertical", "horizontal"
-        split_direction = "vertical",
-        -- window options to override win_config: width/height/split/vertical.., buffer/window options
-        win_opts = { width = 80, bo = {}, wo = {} }, ---@type kulala.ui.win_config
-        -- default view: "body" or "headers" or "headers_body" or "verbose" or fun(response: Response)
-        default_view = "body", ---@type "body"|"headers"|"headers_body"|"verbose"|fun(response: Response)
-        -- enable winbar
+        -- split direction: "above", "right", "below", "left"
+        split_direction = "right",
+        win_opts = { bo = {}, wo = {} }, ---@type kulala.ui.win_config
+        -- default view: "body"|"headers"|"headers_body"|"verbose"|fun(response)
+        default_view = "body",
         winbar = true,
-        -- Specify the panes to be displayed by default
-        -- Current available pane contains { "body", "headers", "headers_body", "script_output", "stats", "verbose", "report", "help" },
         default_winbar_panes = { "body", "headers", "headers_body", "verbose", "script_output", "report", "help" },
-        -- enable/disable variable info text
-        -- this will show the variable name and value as float
-        -- possible values: false, "float"
+        winbar_labels_keymaps = true,
+        -- false | "float"
         show_variable_info_text = false,
-        -- icons position: "signcolumn"|"on_request"|"above_request"|"below_request" or nil to disable
+        -- "signcolumn"|"on_request"|"above_request"|"below_request" or nil
         show_icons = "on_request",
-        -- default icons
         icons = {
           inlay = {
             loading = "⏳",
@@ -99,11 +66,12 @@ return {
             error = "❌",
           },
           lualine = "🐼",
-          textHighlight = "WarningMsg", -- highlight group for request elapsed time
+          textHighlight = "WarningMsg",
+          loadingHighlight = "Normal",
+          doneHighlight = "String",
+          errorHighlight = "ErrorMsg",
         },
 
-        -- highlight groups for http syntax highlighting
-        ---@type table<string, string|vim.api.keyset.highlight>
         syntax_hl = {
           ["@punctuation.bracket.kulala_http"] = "Number",
           ["@character.special.kulala_http"] = "Special",
@@ -111,17 +79,17 @@ return {
           ["@variable.kulala_http"] = "String",
         },
 
-        -- enable/disable request summary in the output window
         show_request_summary = true,
-        -- disable notifications of script output
-        disable_script_print_output = false,
+        max_response_size = 32768,
+        max_request_size = 2048,
+        show_images = true,
 
         report = {
-          -- possible values: true | false | "on_error"
+          -- true | false | "on_error"
           show_script_output = true,
-          -- possible values: true | false | "on_error" | "failed_only"
+          -- true | false | "on_error" | "failed_only"
           show_asserts_output = true,
-          -- possible values: true | false | "on_error"
+          -- true | false | "on_error"
           show_summary = true,
 
           headersHighlight = "Special",
@@ -129,7 +97,6 @@ return {
           errorHighlight = "Error",
         },
 
-        -- scratchpad default contents
         scratchpad_default_contents = {
           "@MY_TOKEN_NAME=my_token_value",
           "",
@@ -143,11 +110,6 @@ return {
           "}",
         },
 
-        disable_news_popup = false,
-        -- enable/disable lua syntax highlighting
-        lua_syntax_hl = true,
-
-        -- Settings for pickers used for Environment, Authentication and Requests Managers
         pickers = {
           snacks = {
             layout = function()
@@ -168,47 +130,43 @@ return {
       },
 
       lsp = {
-        -- enable/disable built-in LSP server
+        -- enable/disable built-in LSP server (provides completion, diagnostics,
+        -- code actions AND formatting via vim.lsp.buf.format)
         enable = true,
 
-        --enable/disable/customize  LSP keymaps
-        ---@type boolean|table
-        keymaps = true, -- disabled by default, as Kulala relies on default Neovim LSP keymaps
-
-        -- enable/disable/customize HTTP formatter
-        formatter = {
-          sort = { -- enable/disable alphabetical sorting in request body
-            metadata = true,
-            variables = true,
-            commands = false,
-            json = true,
-          },
+        -- filetypes to attach the Kulala LSP to
+        filetypes = {
+          "http",
+          "rest",
+          "javascript",
+          "typescript",
+          "lua",
         },
+
+        -- Only *.http.js / *.http.ts / *.http.lua files are treated as HTTP scripts
+        -- (so your regular js/ts/lua buffers aren't touched). Set false to relax.
+        enforce_external_script_naming_convention = true,
+
+        -- enable/disable/customize LSP keymaps. Default is false since Kulala
+        -- relies on Neovim's default LSP keymaps (incl. formatting).
+        ---@type boolean|table
+        keymaps = true,
+
         on_attach = nil,
       },
 
-      -- enable/disable debug mode
+      -- debug level
       debug = 3,
-      -- enable/disable bug reports on error
       generate_bug_report = false,
 
-      -- set to true to enable default keymaps (check docs or {plugins_path}/kulala.nvim/lua/kulala/config/keymaps.lua for details)
-      -- or override default keymaps as shown in the example below.
+      -- enable default global keymaps (prefixed below)
       ---@type boolean|table
       global_keymaps = true,
-
-      -- Prefix for global keymaps
       global_keymaps_prefix = "<leader>r",
 
-      -- Kulala UI keymaps, override with custom keymaps as required (check docs or {plugins_path}/kulala.nvim/lua/kulala/config/keymaps.lua for details)
+      -- Kulala UI keymaps
       ---@type boolean|table
       kulala_keymaps = true,
-      --[[
-             {
-               ["Show headers"] = { "H", function() require("kulala.ui").show_headers() end, },
-             }
-           ]]
-
       kulala_keymaps_prefix = "",
     },
     keys = {
@@ -226,7 +184,6 @@ return {
         end,
         desc = "Import from Swagger",
       },
-      -- TODO: fix export options
       {
         "<leader>rEf",
         function()

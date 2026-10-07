@@ -146,6 +146,8 @@
   // Default agent is 'build' for coding
   "default_agent": "build",
 
+  "contextPaths": ["~/.config/nvim/CODE_STYLE.md"],
+
   "autoupdate": true,
 
   "permission": {

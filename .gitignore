@@ -8,3 +8,6 @@ foo.*
 data
 CLAUDE.md
 claude/image-cache/
+claude/plugins
+claude/policy-limits.json.stamp.json
+claude/plugins

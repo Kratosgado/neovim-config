@@ -5,14 +5,14 @@ return {
   --     require("sonarqube").setup({})
   --   end,
   -- },
-  {
-    dir = "~/projects/configs/sonarqube.nvim",
-    name = "sonarqube.nvim",
-    event = "VeryLazy",
-    config = function()
-      require("sonarqube").setup({})
-    end,
-  },
+  -- {
+  --   dir = "~/projects/configs/sonarqube.nvim",
+  --   name = "sonarqube.nvim",
+  --   event = "VeryLazy",
+  --   config = function()
+  --     require("sonarqube").setup({})
+  --   end,
+  -- },
   { "nvim-neotest/neotest-plenary" },
   {
     "nvim-neotest/neotest",
