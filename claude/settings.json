@@ -25,8 +25,9 @@
       "Bash(git push *)",
       "Bash(gh pr create --base develop --title 'feat\\(bonus\\): replace BonusScore with PiEarnedBonus/MonthlyEarnedBonus models' --body ' *)"
     ],
-    "defaultMode": "default"
+    "defaultMode": "auto"
   },
+  "model": "opus[1m]",
   "hooks": {
     "PreToolUse": [
       {
@@ -54,11 +55,21 @@
     "kotlin-lsp@claude-plugins-official": true,
     "chrome-devtools-mcp@claude-plugins-official": true,
     "rust-analyzer-lsp@claude-plugins-official": true,
-    "cloudflare@claude-plugins-official": true
+    "cloudflare@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true,
+    "firebase@firebase": true,
+    "firebase@claude-plugins-official": true
   },
-  "extraKnownMarketplaces": {},
+  "extraKnownMarketplaces": {
+    "firebase": {
+      "source": {
+        "source": "github",
+        "repo": "firebase/firebase-tools"
+      }
+    }
+  },
   "effortLevel": "high",
+  "tui": "fullscreen",
   "theme": "auto",
-  "skipAutoPermissionPrompt": true,
-  "model": "opus[1m]"
+  "skipAutoPermissionPrompt": true
 }

@@ -11,3 +11,5 @@ claude/image-cache/
 claude/plugins
 claude/policy-limits.json.stamp.json
 claude/plugins
+claude/daemon
+claude/jobs
