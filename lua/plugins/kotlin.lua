@@ -53,7 +53,8 @@ return {
   },
 
   {
-    dir = "~/projects/configs/springboot-jpql.nvim",
+    -- dir = "~/projects/configs/springboot-jpql.nvim",
+    "kratosgado/springboot-jpql.nvim",
     name = "springboot-jpql.nvim",
     ft = { "kotlin", "java" },
     dependencies = {
@@ -71,7 +72,7 @@ return {
   },
 
   {
-    dir = "~/projects/configs/ktor.nvim",
+    "kratosgado/ktor.nvim",
     name = "ktor.nvim",
     ft = "kotlin",
     dependencies = {

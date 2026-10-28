@@ -57,16 +57,17 @@ return {
     },
   },
   {
-    dir = "~/projects/configs/liquibase.nvim",
-    name = "liquibase.nvim",
+    -- dir = "~/projects/configs/liquibase.nvim",
+    -- name = "liquibase.nvim",
+    "kratosgado/liquibase.nvim",
     ft = { "java", "kotlin" },
     config = function()
       require("liquibase").setup()
     end,
   },
   {
-    dir = "~/projects/configs/graphql-resolver.nvim",
-    -- "kratosgado/graphql-resolver.nvim",
+    -- dir = "~/projects/configs/graphql-resolver.nvim",
+    "kratosgado/graphql-resolver.nvim",
     name = "graphql-resolver.nvim",
     ft = { "java", "kotlin" },
     dependencies = { "nvim-treesitter/nvim-treesitter" },

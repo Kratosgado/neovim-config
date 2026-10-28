@@ -1,13 +1,11 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
 git:
-  pagers:
-    - pager: delta --dark --paging=never
-    - pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
-
+  diffRenderers:
+    - command: delta --dark --paging=never
+    - command: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
 os:
   editPreset: "nvim-remote"
   edit: "nvr --remote-send '<C-\\><C-n>:hide<CR>' && nvr -l --remote {{filename}}"
-
 customCommands:
   - key: "Y"
     context: "global"
