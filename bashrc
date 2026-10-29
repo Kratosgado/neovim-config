@@ -50,15 +50,15 @@ else
   export EDITOR=nvim
 fi
 
-# Docker aliases
-alias dup='docker compose up -d'
-alias dps='docker ps'
-alias dreset='docker compose down -v && docker compose up -d'
-alias ddown='docker compose down'
-alias ddvol='docker compose down -v'
-alias dstop='docker compose stop'
-alias dstart='docker compose start'
-alias dlogs='docker compose logs -f'
+# podman aliases
+alias dup='podman compose up -d'
+alias dps='podman ps'
+alias dreset='podman compose down -v && podman compose up -d'
+alias ddown='podman compose down'
+alias ddvol='podman compose down -v'
+alias dstop='podman compose stop'
+alias dstart='podman compose start'
+alias dlogs='podman compose logs -f'
 
 # Maven aliases
 alias mvnc='mvn clean compile'
@@ -120,11 +120,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
-# Atuin shell history
-[[ -f "$HOME/.atuin/bin/env" ]] && source "$HOME/.atuin/bin/env"
-if command -v atuin >/dev/null 2>&1; then
-  eval "$(atuin init bash)"
-fi
 
 # Git Town completion
 if command -v git-town >/dev/null 2>&1; then
@@ -168,9 +163,22 @@ export DOTNET_ROOT="$HOME/.dotnet"
 export PATH="$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools"
 export PAGER=cat
 
+# Enable interactive Bash syntax highlighting when ble.sh is installed.
+if [[ -r /usr/share/blesh/ble.sh ]]; then
+  source /usr/share/blesh/ble.sh
+elif [[ -r "$HOME/.local/share/blesh/ble.sh" ]]; then
+  source "$HOME/.local/share/blesh/ble.sh"
+fi
+
+# Atuin shell history (initialize after ble.sh so Atuin can use its hooks).
+[[ -f "$HOME/.atuin/bin/env" ]] && source "$HOME/.atuin/bin/env"
+if command -v atuin >/dev/null 2>&1; then
+  eval "$(atuin init bash)"
+fi
 # MCP auth token source of truth is Local-MCP's .env file.
 if [[ -f "$HOME/projects/configs/Local-MCP/.env" ]]; then
   export MCP_AUTH_TOKEN="$(grep -m1 '^MCP_AUTH_TOKEN=' "$HOME/projects/configs/Local-MCP/.env" | cut -d= -f2- | tr -d '\"\')"
 fi
 
 [[ -d "$HOME/.shorebird/bin" ]] && export PATH="$HOME/.shorebird/bin:$PATH"
+
