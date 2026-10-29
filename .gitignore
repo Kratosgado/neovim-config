@@ -13,3 +13,8 @@ claude/policy-limits.json.stamp.json
 claude/plugins
 claude/daemon
 claude/jobs
+
+# Omarchy shell plugins are git-managed clones (omarchy plugin add/update)
+omarchy/plugins/devgtv.docker/
+omarchy/plugins/io.github.mtolhuys.fathom/
+omarchy/plugins/omarcraft.productivity/
