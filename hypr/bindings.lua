@@ -1,6 +1,16 @@
 -- Keep only your personal keybinding overrides here. Add new bindings or
 -- unbind defaults before replacing them.
-
+-- fathom: begin
+do
+  local fathom = os.getenv("HOME") .. "/.config/omarchy/plugins/io.github.mtolhuys.fathom/hypr/fathom.lua"
+  local file = io.open(fathom, "r")
+  if file then
+    file:close()
+    pcall(dofile, fathom)
+  end
+end
+o.bind("SUPER + GRAVE", "Toggle floating window peek", "omarchy-shell b.peek toggle")
+-- fathom: end
 -- See current bindings and descriptions:
 --   omarchy menu keybindings --print
 
@@ -19,9 +29,6 @@
 -- This example changes SUPER+SPACE from the launcher to the Omarchy root menu.
 -- hl.unbind("SUPER + SPACE")
 -- o.bind("SUPER + SPACE", "Omarchy menu", "omarchy-menu toggle root")
-
--- Disable a default binding without replacing it.
--- hl.unbind("SUPER + SHIFT + B")
 
 -- Logitech MX Keys examples:
 -- o.bind("SUPER + SHIFT + S", nil, "omarchy-capture-screenshot")omarchy plugin add https://github.com/devgtv/omarchy-docker.git --enable
